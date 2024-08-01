@@ -1,0 +1,114 @@
+﻿using AILibrary.DAL;
+using System;
+using System.Collections.Generic;
+
+namespace AILibrary.Models
+{
+    public class Book
+    {
+        public string Id { get; set; }
+        public string Title { get; set; }
+        public string Subtitle { get; set; }
+        public string[] Authors { get; set; }
+        public string PublishedDate { get; set; }
+        public int PageCount { get; set; }
+        public bool IsMagazine { get; set; }
+        public bool IsMature { get; set; }
+        public bool IsEbook { get; set; }
+        public string Language { get; set; }
+        public float Price { get; set; }
+        public string Thumbnail { get; set; }
+        public string PreviewLink { get; set; }
+        public string InfoLink { get; set; }
+        public string EpubLink { get; set; }
+        public string PdfLink { get; set; }
+        public float RatingAverage { get; set; }
+        public int RatingCount { get; set; }
+        public string Description { get; set; } // New property
+        public string TextSnippet { get; set; } // New property
+
+
+        // Updated constructor
+        public Book(string id, string title, string subtitle, string[] authors, string publishedDate, int pageCount, bool isMagazine, bool isMature, bool isEbook, string language, float price, string thumbnail, string previewLink, string infoLink, string epubLink, string pdfLink, float ratingAverage, int ratingCount, string description, string textSnippet)
+        {
+            Id = id;
+            Title = title;
+            Subtitle = subtitle;
+            Authors = authors;
+            PublishedDate = publishedDate;
+            PageCount = pageCount;
+            IsMagazine = isMagazine;
+            IsMature = isMature;
+            IsEbook = isEbook;
+            Language = language;
+            Price = SetRandomPrice();
+            Thumbnail = thumbnail;
+            PreviewLink = previewLink;
+            InfoLink = infoLink;
+            EpubLink = epubLink;
+            PdfLink = pdfLink;
+            RatingAverage = ratingAverage;
+            RatingCount = ratingCount;
+            Description = description; // Initialize new property
+            TextSnippet = textSnippet; // Initialize new property
+        }
+
+        // Updated copy constructor
+        public Book(Book other)
+        {
+            this.Id = other.Id;
+            this.Title = other.Title;
+            this.Subtitle = other.Subtitle;
+            this.Authors = other.Authors != null ? (string[])other.Authors.Clone() : null;
+            this.PublishedDate = other.PublishedDate;
+            this.PageCount = other.PageCount;
+            this.IsMagazine = other.IsMagazine;
+            this.IsMature = other.IsMature;
+            this.IsEbook = other.IsEbook;
+            this.Language = other.Language;
+            this.Price = SetRandomPrice();
+            this.Thumbnail = other.Thumbnail;
+            this.PreviewLink = other.PreviewLink;
+            this.InfoLink = other.InfoLink;
+            this.EpubLink = other.EpubLink;
+            this.PdfLink = other.PdfLink;
+            this.RatingAverage = other.RatingAverage;
+            this.RatingCount = other.RatingCount;
+            this.Description = other.Description; // Copy new property
+            this.TextSnippet = other.TextSnippet; // Copy new property
+        }
+
+        public Book()
+        {
+
+        }
+
+        public static List<Book> GetBooks()
+        {
+            DBservices dbs = new DBservices();
+            return dbs.GetBooks();
+        }
+
+        private float SetRandomPrice()
+        {
+            Random random = new Random();
+            // Generate a random float between 0 (inclusive) and 20 (exclusive) by scaling a random integer.
+            float randomPrice = (float)(random.NextDouble() * 20);
+            // Round to one decimal place
+            float roundedPrice = (float)Math.Round(randomPrice, 1);
+            return roundedPrice;
+        }
+
+        public static int InsertToTable(Book book)
+        {
+            DBservices dbs = new DBservices();
+            return dbs.CreateBook(book);
+        }
+
+        public int AssignAuthorToBook(string authorName)
+        {
+            DBservices dbs = new DBservices();
+            return dbs.AssignBookToAuthor(authorName, this.Id);
+        }
+    }
+}
