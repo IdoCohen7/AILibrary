@@ -123,5 +123,11 @@ namespace AILibrary.Models
             DBservices dbs = new DBservices();
             return dbs.SearchBooksByParameter(parameter, text);
         }
+
+        static public List<Object> GetMarketPlace()
+        {
+            DBservices dbs = new DBservices();
+            return dbs.GetMarketplace();
+        }
     }
 }

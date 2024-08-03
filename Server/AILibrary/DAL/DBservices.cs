@@ -330,6 +330,7 @@ namespace AILibrary.DAL
                     u.Password = dataReader["password"].ToString();
                     u.IsAdmin = Convert.ToBoolean(dataReader["isAdmin"]);
                     u.IsActive = Convert.ToBoolean(dataReader["isActive"]);
+                    u.ProfilePic = dataReader["profilePic"].ToString();
                     users.Add(u);
                 }
 
@@ -389,6 +390,7 @@ namespace AILibrary.DAL
                     user.Name = dataReader["name"].ToString();
                     user.Email = dataReader["email"].ToString();
                     user.Password = dataReader["password"].ToString();
+                    user.ProfilePic = dataReader["profilePic"].ToString();
                     int adminStatus = Convert.ToInt32(dataReader["isAdmin"]);
                     if (adminStatus == 1)
                     {
@@ -426,7 +428,7 @@ namespace AILibrary.DAL
             }
         }
 
-        private SqlCommand CreateCommandWithStoredProcedure_Register(String spName, SqlConnection con, string name, string email, string password)
+        private SqlCommand CreateCommandWithStoredProcedure_Register(String spName, SqlConnection con, string name, string email, string password, string profilePic)
         {
             SqlCommand cmd = new SqlCommand(); // create the command object
 
@@ -442,11 +444,12 @@ namespace AILibrary.DAL
             cmd.Parameters.AddWithValue("@name", name);
             cmd.Parameters.AddWithValue("@email", email);
             cmd.Parameters.AddWithValue("@password", password);
+            cmd.Parameters.AddWithValue("@profilePic", profilePic);
 
             return cmd;
         }
 
-        public int Register(string name, string email, string password)
+        public int Register(string name, string email, string password, string profilePic)
         {
             SqlConnection con = null;
             SqlCommand cmd;
@@ -455,7 +458,7 @@ namespace AILibrary.DAL
             {
                 con = connect("myProjDB"); // create the connection
 
-                cmd = CreateCommandWithStoredProcedure_Register("SP_Register", con, name, email, password); // create the command
+                cmd = CreateCommandWithStoredProcedure_Register("SP_Register", con, name, email, password, profilePic); // create the command
 
                 int numEffected = cmd.ExecuteNonQuery(); // execute the command
                 return numEffected;
@@ -942,6 +945,67 @@ namespace AILibrary.DAL
                 }
 
                 return books; // Return the list of books that contain the search text in their PDF
+            }
+            catch (Exception ex)
+            {
+                // Write to log
+                throw new Exception("Error retrieving books", ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    // Close the DB connection
+                    con.Close();
+                }
+            }
+        }
+
+        public List<Object> GetMarketplace()
+        {
+            SqlConnection con = null;
+            SqlCommand cmd;
+            List<Object> books = new List<Object>(); // Initialize the list of books
+
+            try
+            {
+                con = connect("myProjDB"); // Create the connection
+                cmd = CreateCommandWithStoredProcedureNoParameters("SP_GetAllHistories", con); // Create the command for reading books
+
+                SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                while (dataReader.Read())
+                {
+                    books.Add(new
+                    {
+                        Id = dataReader["BookId"].ToString(),
+                        Title = dataReader["title"].ToString(),
+                        Subtitle = dataReader["subtitle"].ToString(),
+                        Authors = dataReader["authors"].ToString().Split(new[] { ", " }, StringSplitOptions.None),
+                        PublishedDate = dataReader["publishedDate"].ToString(),
+                        PageCount = Convert.ToInt32(dataReader["pageCount"]),
+                        IsMagazine = Convert.ToBoolean(dataReader["isMagazine"]),
+                        IsMature = Convert.ToBoolean(dataReader["isMature"]),
+                        IsEbook = Convert.ToBoolean(dataReader["isEbook"]),
+                        Language = dataReader["language"].ToString(),
+                        Price = Convert.ToSingle(dataReader["price"]),
+                        Thumbnail = dataReader["thumbnail"].ToString(),
+                        PreviewLink = dataReader["previewLink"].ToString(),
+                        InfoLink = dataReader["infoLink"].ToString(),
+                        EpubLink = dataReader["epubLink"].ToString(),
+                        PdfLink = dataReader["pdfLink"].ToString(),
+                        RatingAverage = Convert.ToSingle(dataReader["ratingAvg"]),
+                        RatingCount = Convert.ToInt32(dataReader["ratingCount"]),
+                        Description = dataReader["description"].ToString(), // New property
+                        TextSnippet = dataReader["textSnippet"].ToString(), // New property
+                        Username = dataReader["Username"].ToString(),   
+                        finishedDate = dataReader["finishReadingDate"].ToString(),
+                        UserId = dataReader["userId"].ToString()
+                    });
+
+                }
+
+                return books; // Return the list of books
             }
             catch (Exception ex)
             {

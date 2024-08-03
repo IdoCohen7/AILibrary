@@ -24,6 +24,13 @@ namespace AILibrary.Controllers
             return Book.SearchBooksByParameter(parameter, text);
         }
 
+        // GET: api/<BookController>
+        [HttpGet("Market")]
+        public List<Object> GetMarketplace()
+        {
+            return Book.GetMarketPlace();
+        }
+
         // GET api/<BookController>/5
         [HttpGet("{id}")]
         public string Get(int id)

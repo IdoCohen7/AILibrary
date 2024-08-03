@@ -47,7 +47,7 @@ namespace AILibrary.Controllers
         [HttpPost("Register")]
         public int Post([FromBody] User user)
         {
-            return AILibrary.Models.User.Register(user.Name, user.Email, user.Password);
+            return AILibrary.Models.User.Register(user.Name, user.Email, user.Password, user.ProfilePic);
             
         }
 
