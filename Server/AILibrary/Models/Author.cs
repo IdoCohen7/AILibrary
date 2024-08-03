@@ -37,6 +37,12 @@ namespace AILibrary.Models
             return dbs.CreateAuthor(author);
         }
 
+        public static List<Book> GetAuthorsBooks(int id)
+        {
+            DBservices dbs = new DBservices();
+            return dbs.GetAuthorsBooks(id);
+        }
+
 
     }
 

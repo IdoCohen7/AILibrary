@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using AILibrary.Models;
+using AILibrary.DAL;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -16,11 +17,24 @@ namespace AILibrary.Controllers
             return Book.GetBooks();
         }
 
+        // GET: api/<BookController>
+        [HttpGet("Text")]
+        public List<Book> SearchBooksByParameter(string parameter, string text)
+        {
+            return Book.SearchBooksByParameter(parameter, text);
+        }
+
         // GET api/<BookController>/5
         [HttpGet("{id}")]
         public string Get(int id)
         {
             return "value";
+        }
+
+        [HttpGet("Random")]
+        public Book GetRandomBook()
+        {
+            return Book.GetRandomBook();
         }
 
         // POST api/<BookController>

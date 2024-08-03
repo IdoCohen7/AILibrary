@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using AILibrary.Models;
-
+using AILibrary.DAL;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,43 +8,35 @@ namespace AILibrary.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthorController : ControllerBase
+    public class QuestionController : ControllerBase
     {
-        // GET: api/<AuthorController>
+        // GET: api/<QuestionController>
         [HttpGet]
-        public List<Author> Get()
+        public List<Question> Get()
         {
-            return Author.GetAuthors();
+            return Question.GetRandomQuestions();
         }
 
-        [HttpGet("Written")]
-        public List<Book> GetAuthorsBooks(int id)
-        {
-            return Author.GetAuthorsBooks(id);
-        }
-
-        // GET api/<AuthorController>/5
+        // GET api/<QuestionController>/5
         [HttpGet("{id}")]
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST api/<AuthorController>
+        // POST api/<QuestionController>
         [HttpPost]
-        public int Post([FromBody] Author author)
+        public void Post([FromBody] string value)
         {
-            Author newAuthor = new Author(author);
-            return Author.InsertToTable(newAuthor);
         }
 
-        // PUT api/<AuthorController>/5
+        // PUT api/<QuestionController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/<AuthorController>/5
+        // DELETE api/<QuestionController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

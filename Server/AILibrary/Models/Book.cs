@@ -1,6 +1,7 @@
 ﻿using AILibrary.DAL;
 using System;
 using System.Collections.Generic;
+using System.Security;
 
 namespace AILibrary.Models
 {
@@ -88,7 +89,7 @@ namespace AILibrary.Models
             DBservices dbs = new DBservices();
             return dbs.GetBooks();
         }
-
+        
         private float SetRandomPrice()
         {
             Random random = new Random();
@@ -109,6 +110,18 @@ namespace AILibrary.Models
         {
             DBservices dbs = new DBservices();
             return dbs.AssignBookToAuthor(authorName, this.Id);
+        }
+
+        static public Book GetRandomBook()
+        {
+            DBservices dBservices = new DBservices();
+            return dBservices.GetRandomBook();
+        }
+
+        static public List<Book> SearchBooksByParameter(string parameter, string text)
+        {
+            DBservices dbs = new DBservices();
+            return dbs.SearchBooksByParameter(parameter, text);
         }
     }
 }
