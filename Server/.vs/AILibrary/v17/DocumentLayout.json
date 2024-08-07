@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\idoco\\OneDrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\AILibrary\\Server\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FDABB0C7-0FF6-4749-9205-86B622272829}|AILibrary\\AILibrary.csproj|c:\\users\\idoco\\onedrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\ailibrary\\server\\ailibrary\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FDABB0C7-0FF6-4749-9205-86B622272829}|AILibrary\\AILibrary.csproj|solutionrelative:ailibrary\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FDABB0C7-0FF6-4749-9205-86B622272829}|AILibrary\\AILibrary.csproj|c:\\users\\idoco\\onedrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\ailibrary\\server\\ailibrary\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FDABB0C7-0FF6-4749-9205-86B622272829}|AILibrary\\AILibrary.csproj|solutionrelative:ailibrary\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FDABB0C7-0FF6-4749-9205-86B622272829}|AILibrary\\AILibrary.csproj|c:\\users\\idoco\\onedrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\ailibrary\\server\\ailibrary\\dal\\dbservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FDABB0C7-0FF6-4749-9205-86B622272829}|AILibrary\\AILibrary.csproj|solutionrelative:ailibrary\\dal\\dbservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FDABB0C7-0FF6-4749-9205-86B622272829}|AILibrary\\AILibrary.csproj|c:\\users\\idoco\\onedrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\ailibrary\\server\\ailibrary\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDABB0C7-0FF6-4749-9205-86B622272829}|AILibrary\\AILibrary.csproj|solutionrelative:ailibrary\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FDABB0C7-0FF6-4749-9205-86B622272829}|AILibrary\\AILibrary.csproj|c:\\users\\idoco\\onedrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\ailibrary\\server\\ailibrary\\controllers\\questioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FDABB0C7-0FF6-4749-9205-86B622272829}|AILibrary\\AILibrary.csproj|solutionrelative:ailibrary\\controllers\\questioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FDABB0C7-0FF6-4749-9205-86B622272829}|AILibrary\\AILibrary.csproj|c:\\users\\idoco\\onedrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\ailibrary\\server\\ailibrary\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FDABB0C7-0FF6-4749-9205-86B622272829}|AILibrary\\AILibrary.csproj|solutionrelative:ailibrary\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FDABB0C7-0FF6-4749-9205-86B622272829}|AILibrary\\AILibrary.csproj|c:\\users\\idoco\\onedrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\ailibrary\\server\\ailibrary\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDABB0C7-0FF6-4749-9205-86B622272829}|AILibrary\\AILibrary.csproj|solutionrelative:ailibrary\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDABB0C7-0FF6-4749-9205-86B622272829}|AILibrary\\AILibrary.csproj|c:\\users\\idoco\\onedrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\ailibrary\\server\\ailibrary\\dal\\dbservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDABB0C7-0FF6-4749-9205-86B622272829}|AILibrary\\AILibrary.csproj|solutionrelative:ailibrary\\dal\\dbservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDABB0C7-0FF6-4749-9205-86B622272829}|AILibrary\\AILibrary.csproj|c:\\users\\idoco\\onedrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\ailibrary\\server\\ailibrary\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDABB0C7-0FF6-4749-9205-86B622272829}|AILibrary\\AILibrary.csproj|solutionrelative:ailibrary\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FDABB0C7-0FF6-4749-9205-86B622272829}|AILibrary\\AILibrary.csproj|c:\\users\\idoco\\onedrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\ailibrary\\server\\ailibrary\\models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -50,17 +50,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "QuestionController.cs",
               "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\AILibrary\\Server\\AILibrary\\Controllers\\QuestionController.cs",
               "RelativeDocumentMoniker": "AILibrary\\Controllers\\QuestionController.cs",
               "ToolTip": "C:\\Users\\idoco\\OneDrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\AILibrary\\Server\\AILibrary\\Controllers\\QuestionController.cs",
               "RelativeToolTip": "AILibrary\\Controllers\\QuestionController.cs",
-              "ViewState": "AQIAABsAAAAAAAAAAAAYwCMAAAAJAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-03T08:48:25.601Z",
               "EditorCaption": ""
@@ -79,13 +79,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "BookController.cs",
               "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\AILibrary\\Server\\AILibrary\\Controllers\\BookController.cs",
               "RelativeDocumentMoniker": "AILibrary\\Controllers\\BookController.cs",
               "ToolTip": "C:\\Users\\idoco\\OneDrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\AILibrary\\Server\\AILibrary\\Controllers\\BookController.cs",
               "RelativeToolTip": "AILibrary\\Controllers\\BookController.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAQwB0AAAAJAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-02T18:50:55.221Z",
               "EditorCaption": ""
@@ -100,8 +100,7 @@
               "RelativeToolTip": "AILibrary\\Controllers\\AuthorController.cs",
               "ViewState": "AQIAAAsAAAAAAAAAAAAAwBMAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T11:05:21.765Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-02T11:05:21.765Z"
             },
             {
               "$type": "Document",
@@ -117,33 +116,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "DBservices.cs",
               "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\AILibrary\\Server\\AILibrary\\DAL\\DBservices.cs",
               "RelativeDocumentMoniker": "AILibrary\\DAL\\DBservices.cs",
               "ToolTip": "C:\\Users\\idoco\\OneDrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\AILibrary\\Server\\AILibrary\\DAL\\DBservices.cs",
               "RelativeToolTip": "AILibrary\\DAL\\DBservices.cs",
-              "ViewState": "AQIAAMABAAAAAAAAAAAnwM8BAAAjAAAA",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAwBcAAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-02T10:55:55.461Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\AILibrary\\Server\\AILibrary\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "AILibrary\\Controllers\\UserController.cs",
               "ToolTip": "C:\\Users\\idoco\\OneDrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\AILibrary\\Server\\AILibrary\\Controllers\\UserController.cs",
               "RelativeToolTip": "AILibrary\\Controllers\\UserController.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABgAAAAJAAAA",
+              "ViewState": "AQIAAC8AAAAAAAAAAAA9wD8AAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-02T10:54:55.904Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\AILibrary\\Server\\AILibrary\\Models\\User.cs",
               "RelativeDocumentMoniker": "AILibrary\\Models\\User.cs",
@@ -151,8 +150,7 @@
               "RelativeToolTip": "AILibrary\\Models\\User.cs",
               "ViewState": "AQIAADgAAAAAAAAAAAAQwEAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T10:53:24.223Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-02T10:53:24.223Z"
             },
             {
               "$type": "Document",
@@ -164,8 +162,7 @@
               "RelativeToolTip": "AILibrary\\Models\\Book.cs",
               "ViewState": "AQIAAHAAAAAAAAAAAAAkwHwAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-01T15:36:48.75Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-01T15:36:48.75Z"
             },
             {
               "$type": "Document",
