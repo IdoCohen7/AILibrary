@@ -1,7 +1,6 @@
 ﻿using AILibrary.DAL;
 using System;
 using System.Collections.Generic;
-using System.Security;
 
 namespace AILibrary.Models
 {
@@ -27,10 +26,9 @@ namespace AILibrary.Models
         public int RatingCount { get; set; }
         public string Description { get; set; } // New property
         public string TextSnippet { get; set; } // New property
+        public string Category { get; set; } // New property
 
-
-        // Updated constructor
-        public Book(string id, string title, string subtitle, string[] authors, string publishedDate, int pageCount, bool isMagazine, bool isMature, bool isEbook, string language, float price, string thumbnail, string previewLink, string infoLink, string epubLink, string pdfLink, float ratingAverage, int ratingCount, string description, string textSnippet)
+        public Book(string id, string title, string subtitle, string[] authors, string publishedDate, int pageCount, bool isMagazine, bool isMature, bool isEbook, string language, float price, string thumbnail, string previewLink, string infoLink, string epubLink, string pdfLink, float ratingAverage, int ratingCount, string description, string textSnippet, string category)
         {
             Id = id;
             Title = title;
@@ -52,6 +50,7 @@ namespace AILibrary.Models
             RatingCount = ratingCount;
             Description = description; // Initialize new property
             TextSnippet = textSnippet; // Initialize new property
+            Category = category; // Initialize new property
         }
 
         // Updated copy constructor
@@ -77,6 +76,7 @@ namespace AILibrary.Models
             this.RatingCount = other.RatingCount;
             this.Description = other.Description; // Copy new property
             this.TextSnippet = other.TextSnippet; // Copy new property
+            this.Category = other.Category; // Copy new property
         }
 
         public Book()
@@ -89,7 +89,7 @@ namespace AILibrary.Models
             DBservices dbs = new DBservices();
             return dbs.GetBooks();
         }
-        
+
         private float SetRandomPrice()
         {
             Random random = new Random();

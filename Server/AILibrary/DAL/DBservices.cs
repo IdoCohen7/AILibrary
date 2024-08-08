@@ -79,8 +79,9 @@ namespace AILibrary.DAL
                         PdfLink = dataReader["pdfLink"].ToString(),
                         RatingAverage = Convert.ToSingle(dataReader["ratingAvg"]),
                         RatingCount = Convert.ToInt32(dataReader["ratingCount"]),
-                        Description = dataReader["description"].ToString(), // New property
-                        TextSnippet = dataReader["textSnippet"].ToString() // New property
+                        Description = dataReader["description"].ToString(), 
+                        TextSnippet = dataReader["textSnippet"].ToString(),
+                        Category = dataReader["category"].ToString()
                     };
 
                     books.Add(b); // Add the book to the list
@@ -608,8 +609,9 @@ namespace AILibrary.DAL
                         PdfLink = dataReader["pdfLink"].ToString(),
                         RatingAverage = Convert.ToSingle(dataReader["ratingAvg"]),
                         RatingCount = Convert.ToInt32(dataReader["ratingCount"]),
-                        Description = dataReader["description"].ToString(), // New property
-                        TextSnippet = dataReader["textSnippet"].ToString() // New property
+                        Description = dataReader["description"].ToString(), 
+                        TextSnippet = dataReader["textSnippet"].ToString(),
+                        Category = dataReader["category"].ToString()
                     };
 
                     books.Add(b); // Add the book to the list
@@ -685,8 +687,9 @@ namespace AILibrary.DAL
                         PdfLink = dataReader["pdfLink"].ToString(),
                         RatingAverage = Convert.ToSingle(dataReader["ratingAvg"]),
                         RatingCount = Convert.ToInt32(dataReader["ratingCount"]),
-                        Description = dataReader["description"].ToString(), // New property
-                        TextSnippet = dataReader["textSnippet"].ToString() // New property
+                        Description = dataReader["description"].ToString(), 
+                        TextSnippet = dataReader["textSnippet"].ToString(),
+                        Category = dataReader["category"].ToString()
                     };
 
                     books.Add(b); // Add the book to the list
@@ -744,8 +747,9 @@ namespace AILibrary.DAL
                         PdfLink = dataReader["pdfLink"].ToString(),
                         RatingAverage = Convert.ToSingle(dataReader["ratingAvg"]),
                         RatingCount = Convert.ToInt32(dataReader["ratingCount"]),
-                        Description = dataReader["description"].ToString(), // New property
-                        TextSnippet = dataReader["textSnippet"].ToString() // New property
+                        Description = dataReader["description"].ToString(),
+                        TextSnippet = dataReader["textSnippet"].ToString(),
+                        Category = dataReader["category"].ToString()
                     };
 
                     books.Add(b); // Add the book to the list
@@ -906,8 +910,9 @@ namespace AILibrary.DAL
                         PdfLink = dataReader["pdfLink"].ToString(),
                         RatingAverage = Convert.ToSingle(dataReader["ratingAvg"]),
                         RatingCount = Convert.ToInt32(dataReader["ratingCount"]),
-                        Description = dataReader["description"].ToString(), // New property
-                        TextSnippet = dataReader["textSnippet"].ToString() // New property
+                        Description = dataReader["description"].ToString(),
+                        TextSnippet = dataReader["textSnippet"].ToString(),
+                        Category = dataReader["category"].ToString()
                     };
 
                     if (parameter=="Content")
@@ -996,8 +1001,9 @@ namespace AILibrary.DAL
                         PdfLink = dataReader["pdfLink"].ToString(),
                         RatingAverage = Convert.ToSingle(dataReader["ratingAvg"]),
                         RatingCount = Convert.ToInt32(dataReader["ratingCount"]),
-                        Description = dataReader["description"].ToString(), // New property
-                        TextSnippet = dataReader["textSnippet"].ToString(), // New property
+                        Description = dataReader["description"].ToString(), 
+                        TextSnippet = dataReader["textSnippet"].ToString(),
+                        Category = dataReader["category"].ToString(),
                         Username = dataReader["Username"].ToString(),   
                         finishedDate = dataReader["finishReadingDate"].ToString(),
                         UserId = dataReader["userId"].ToString()
