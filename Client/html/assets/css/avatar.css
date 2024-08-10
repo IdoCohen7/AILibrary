@@ -1,0 +1,136 @@
+svg {
+    position:absolute;
+    top:0;
+    left:0;
+    width:300px;
+    height:300px;
+    border-radius: 50%;
+}
+#avatar {
+    position:relative;
+    margin:auto;
+    width:400px;
+    height:400px;
+}
+#footer {
+    position:absolute;
+    top:320px;
+    left:0;
+    width:400px;
+    height:100px;
+}
+#menu {
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:70px;
+    height:100px;
+    background-color:#ffffffa9;
+    z-index:100;
+    overflow:hidden;
+}
+#menu_lines div {
+    position:absolute;
+    left:5px;
+    width:40px;
+    height:7px;
+    background-color:#ff5cc0;
+  
+}
+#menu.active #menu1 {
+    top: 22px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+#menu.active #menu2 {
+    opacity: 0;
+    -webkit-transition: opacity 0.5s cubic-bezier(0.75, 0.25, 0.10, 0.95);
+    transition: opacity 0.5s cubic-bezier(0.75, 0.25, 0.10, 0.95);
+}
+#menu.active #menu3 {
+    top: 22px;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-transition: all 0.5s cubic-bezier(0.75, 0.25, 0.10, 0.95);
+    transition: all 0.5s cubic-bezier(0.75, 0.25, 0.10, 0.95);
+}
+#options {
+    position: absolute;
+    top: 0px;
+    left: 70px;
+    width: 300px;
+    height: 100px;
+}
+
+#options_title {
+    font-size: 15px;
+    text-align: center;
+    padding-top: 20px;
+    font-family: "Inter", sans-serif;
+}
+
+#options_div {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    position: absolute;
+    top: 34px;
+    left: 0;
+    width: 300px;
+    height: 70px;
+    overflow-y: hidden;
+}
+
+.skins,.eyes,.eyebrows,.mouths,.hairstyles,.haircolors,.facialhairs,.clothes,.fabriccolors,.backgroundcolors,.glasses,.glassopacity,.tattoos,.accesories {
+    flex: 0 0 auto;
+    top:0;
+    width:53px;
+    height:53px;
+    margin:5px;
+    cursor:pointer;
+    background-color:#ffecfd;
+}
+.eyes,.eyebrows,.mouths,.hairstyles,.facialhairs,.clothes,.glasses,.tattoos,.accesories {
+    background-image: url("../img/q0DdlUI.png");
+}
+.glassopacity {
+    text-align:center;
+    font-size:21px;
+    font-weight:bold;
+    height:43px;
+    padding-top:10px;
+    color:#e66ce2;
+}
+#menu_list {
+    position:absolute;
+    bottom:10px;
+    left:70px;
+    width:250px;
+    height:auto;
+    text-align:center;
+}
+.btn {
+    padding:5px;
+    margin-bottom:10px;
+    color: #332e33;
+    background-color: #ff5cc0;
+    box-sizing: border-box;
+    border: 1px solid #ff5cc0;
+    border-radius: 5%;
+
+}
+#menu_list div {
+    width:100%;
+    cursor:pointer;
+    padding:7px  7px ;
+    font-size:19px;
+    color:#ff5cc0;
+}
+

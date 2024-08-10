@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>TeamHost - Join now and play mighty games!</title>
+    <title>MyBook</title>
     <meta content="Templines" name="author">
     <meta content="TeamHost" name="description">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,7 +50,6 @@
     </div>
     <!-- Loader end-->
 
-
     <div class="page-wrapper">
         <main class="page-first-screen">
             <div class="uk-grid uk-grid-small uk-child-width-1-2@s uk-flex-middle uk-width-1-1" data-uk-grid>
@@ -62,12 +61,28 @@
                     <div class="form-login">
                         <div class="form-login__box">
                             <div class="uk-heading-line uk-text-center"><span>with Email</span></div>
-                            <form action="#!">
-                                <div class="uk-margin"><input class="uk-input" type="email" placeholder="Email"></div>
-                                <div class="uk-margin"><input class="uk-input" type="text" placeholder="Username"></div>
-                                <div class="uk-margin"><input class="uk-input" type="password" placeholder="Password"></div>
-                                <div class="uk-margin"><button class="uk-button uk-button-danger uk-width-1-1" type="button">Register</button></div>
-                                <div class="uk-text-center"><span>Already have an account?</span><a class="uk-margin-small-left" href="01_login-in.html">Log In</a></div>
+                            <form action="#" id="signUpForm">
+                                <input
+                                type="text"
+                                id="nameTB"
+                                placeholder="Full Name"
+                                required
+                              />
+                              <input
+                                type="text"
+                                id="emailTB"
+                                placeholder="Email"
+                                required
+                              />
+                              <input
+                                type="password"
+                                id="passwordTB"
+                                placeholder="Password"
+                                required
+                              />             
+                              <input type="submit" value="Register" />
+                              
+                            <div class="uk-text-center"><span>Already have an account?</span><a class="uk-margin-small-left" href="01_login-in.html">Log In</a></div>
                             </form>
                         </div>
                     </div>
@@ -78,6 +93,7 @@
 
     <script src="assets/js/libs.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/login.js"></script>
 </body>
 
 </html>
