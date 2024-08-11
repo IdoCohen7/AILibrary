@@ -59,12 +59,60 @@ namespace AILibrary.Controllers
 
         }
 
+        // DELETE api/<UserController>/5
+        [HttpDelete("RemoveFavorite")]
+        public int RemoveFromFavorites(int userId, string bookId)
+        {
+            return AILibrary.Models.User.RemoveFromFavorites(userId, bookId);
+        }
+
         // POST api/<UserController>
         [HttpPost("Mark")]
         public int MarkAsRead(int userId, string bookId)
         {
             return AILibrary.Models.User.MarkAsRead(userId, bookId);
 
+        }
+
+        // POST api/<UserController>
+        [HttpPost("SendRequest")]
+        public int SendBookRequest(int buyerId, int sellerId, string bookId)
+        {
+            return AILibrary.Models.User.SendBookRequest(buyerId, sellerId, bookId);
+
+        }
+
+        // PUT api/<UserController>/5
+        [HttpPut("AcceptRequest")]
+        public int AcceptBookRequest(int buyerId, int sellerId, string bookId)
+        {
+            return AILibrary.Models.User.AcceptBookRequest(buyerId, sellerId, bookId);
+        }
+
+        // PUT api/<UserController>/5
+        [HttpPut("CancelRequest")]
+        public int CancelBookRequest (int buyerId, int sellerId, string bookId)
+        {
+            return AILibrary.Models.User.CancelBookRequest(buyerId, sellerId, bookId);
+        }
+
+        [HttpGet("GetAccepted")]
+        public List<Book> GetAcceptedBooks(int userId)
+        {
+            return AILibrary.Models.User.GetAcceptedBooks(userId);
+        }
+
+        [HttpGet("GetPending")]
+        public List<Object> GetPendingRequests(int userId)
+        {
+            return AILibrary.Models.User.GetPendingRequests(userId);
+        }
+
+        // GET: api/<UserController>
+        [HttpGet("Notification")]
+        public int GetNotificationCount(int userId)
+        {
+            return AILibrary.Models.User.GetNotificationCount(userId);
         }
 
         // PUT api/<UserController>/5

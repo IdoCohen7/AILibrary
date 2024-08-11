@@ -1898,7 +1898,7 @@ a:hover {
   border-radius: 25px;
   background: #ffffff;
   box-shadow: 0px 30px 70px rgba(0, 0, 0, 0.03);
-  font-family:"Inter", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .form-login__social {
@@ -5832,14 +5832,12 @@ input[type="submit"]:hover {
 .logo-big {
   text-align: center;
   margin-bottom: 20px;
-
 }
 
 .logo-big img {
   width: 100px;
   height: auto;
   margin-bottom: 0px;
-
 }
 
 /* Responsive Design */
@@ -5847,10 +5845,23 @@ input[type="submit"]:hover {
   .form-login {
     padding: 10px 10px;
   }
-  
+
   input[type="submit"] {
     font-size: 14px;
     padding: 12px;
-    
   }
+}
+
+.thumbnail {
+  margin: 20px;
+}
+
+.thumbnail img {
+  height: 120px;
+  border: 1px solid #000; /* Adds a solid black border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Adds a shadow */
+}
+
+.buttonRequests button {
+  margin: 10px;
 }

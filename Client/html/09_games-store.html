@@ -67,17 +67,7 @@
             </div>
           </div>
           <div class="page-header__content">
-            <div class="page-header__search">
-              <div class="search">
-                <div class="search__input">
-                  <i class="ico_search"></i
-                  ><input type="search" name="search" placeholder="Search" />
-                </div>
-                <div class="search__btn">
-                  <button type="button"><i class="ico_microphone"></i></button>
-                </div>
-              </div>
-            </div>
+            <div>hello</div>
             <div class="page-header__action">
               <a class="action-btn" href="06_chats.html"
                 ><i class="ico_message"></i
@@ -87,9 +77,10 @@
                 ><i class="ico_notification"></i
                 ><span class="animation-ripple-delay2"></span
               ></a>
-              <a class="profile" href="08_wallet.html"
-                ><img src="assets/img/profile.png" alt="profile"
+              <a class="profile" href="04_profile.html"
+                ><img src="assets/img/profile.png" alt="profile" id="userPic"
               /></a>
+              <a class="profile" id="logout">logout</a>
             </div>
           </div>
         </div>
@@ -111,8 +102,7 @@
               </li>
               <li>
                 <a href="05_favourites.html"
-                  ><i class="ico_favourites"></i><span>Favourites</span
-                  ><span class="count">15</span></a
+                  ><i class="ico_favourites"></i><span>Favorites</span></a
                 >
               </li>
               <li>
@@ -126,9 +116,9 @@
                 >
               </li>
               <li>
-                <a href="08_wallet.html"
-                  ><i class="ico_wallet"></i><span>Wallet</span></a
-                >
+                <a href="08_wallet.html" id="requestNote"
+                  ><i class="ico_wallet"></i><span>Requests </span>
+                </a>
               </li>
               <li class="uk-nav-header">Main</li>
               <li class="uk-active">
@@ -188,6 +178,11 @@
                         id="bookTextInput"
                       />
                     </div>
+                    <div class="search__btn">
+                      <button type="button">
+                        <i class="ico_microphone"></i>
+                      </button>
+                    </div>
                   </div>
                 </div>
                 <div>
@@ -221,6 +216,29 @@
             id="booksContainer"
           ></div>
         </main>
+        <div class="page-modals">
+          <!-- Book Modal -->
+          <div class="uk-flex-top" id="bookModal" data-uk-modal>
+            <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+              <button
+                class="uk-modal-close-default"
+                type="button"
+                data-uk-close
+              ></button>
+              <div id="modalBookContent"></div>
+            </div>
+          </div>
+
+          <!-- Other Modals (example structure) -->
+          <!-- You can keep these modals as they are or adjust based on your needs -->
+          <div class="uk-flex-top" id="modal-report" data-uk-modal>
+            <!-- Report modal structure -->
+          </div>
+
+          <div class="uk-flex-top" id="modal-help" data-uk-modal>
+            <!-- Help modal structure -->
+          </div>
+        </div>
       </div>
     </div>
     <script src="assets/js/libs.js"></script>

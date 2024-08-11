@@ -57,6 +57,12 @@ namespace AILibrary.Models
             return db.AddToFavorites(userId, bookId);
         }
 
+        static public int RemoveFromFavorites(int userId, string bookId)
+        {
+            DBservices db = new DBservices();
+            return db.ReomveFromFavorites(userId, bookId);
+        }
+
         static public int MarkAsRead(int userId, string bookId)
         {
             DBservices db = new DBservices();
@@ -73,6 +79,42 @@ namespace AILibrary.Models
         {
             DBservices db = new DBservices();
             return db.GetUsersHistory(userId);
+        }
+
+        static public int SendBookRequest(int buyerId, int sellerId, string bookId)
+        {
+            DBservices db = new DBservices();
+            return db.SendBookRequest(buyerId, sellerId, bookId);
+        }
+
+        static public int AcceptBookRequest(int buyerId, int sellerId, string bookId)
+        {
+            DBservices db = new DBservices();
+            return db.AcceptBookRequest(buyerId, sellerId, bookId);
+        }
+
+        static public int CancelBookRequest(int buyerId, int sellerId, string bookId)
+        {
+            DBservices db = new DBservices();
+            return db.CancelBookRequest(buyerId, sellerId, bookId);
+        }
+
+        static public List<Book> GetAcceptedBooks(int userId)
+        {
+            DBservices db = new DBservices();
+            return db.GetUserAcceptedBooks(userId);
+        }
+
+        static public List<Object> GetPendingRequests(int userId)
+        {
+            DBservices db = new DBservices();
+            return db.GetPendingRequests(userId);
+        }
+
+        static public int GetNotificationCount(int userId)
+        {
+            DBservices db = new DBservices();
+            return db.GetNotificationCount(userId);
         }
     }
 }

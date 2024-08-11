@@ -79,7 +79,7 @@ namespace AILibrary.DAL
                         PdfLink = dataReader["pdfLink"].ToString(),
                         RatingAverage = Convert.ToSingle(dataReader["ratingAvg"]),
                         RatingCount = Convert.ToInt32(dataReader["ratingCount"]),
-                        Description = dataReader["description"].ToString(), 
+                        Description = dataReader["description"].ToString(),
                         TextSnippet = dataReader["textSnippet"].ToString(),
                         Category = dataReader["category"].ToString()
                     };
@@ -513,9 +513,46 @@ namespace AILibrary.DAL
                 return numEffected;
             }
 
-            catch (Exception ex)
+            catch (SqlException ex)
             {
+                if (ex.Number == 2627) // SQL Server error code for a primary key violation
+                {
+                    return -1; // Return a specific value for duplicate entries
+                }
                 throw new Exception("Couldn't add to favorites", ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    // close the db connection
+                    con.Close();
+                }
+            }
+        }
+
+        public int ReomveFromFavorites(int userId, string bookId)
+        {
+            SqlConnection con = null;
+            SqlCommand cmd;
+
+            try
+            {
+                con = connect("myProjDB"); // create the connection
+
+                cmd = CreateCommandWithStoredProcedure_UserAndBook("SP_RemoveFromFavorites", con, userId, bookId); // create the command
+
+                int numEffected = cmd.ExecuteNonQuery(); // execute the command
+                return numEffected;
+            }
+
+            catch (SqlException ex)
+            {
+                if (ex.Number == 2627) // SQL Server error code for a primary key violation
+                {
+                    return -1; // Return a specific value for duplicate entries
+                }
+                throw new Exception("Couldn't remove from favorites", ex);
             }
             finally
             {
@@ -542,9 +579,13 @@ namespace AILibrary.DAL
                 return numEffected;
             }
 
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                throw new Exception("Couldn't mark as read", ex);
+                if (ex.Number == 2627) // SQL Server error code for a primary key violation
+                {
+                    return -1; // Return a specific value for duplicate entries
+                }
+                throw new Exception("Couldn't add to history", ex);
             }
             finally
             {
@@ -609,7 +650,7 @@ namespace AILibrary.DAL
                         PdfLink = dataReader["pdfLink"].ToString(),
                         RatingAverage = Convert.ToSingle(dataReader["ratingAvg"]),
                         RatingCount = Convert.ToInt32(dataReader["ratingCount"]),
-                        Description = dataReader["description"].ToString(), 
+                        Description = dataReader["description"].ToString(),
                         TextSnippet = dataReader["textSnippet"].ToString(),
                         Category = dataReader["category"].ToString()
                     };
@@ -687,7 +728,7 @@ namespace AILibrary.DAL
                         PdfLink = dataReader["pdfLink"].ToString(),
                         RatingAverage = Convert.ToSingle(dataReader["ratingAvg"]),
                         RatingCount = Convert.ToInt32(dataReader["ratingCount"]),
-                        Description = dataReader["description"].ToString(), 
+                        Description = dataReader["description"].ToString(),
                         TextSnippet = dataReader["textSnippet"].ToString(),
                         Category = dataReader["category"].ToString()
                     };
@@ -915,7 +956,7 @@ namespace AILibrary.DAL
                         Category = dataReader["category"].ToString()
                     };
 
-                    if (parameter=="Content")
+                    if (parameter == "Content")
                     {
                         // Check if the PDF contains the search text
                         if ((b.Description != null && b.Description.Contains(searchText, StringComparison.OrdinalIgnoreCase)))
@@ -924,29 +965,29 @@ namespace AILibrary.DAL
                         }
                     }
 
-                    if (parameter=="Author")
+                    if (parameter == "Author")
                     {
                         if (b.Authors != null)
                         {
-                            foreach(var author in b.Authors)
+                            foreach (var author in b.Authors)
                             {
                                 if (author.Contains(searchText, StringComparison.OrdinalIgnoreCase))
                                 {
-                                    books.Add(b); 
+                                    books.Add(b);
                                     break;
                                 }
                             }
                         }
                     }
 
-                    if (parameter=="Title")
+                    if (parameter == "Title")
                     {
                         if (b.Title.Contains(searchText, StringComparison.OrdinalIgnoreCase))
                         {
                             books.Add(b);
                         }
                     }
-                    
+
                 }
 
                 return books; // Return the list of books that contain the search text in their PDF
@@ -1001,10 +1042,10 @@ namespace AILibrary.DAL
                         PdfLink = dataReader["pdfLink"].ToString(),
                         RatingAverage = Convert.ToSingle(dataReader["ratingAvg"]),
                         RatingCount = Convert.ToInt32(dataReader["ratingCount"]),
-                        Description = dataReader["description"].ToString(), 
+                        Description = dataReader["description"].ToString(),
                         TextSnippet = dataReader["textSnippet"].ToString(),
                         Category = dataReader["category"].ToString(),
-                        Username = dataReader["Username"].ToString(),   
+                        Username = dataReader["Username"].ToString(),
                         finishedDate = dataReader["finishReadingDate"].ToString(),
                         UserId = dataReader["userId"].ToString()
                     });
@@ -1028,9 +1069,258 @@ namespace AILibrary.DAL
             }
         }
 
+        private SqlCommand CreateCommandWithStoredProcedure_BuyerSeller(string spName, SqlConnection con, int buyerId, int sellerId, string bookId)
+        {
+            SqlCommand cmd = new SqlCommand(); // Create the command object
 
+            cmd.Connection = con;              // Assign the connection to the command object
+
+            cmd.CommandText = spName;          // Specify the stored procedure name
+
+            cmd.CommandTimeout = 10;           // Time to wait for execution
+
+            cmd.CommandType = System.Data.CommandType.StoredProcedure; // Type of command
+
+            // Add parameters with values from the Book object
+            cmd.Parameters.AddWithValue("@buyerId", buyerId);
+            cmd.Parameters.AddWithValue("@sellerId", sellerId);
+            cmd.Parameters.AddWithValue("@bookId", bookId);
+
+            return cmd;
+        }
+
+        public int SendBookRequest(int buyerId, int sellerId, string bookId)
+        {
+            SqlConnection con = null;
+            SqlCommand cmd;
+
+            try
+            {
+                con = connect("myProjDB"); // Create the connection
+
+                cmd = CreateCommandWithStoredProcedure_BuyerSeller("SP_SendBookRequest", con, buyerId, sellerId, bookId); // Create the command
+
+                int numEffected = cmd.ExecuteNonQuery(); // Execute the command
+                return numEffected;
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 2627) // SQL Server error code for a primary key violation
+                {
+                    return -1; // Return a specific value for duplicate entries
+                }
+                throw new Exception("Couldn't send request", ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    // Close the DB connection
+                    con.Close();
+                }
+            }
+        }
+
+        public int CancelBookRequest(int buyerId, int sellerId, string bookId)
+        {
+            SqlConnection con = null;
+            SqlCommand cmd;
+
+            try
+            {
+                con = connect("myProjDB"); // Create the connection
+
+                cmd = CreateCommandWithStoredProcedure_BuyerSeller("SP_CancelBookRequest", con, buyerId, sellerId, bookId); // Create the command
+
+                int numEffected = cmd.ExecuteNonQuery(); // Execute the command
+                return numEffected;
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 2627) // SQL Server error code for a primary key violation
+                {
+                    return -1; // Return a specific value for duplicate entries
+                }
+                throw new Exception("Couldn't cancel request", ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    // Close the DB connection
+                    con.Close();
+                }
+            }
+        }
+
+        public List<Book> GetUserAcceptedBooks(int userId)
+        {
+            SqlConnection con = null;
+            SqlCommand cmd;
+            List<Book> books = new List<Book>(); // Initialize the list of books
+
+            try
+            {
+                con = connect("myProjDB"); // Create the connection
+                cmd = CreateCommandWithStoredProcedure_User("SP_GetAcceptedBooks", con, userId); // Create the command for reading books
+
+                SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                while (dataReader.Read())
+                {
+                    Book b = new Book
+                    {
+                        Id = dataReader["id"].ToString(),
+                        Title = dataReader["title"].ToString(),
+                        Subtitle = dataReader["subtitle"].ToString(),
+                        Authors = dataReader["authors"].ToString().Split(new[] { ", " }, StringSplitOptions.None),
+                        PublishedDate = dataReader["publishedDate"].ToString(),
+                        PageCount = Convert.ToInt32(dataReader["pageCount"]),
+                        IsMagazine = Convert.ToBoolean(dataReader["isMagazine"]),
+                        IsMature = Convert.ToBoolean(dataReader["isMature"]),
+                        IsEbook = Convert.ToBoolean(dataReader["isEbook"]),
+                        Language = dataReader["language"].ToString(),
+                        Price = Convert.ToSingle(dataReader["price"]),
+                        Thumbnail = dataReader["thumbnail"].ToString(),
+                        PreviewLink = dataReader["previewLink"].ToString(),
+                        InfoLink = dataReader["infoLink"].ToString(),
+                        EpubLink = dataReader["epubLink"].ToString(),
+                        PdfLink = dataReader["pdfLink"].ToString(),
+                        RatingAverage = Convert.ToSingle(dataReader["ratingAvg"]),
+                        RatingCount = Convert.ToInt32(dataReader["ratingCount"]),
+                        Description = dataReader["description"].ToString(),
+                        TextSnippet = dataReader["textSnippet"].ToString(),
+                        Category = dataReader["category"].ToString()
+                    };
+
+                    books.Add(b); // Add the book to the list
+                }
+
+                return books; // Return the list of books
+            }
+            catch (Exception ex)
+            {
+                // Write to log
+                throw new Exception("Error retrieving books", ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    // Close the DB connection
+                    con.Close();
+                }
+            }
+        }
+
+        public List<Object> GetPendingRequests(int userId)
+        {
+            SqlConnection con = null;
+            SqlCommand cmd;
+            List<Object> books = new List<Object>(); // Initialize the list of books
+
+            try
+            {
+                con = connect("myProjDB"); // Create the connection
+                cmd = CreateCommandWithStoredProcedure_User("SP_GetUserPendingRequests", con, userId); // Create the command for reading books
+
+                SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                while (dataReader.Read())
+                {
+                    books.Add(new
+                    {
+                        BuyerId = dataReader["buyerId"].ToString(),
+                        BuyerName = dataReader["name"].ToString(),
+                        BuyerProfilePic = dataReader["profilePic"].ToString(),
+                        SellerId = dataReader["sellerId"].ToString(),
+                        Id = dataReader["bookId"].ToString(),
+                        Title = dataReader["title"].ToString(),
+                        RequestDate = dataReader["requestDate"].ToString(),
+                        Price = Convert.ToSingle(dataReader["price"]),
+                        Thumbnail = dataReader["thumbnail"].ToString()
+                    });
+
+                }
+
+                return books; // Return the list of books
+            }
+            catch (Exception ex)
+            {
+                // Write to log
+                throw new Exception("Error retrieving requests", ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    // Close the DB connection
+                    con.Close();
+                }
+            }
+
+
+        }
+
+        public int GetNotificationCount(int userId)
+        {
+            SqlConnection con = null;
+            SqlCommand cmd;
+
+            try
+            {
+                con = connect("myProjDB"); // Create the connection
+
+                cmd = CreateCommandWithStoredProcedure_User("SP_GetNotificationCount", con, userId); // Create the command
+
+                int notificationCount = (int)cmd.ExecuteScalar(); // Execute the command and get the count
+                return notificationCount;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Couldn't get number", ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    // Close the DB connection
+                    con.Close();
+                }
+            }
+        }
+
+        public int AcceptBookRequest(int buyerId, int sellerId, string bookId)
+        {
+            SqlConnection con = null;
+            SqlCommand cmd;
+
+            try
+            {
+                con = connect("myProjDB"); // Create the connection
+
+                cmd = CreateCommandWithStoredProcedure_BuyerSeller("SP_AcceptBookRequest", con, buyerId, sellerId, bookId); // Create the command
+
+                int numEffected = cmd.ExecuteNonQuery(); // Execute the command
+                return numEffected;
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 2627) // SQL Server error code for a primary key violation
+                {
+                    return -1; // Return a specific value for duplicate entries
+                }
+                throw new Exception("Couldn't accept request", ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    // Close the DB connection
+                    con.Close();
+                }
+            }
+        }
 
     }
-
-
 }
