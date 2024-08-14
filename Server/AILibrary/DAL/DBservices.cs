@@ -1322,5 +1322,60 @@ namespace AILibrary.DAL
             }
         }
 
+        private SqlCommand CreateCommandWithStoredProcedure_UserBookReview(string spName, SqlConnection con, int userId, string bookId, string text, int rating)
+        {
+            SqlCommand cmd = new SqlCommand(); // Create the command object
+
+            cmd.Connection = con;              // Assign the connection to the command object
+
+            cmd.CommandText = spName;          // Specify the stored procedure name
+
+            cmd.CommandTimeout = 10;           // Time to wait for execution
+
+            cmd.CommandType = System.Data.CommandType.StoredProcedure; // Type of command
+
+            // Add parameters with values from the Book object
+            cmd.Parameters.AddWithValue("@userId", userId);
+            cmd.Parameters.AddWithValue("@bookId", bookId);
+            cmd.Parameters.AddWithValue("@reviewText", text);
+            cmd.Parameters.AddWithValue("@rating", rating);
+
+            return cmd;
+        }
+
+        public int AddReview(int userId, string bookId, string text, int rating)
+        {
+            SqlConnection con = null;
+            SqlCommand cmd;
+
+            try
+            {
+                con = connect("myProjDB"); // Create the connection
+
+                cmd = CreateCommandWithStoredProcedure_UserBookReview("SP_AddReview", con, userId, bookId, text, rating); // Create the command
+
+                int numEffected = cmd.ExecuteNonQuery(); // Execute the command
+                return numEffected;
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 2627) // SQL Server error code for a primary key violation
+                {
+                    return -1; // Return a specific value for duplicate entries
+                }
+                throw new Exception("Couldn't add review", ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    // Close the DB connection
+                    con.Close();
+                }
+            }
+        }
+
+       
+
     }
 }

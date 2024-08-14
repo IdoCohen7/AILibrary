@@ -116,5 +116,11 @@ namespace AILibrary.Models
             DBservices db = new DBservices();
             return db.GetNotificationCount(userId);
         }
+
+        static public int AddReview(int userId, string bookId, string text, int rating)
+        {
+            DBservices db = new DBservices();
+            return (db.AddReview(userId, bookId, text, rating));
+        }
     }
 }

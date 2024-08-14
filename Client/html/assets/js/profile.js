@@ -4,6 +4,8 @@ jQuery(document).ready(function ($) {
     GetFavoriteBooks();
     GetReadBooks();
     GetBoughtBooks();
+    SetStarSystem();
+    SetRatingSystem();
   } else {
     if (
       confirm(
@@ -73,10 +75,6 @@ function ReplaceHearts(containerName) {
   }
 }
 
-function AjaxECB(Error) {
-  alert("Error: " + Error.responseText);
-}
-
 function GetReadBooks() {
   let api = "https://localhost:7063/api/User/GetHistory?userId=" + user.id;
   ajaxCall("GET", api, null, GetReadBooksSCB, AjaxECB);
@@ -84,7 +82,7 @@ function GetReadBooks() {
 
 function GetReadBooksSCB(readBooks) {
   GetBooksSuccess(readBooks, "readContainer");
-  RemoveHearts("readContainer");
+  AddReviewLogo("readContainer");
 }
 
 function RemoveHearts(containerName) {
@@ -142,4 +140,125 @@ function GetBoughtBooks() {
 function GetBoughtBooksSCB(boughtBooks) {
   GetBooksSuccess(boughtBooks, "boughtContainer");
   ReplaceHearts("boughtContainer");
+}
+
+function AddReviewLogo(containerName) {
+  let booksContainer = document.getElementById(containerName);
+  let hearts = booksContainer.getElementsByClassName("interact");
+
+  for (let i = 0; i < hearts.length; i++) {
+    let bookId = hearts[i].id;
+    hearts[i].innerHTML = "";
+
+    // Create and configure the "remove from favorites" anchor
+    let heartAnchor = document.createElement("a");
+    heartAnchor.classList.add("heartFavorite");
+
+    let heart = document.createElement("img");
+    heart.src = "assets/img/icons/review.png";
+    heart.style.width = "40px";
+    heart.style.height = "40px";
+    heartAnchor.appendChild(heart);
+    heartAnchor.href = "#modal-review";
+    heartAnchor.setAttribute("data-uk-toggle", "");
+    heartAnchor.addEventListener("click", function () {
+      let idp = document.getElementById("bookId");
+      idp.innerHTML = "";
+      idp.innerHTML = bookId;
+    });
+    hearts[i].appendChild(heartAnchor);
+  }
+}
+
+function SetStarSystem() {
+  document.querySelectorAll(".star-rating .star").forEach(function (star) {
+    star.addEventListener("mouseover", function () {
+      // Add hover effect to the current star and all stars to the right
+      let currentStar = this;
+      while (currentStar) {
+        currentStar.classList.add("hover");
+        currentStar = currentStar.nextElementSibling;
+      }
+    });
+
+    star.addEventListener("mouseout", function () {
+      // Remove hover effect from all stars
+      this.parentNode.querySelectorAll(".star").forEach(function (s) {
+        s.classList.remove("hover");
+      });
+    });
+
+    star.addEventListener("click", function () {
+      // Remove selected class from all stars
+      this.parentNode.querySelectorAll(".star").forEach(function (s) {
+        s.classList.remove("selected");
+      });
+
+      // Add selected class to the current star and all stars to the right
+      let currentStar = this;
+      while (currentStar) {
+        currentStar.classList.add("selected");
+        currentStar = currentStar.nextElementSibling;
+      }
+
+      // Store the selected rating value
+      const ratingValue = this.getAttribute("data-value");
+      console.log("Selected rating:", ratingValue);
+
+      // Store the rating value for further use (e.g., form submission)
+      document
+        .querySelector(".uk-form-controls")
+        .setAttribute("data-rating", ratingValue);
+    });
+  });
+}
+
+function SetRatingSystem() {
+  let bookId = document.getElementById("bookId");
+  let text = document.getElementById("reviewText");
+  document
+    .getElementById("ratingForm")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+      let reviewText = text.value;
+      if (reviewText == null) {
+        reviewText = "Empty";
+      }
+      let api =
+        "https://localhost:7063/api/User/AddReview?userId=" +
+        user.id +
+        "&bookId=" +
+        bookId.innerHTML +
+        "&text=" +
+        reviewText +
+        "&rating= " +
+        GetSelectedRating();
+      ajaxCall("POST", api, null, AddReviewSCB, AddReviewECB);
+    });
+}
+
+function AddReviewECB(Error) {
+  alert("Error: Review form was not filled");
+}
+
+function GetSelectedRating() {
+  // Find the star element with the 'selected' class
+  const selectedStar = document.querySelector(".star-rating .star.selected");
+
+  // Check if a selected star exists
+  if (selectedStar) {
+    // Get the value from the data-value attribute
+    return selectedStar.getAttribute("data-value");
+  } else {
+    // Return null or a default value if no star is selected
+    return 0;
+  }
+}
+
+function AddReviewSCB(message) {
+  if (message == 2) {
+    window.location.reload();
+  } else {
+    alert("You already added a review for this book!");
+  }
 }

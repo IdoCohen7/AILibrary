@@ -5865,3 +5865,22 @@ input[type="submit"]:hover {
 .buttonRequests button {
   margin: 10px;
 }
+
+.star-rating {
+  display: inline-block;
+  font-size: 2em;
+}
+
+.star {
+  cursor: pointer;
+  color: #ccc; /* Unselected star color */
+}
+
+.star:hover,
+.star:hover ~ .star {
+  color: gold; /* Hover color */
+}
+
+.star.selected {
+  color: gold; /* Selected star color */
+}
