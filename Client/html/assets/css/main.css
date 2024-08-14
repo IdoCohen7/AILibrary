@@ -13,7 +13,7 @@
 html,
 body {
   color: #353535;
-  font-family: "Inter", sans-serif;
+  font-family: "Nunito";
   font-size: 16px;
   font-style: normal;
   font-weight: normal;
@@ -737,6 +737,24 @@ body.no-scroll {
   overflow: hidden;
 }
 
+.page-wrapper {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 320px;
+  max-width: 1920px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: #f5f5f5;
+}
 
 .page-wrapper .page-content {
   -webkit-box-align: stretch;
@@ -1499,6 +1517,7 @@ a:hover {
 
 .page-header__logo_text {
   font-weight: bold;
+  position: relative;
   top: 11px;
   font-size: 20px;
 }
@@ -4302,7 +4321,6 @@ body.dark-theme .form-login .uk-input {
 
 body.dark-theme .page-wrapper {
   background: #040615;
-
 }
 
 body.dark-theme .page-header__inner {
@@ -5847,52 +5865,22 @@ input[type="submit"]:hover {
 .buttonRequests button {
   margin: 10px;
 }
-/* עיצוב לטבלה */
-.user-table {
-  margin: 20px;
-  font-family: Arial, sans-serif;
-  border-collapse: collapse;
-  width: 50%;
+
+.star-rating {
+  display: inline-block;
+  font-size: 2em;
 }
 
-.user-table h2 {
-  margin-bottom: 20px;
-  font-size: 24px;
-  color: #333;
+.star {
+  cursor: pointer;
+  color: #ccc; /* Unselected star color */
 }
 
-.user-table table {
-  width: 100%;
-  border: 1px solid #ddd;
+.star:hover,
+.star:hover ~ .star {
+  color: gold; /* Hover color */
 }
 
-.user-table th,
-.user-table td {
-  padding: 12px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+.star.selected {
+  color: gold; /* Selected star color */
 }
-
-.user-table th {
-  background-color: #f4f4f4;
-  color: #333;
-  font-weight: bold;
-}
-
-.user-table tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-.user-table tr:hover {
-  background-color: #f1f1f1;
-}
-
-.user-table img {
-  border-radius: 50%;
-  border: 1px solid #ddd;
-}
-
-.user-table td {
-  vertical-align: middle;
-}
-

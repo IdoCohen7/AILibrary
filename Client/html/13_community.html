@@ -166,10 +166,31 @@
             </ul>
           </div>
         </aside>
-        <main class="page-main" id="mainDiv"></main>
+        <main class="page-main" id="mainDiv">
+          <div
+            class="uk-grid uk-child-width-1-6@xl uk-child-width-1-4@l uk-child-width-1-3@s uk-flex-middle uk-grid-small"
+            data-uk-grid
+            id="booksContainer"
+          ></div>
+        </main>
       </div>
     </div>
     <div class="page-modals">
+      <div class="uk-flex-top" id="modal-book" data-uk-modal>
+        <div
+          id="modalHeader"
+          class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical"
+        >
+          <button
+            class="uk-modal-close-default"
+            type="button"
+            data-uk-close
+          ></button>
+          <div class="uk-margin">
+            <span id="bookId" class="uk-form-label"></span>
+          </div>
+        </div>
+      </div>
       <div class="uk-flex-top" id="modal-report" data-uk-modal>
         <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
           <button

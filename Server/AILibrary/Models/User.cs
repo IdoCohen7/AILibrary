@@ -1,5 +1,4 @@
 ﻿using AILibrary.DAL;
-using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
 namespace AILibrary.Models
@@ -117,24 +116,11 @@ namespace AILibrary.Models
             DBservices db = new DBservices();
             return db.GetNotificationCount(userId);
         }
-        public static List<object> GetUserLibraryDetails()
-        {
-            DBservices dbs = new DBservices();
-            return dbs.GetUserLibraryDetails();
-        }
-        public static float GetThisWeeksRevenue()
-        {
-            DBservices dbs = new DBservices();
-            return dbs.GetThisWeeksRevenue();
-        }
-        public static List<object> GetAllUsersWithBookCount()
-        {
-            DBservices dbs = new DBservices();
-            return dbs.GetAllUsersWithBookCount();
-        }
 
-
-
+        static public int AddReview(int userId, string bookId, string text, int rating)
+        {
+            DBservices db = new DBservices();
+            return (db.AddReview(userId, bookId, text, rating));
+        }
     }
 }
-

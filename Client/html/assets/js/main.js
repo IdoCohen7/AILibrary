@@ -162,12 +162,15 @@ jQuery(document).ready(function ($) {
 
   SetProfilePicture();
   const logoutBttn = document.getElementById("logout");
-  logoutBttn.addEventListener("click", function () {
-    if (user != null) {
-      localStorage.removeItem("user");
-      window.location.reload(); // Reload the page after removing the item
-    }
-  });
+  if (logoutBttn != null) {
+    logoutBttn.addEventListener("click", function () {
+      if (user != null) {
+        localStorage.removeItem("user");
+        window.location.reload(); // Reload the page after removing the item
+      }
+    });
+  }
+
   if (user != null) {
     GetNotificationCount();
   }
@@ -192,7 +195,7 @@ function SetProfilePicture() {
   const userPic = document.getElementById("userPic");
   let user = JSON.parse(localStorage.getItem("user"));
 
-  if (user != null) {
+  if (user != null && userPic != null) {
     userPic.src = user.profilePic;
     userPic.alt = user.name + "'s profile picture";
   }
@@ -221,9 +224,12 @@ function GetBooksSuccess(allBooks, containerId, callback) {
     mediaImg.src = book.thumbnail;
     mediaImg.alt = book.title;
     mediaImg.addEventListener("click", function () {
-      openModal(book);
-    });
+      // Populate modal with book details
 
+      // Open the modal
+      UIkit.modal("#modal-book").show();
+      FillModalContent(book);
+    });
     mediaDiv.appendChild(mediaImg);
 
     let infoDiv = document.createElement("div");
@@ -355,7 +361,7 @@ function AddToFavorite(bookId) {
     user.id +
     "&bookId=" +
     bookId;
-  ajaxCall("POST", api, null, AddToFavoriteSCB, AddToFavoriteECB);
+  ajaxCall("POST", api, null, AddToFavoriteSCB, AjaxECB);
 }
 
 function AddToFavoriteSCB(Message) {
@@ -366,12 +372,8 @@ function AddToFavoriteSCB(Message) {
   }
 }
 
-function AddToFavoriteECB(Error) {
-  alert("Error: " + Error.responseText);
-}
-
-function AjaxECB(Error) {
-  alert("Error: " + Error.responseText);
+function AjaxECB(response) {
+  alert("Error: " + response);
 }
 
 function GetNotificationCount() {
@@ -387,4 +389,44 @@ function GetNotificationCountSCB(number) {
     span.innerHTML = number;
     note.appendChild(span);
   }
+}
+
+function FillModalContent(book) {
+  let modalBody = document.querySelector("#modal-book .uk-modal-body");
+
+  // Update the title
+
+  // Prepare content for each property
+  let content = `
+  <h2 id="bookTitle" class="uk-modal-title">${book.title}</h2>
+  <h3 id="bookSubtitle" class="uk-modal-title">${book.subtitle}</h3>
+  ${
+    book.isMature
+      ? '<span class="uk-form-label price-down">This book is intended for mature audiences. Our site is not responsible for verifying the user\'s age.</span><br><br>'
+      : ""
+  }
+      <span class="uk-form-label">Authors:</span> ${book.authors.join(", ")}<br>
+      <span class="uk-form-label">Genre:</span> ${book.category}<br>
+      <span class="uk-form-label">Length:</span> ${book.pageCount} pages<br>
+      <span class="uk-form-label">Publish date:</span> ${book.publishedDate}<br>
+      <span class="uk-form-label">Print Type:</span> ${
+        book.isMagazine ? "Magazine" : "Book"
+      }<br>
+      <span class="uk-form-label">Reading Format:</span> ${
+        book.isEbook ? "Digital" : "Physical"
+      }<br>
+      <span class="uk-form-label">Language:</span> ${book.language}<br>
+      <span class="uk-form-label">Price:</span> ${book.price}$<br>
+      <span class="uk-form-label">Description (if available):</span> ${
+        book.description
+      }<br>
+      <span class="uk-form-label">Text Snippet (if available):</span> ${
+        book.textSnippet
+      }<br>
+  `;
+
+  // Insert content into the modal body
+  modalBody.innerHTML = content;
+
+  // Optionally, you can add other elements or update existing ones if needed
 }

@@ -115,6 +115,13 @@ namespace AILibrary.Controllers
             return AILibrary.Models.User.GetNotificationCount(userId);
         }
 
+        [HttpPost("AddReview")]
+        public int AddReview(int userId, string bookId, string text, int rating)
+        {
+            return AILibrary.Models.User.AddReview(userId, bookId, text, rating);
+
+        }
+
         // PUT api/<UserController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)

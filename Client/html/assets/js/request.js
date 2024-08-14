@@ -20,6 +20,11 @@ function LoadRequests() {
 function LoadRequestsSCB(allRequests) {
   let container = document.getElementById("requestContainer");
 
+  if (allRequests.length == 0) {
+    let div = document.createElement("div");
+    div.innerHTML = "There are no pending requests at the moment.";
+    container.appendChild(div);
+  }
   allRequests.forEach((request) => {
     let outerDiv = document.createElement("div");
     outerDiv.classList.add("user-item", "--active");

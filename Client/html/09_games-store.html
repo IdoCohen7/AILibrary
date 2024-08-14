@@ -67,7 +67,7 @@
             </div>
           </div>
           <div class="page-header__content">
-            <div>hello</div>
+            <div></div>
             <div class="page-header__action">
               <a class="action-btn" href="06_chats.html"
                 ><i class="ico_message"></i
@@ -170,8 +170,8 @@
                 <div class="uk-width-1-1">
                   <div class="search">
                     <div class="search__input">
-                      <i class="ico_search"></i
-                      ><input
+                      <i class="ico_search"></i>
+                      <input
                         type="search"
                         name="search"
                         placeholder="Search"
@@ -179,7 +179,7 @@
                       />
                     </div>
                     <div class="search__btn">
-                      <button type="button">
+                      <button type="button" id="micBtn">
                         <i class="ico_microphone"></i>
                       </button>
                     </div>
@@ -217,27 +217,10 @@
           ></div>
         </main>
         <div class="page-modals">
-          <!-- Book Modal -->
-          <div class="uk-flex-top" id="bookModal" data-uk-modal>
-            <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
-              <button
-                class="uk-modal-close-default"
-                type="button"
-                data-uk-close
-              ></button>
-              <div id="modalBookContent"></div>
-            </div>
-          </div>
-
-          <!-- Other Modals (example structure) -->
-          <!-- You can keep these modals as they are or adjust based on your needs -->
-          <div class="uk-flex-top" id="modal-report" data-uk-modal>
-            <!-- Report modal structure -->
-          </div>
-
-          <div class="uk-flex-top" id="modal-help" data-uk-modal>
-            <!-- Help modal structure -->
-          </div>
+          <div class="uk-flex-top" id="modal-book" data-uk-modal>
+            <div id="modalHeader" class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical"><button class="uk-modal-close-default" type="button" data-uk-close></button>
+                    <div class="uk-margin">
+                        <span id="bookId" class="uk-form-label"></span>
         </div>
       </div>
     </div>
