@@ -44,6 +44,12 @@ namespace AILibrary.Controllers
             return Book.GetRandomBook();
         }
 
+        [HttpGet("16Random")]
+        public List<string> Get16ThumbnailRandomBooks()
+        {
+            return Book.Get16ThumbnailRandomBooks();
+
+        }
         // POST api/<BookController>
         [HttpPost]
         public int Post([FromBody] Book book)
@@ -71,5 +77,140 @@ namespace AILibrary.Controllers
         public void Delete(int id)
         {
         }
+<<<<<<< Updated upstream
+=======
+        //// GET: api/Book/Popularity
+        //[HttpGet("Popularity")]
+        //public List<Book> GetBookPopularity()
+        //{
+        //    return Book.GetBookPopularity();
+        //}
+>>>>>>> Stashed changes
+        // GET: api/Book/PurchasesThisWeek
+        [HttpGet("PurchasesThisWeek")]
+        public int GetPurchasesThisWeek()
+        {
+            return Book.GetPurchasesThisWeek();
+        }
+<<<<<<< Updated upstream
+        // GET: api/Book/TopRated
+        [HttpGet("TopRated")]
+        public List<Book> GetTopRatedBooks()
+        {
+            return Book.GetTopRatedBooks();
+        }
+        // GET: api/Book/MostNew
+        [HttpGet("MostNew")]
+        public List<Book> GetMostNewBooks()
+        {
+            return Book.GetMostNewBooks();
+        }
+
+        // GET: api/Book/Popularity
+        [HttpGet("Popularity")]
+        public IActionResult GetBookPopularity()
+        {
+            try
+            {
+                var bookPopularityList = Book.GetBookPopularity();
+                return Ok(bookPopularityList);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal server error");
+            }
+        }
+        // GET: api/Book/Available
+        [HttpGet("Available")]
+        public IActionResult GetAvailableBooks()
+        {
+            try
+            {
+                var availableBooks = Book.GetAvailableBooks();
+                return Ok(availableBooks);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal server error");
+            }
+        }
+        // GET: api/Book/AvailableCount
+        [HttpGet("AvailableCount")]
+        public IActionResult GetAvailableBooksCount()
+        {
+            try
+            {
+                var availableBooksCount = Book.GetAvailableBooksCount();
+                return Ok(availableBooksCount);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+        // GET: api/Book/TotalBooksRead
+        [HttpGet("TotalBooksRead")]
+        public IActionResult GetTotalBooksRead()
+        {
+            try
+            {
+                var totalBooksRead = Book.GetTotalBooksRead();
+                return Ok(totalBooksRead);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+        // GET: api/Book/TotalBooksPurchased
+        [HttpGet("TotalBooksPurchased")]
+        public IActionResult GetTotalBooksPurchased()
+        {
+            try
+            {
+                var totalBooksPurchased = Book.GetTotalBooksPurchased();
+                return Ok(totalBooksPurchased);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+        // GET: api/Book/TotalBooksExchanged
+        [HttpGet("TotalBooksExchanged")]
+        public IActionResult GetTotalBooksExchanged()
+        {
+            try
+            {
+                var totalBooksExchanged = Book.GetTotalBooksExchanged();
+                return Ok(totalBooksExchanged);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal server error");
+            }
+        }
+        // GET: api/Book/Summary
+        [HttpGet("Summary")]
+        public IActionResult GetBooksSummary()
+        {
+            try
+            {
+                var booksSummary = Book.GetBooksSummary();
+                return Ok(booksSummary);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+=======
+>>>>>>> Stashed changes
     }
+
 }
+

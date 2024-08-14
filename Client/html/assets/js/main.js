@@ -1,23 +1,25 @@
 jQuery(document).ready(function ($) {
   $(".js-select").niceSelect();
+
   $(document).on("click", ".menu-btn", function () {
-    $(this).toggleClass("is-active");
-    $(".sidebar").toggleClass("is-show");
+      $(this).toggleClass("is-active");
+      $(".sidebar").toggleClass("is-show");
   });
+
   const mediaHeader = window.matchMedia("(max-width: 959px)");
 
   function handleHeader(e) {
-    if (e.matches) {
-      $(".menu-btn").removeClass("is-active");
-      $(".sidebar").removeClass("is-show");
-      $(document).on("click", ".menu-btn", function () {
-        $("body").toggleClass("no-scroll");
-      });
-    } else {
-      $(".menu-btn").addClass("is-active");
-      $(".sidebar").addClass("is-show");
-      $("body").removeClass("no-scroll");
-    }
+      if (e.matches) {
+          $(".menu-btn").removeClass("is-active");
+          $(".sidebar").removeClass("is-show");
+          $(document).on("click", ".menu-btn", function () {
+              $("body").toggleClass("no-scroll");
+          });
+      } else {
+          $(".menu-btn").addClass("is-active");
+          $(".sidebar").addClass("is-show");
+          $("body").removeClass("no-scroll");
+      }
   }
 
   /////////////////////////////////////////////////////////////////
@@ -25,34 +27,34 @@ jQuery(document).ready(function ($) {
   /////////////////////////////////////////////////////////////////
 
   var $preloader = $("#page-preloader"),
-    $spinner = $preloader.find(".spinner-loader");
+      $spinner = $preloader.find(".spinner-loader");
   $spinner.fadeOut();
   $preloader.delay(250).fadeOut("slow");
 
   mediaHeader.addListener(handleHeader);
   handleHeader(mediaHeader);
+
   const recommendSlider = new Swiper(".js-recommend .swiper", {
-    slidesPerView: 1,
-    spaceBetween: 40,
-    loop: true,
-    watchOverflow: true,
-    observeParents: true,
-    observeSlideChildren: true,
-    observer: true,
-    speed: 800,
-    autoplay: {
-      delay: 5000,
-    },
-    navigation: {
-      nextEl: ".js-recommend .swiper-button-next",
-      prevEl: ".js-recommend .swiper-button-prev",
-    },
-    pagination: {
-      el: ".js-recommend .swiper-pagination",
-      type: "bullets",
-      // 'bullets', 'fraction', 'progressbar'
-      clickable: true,
-    },
+      slidesPerView: 1,
+      spaceBetween: 40,
+      loop: true,
+      watchOverflow: true,
+      observeParents: true,
+      observeSlideChildren: true,
+      observer: true,
+      speed: 800,
+      autoplay: {
+          delay: 5000,
+      },
+      navigation: {
+          nextEl: ".js-recommend .swiper-button-next",
+          prevEl: ".js-recommend .swiper-button-prev",
+      },
+      pagination: {
+          el: ".js-recommend .swiper-pagination",
+          type: "bullets",
+          clickable: true,
+      },
   });
   const trendingSlider = new Swiper(".js-trending .swiper", {
     slidesPerView: 1,

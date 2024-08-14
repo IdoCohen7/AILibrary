@@ -29,6 +29,12 @@ namespace AILibrary.Controllers
         {
             return "value";
         }
+        // GET: api/Author/Popularity?id=5
+        [HttpGet("Popularity")]
+        public List<Author> GetAuthorPopularity(int id)
+        {
+            return Author.GetAuthorPopularity(id);
+        }
 
         // POST api/<AuthorController>
         [HttpPost]
@@ -48,6 +54,21 @@ namespace AILibrary.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+        }
+        // GET: api/Author/Popularity
+        [HttpGet("Popularity")]
+        public IActionResult GetAuthorPopularity()
+        {
+            try
+            {
+                var authors = Author.GetAuthorPopularity();
+                return Ok(authors);
+            }
+            catch (Exception ex)
+            {
+                // Write to log
+                return StatusCode(500, "Internal server error");
+            }
         }
     }
 }

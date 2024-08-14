@@ -20,6 +20,7 @@ $(document).ready(function () {
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const passwordPattern = /^.{3,}$/;
 
+<<<<<<< Updated upstream
   $("#logInForm").submit(function (event) {
     if (
       emailPattern.test($("#email2TB").val()) &&
@@ -33,6 +34,19 @@ $(document).ready(function () {
       );
     }
   });
+=======
+    $("#logInForm").submit(function (event) {
+        if (
+            emailPattern.test($("#email2TB").val()) &&
+            passwordPattern.test($("#password2TB").val())
+        ) {
+            event.preventDefault(); // Prevent default form submission
+            Login($("#email2TB").val(), $("#password2TB").val());
+        } else {
+            alert("ERROR: Password shorter than 3 characters or invalid email format");
+        }
+    });
+>>>>>>> Stashed changes
 
   $("#signUpForm").submit(function (event) {
     if (

@@ -869,6 +869,42 @@ namespace AILibrary.DAL
                 }
             }
         }
+        public List<string> Get16ThumbnailRandomBooks()
+        {
+            SqlConnection con = null;
+            SqlCommand cmd;
+            List<string> thumbnails = new List<string>(); // List of thumbnails
+
+            try
+            {
+                con = connect("myProjDB"); // Create the connection
+                cmd = CreateCommandWithStoredProcedureNoParameters("SP_Get16ThumbnailRandomBooks", con); // Create the command for the stored procedure
+
+                SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                while (dataReader.Read())
+                {
+                    string thumbnail = dataReader["thumbnail"].ToString();
+                    thumbnails.Add(thumbnail); // Add the thumbnail to the list
+                }
+
+                return thumbnails; // Return the list of thumbnails
+            }
+            catch (Exception ex)
+            {
+                // Write to log
+                throw new Exception("Error retrieving thumbnails", ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    // Close the DB connection
+                    con.Close();
+                }
+            }
+        }
+
 
         public List<Question> GetRandomQuestions()
         {
@@ -1058,6 +1094,37 @@ namespace AILibrary.DAL
             {
                 // Write to log
                 throw new Exception("Error retrieving books", ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    // Close the DB connection
+                    con.Close();
+                }
+            }
+
+        }
+        public int GetPurchasesThisWeek()
+        {
+            SqlConnection con = null;
+            SqlCommand cmd;
+            int totalBooksPurchased = 0; // Initialize the result
+
+            try
+            {
+                con = connect("myProjDB"); // Create the connection
+                cmd = CreateCommandWithStoredProcedureNoParameters("SP_GetPurchasesThisWeek", con); // Create the command
+
+                con.Open(); 
+                totalBooksPurchased = Convert.ToInt32(cmd.ExecuteScalar());
+
+                return totalBooksPurchased; // Return the count
+            }
+            catch (Exception ex)
+            {
+                // Log the exception
+                throw new Exception("Error retrieving the number of books purchased this week", ex);
             }
             finally
             {
@@ -1321,6 +1388,568 @@ namespace AILibrary.DAL
                 }
             }
         }
+        public int GetPurchasesThisWeek()
+        {
+            SqlConnection con = null;
+            SqlCommand cmd;
+            int purchasesThisWeek = 0;
+
+            try
+            {
+                con = connect("myProjDB"); // יצירת החיבור ל-DB
+                cmd = CreateCommandWithStoredProcedureNoParameters("SP_GetPurchasesThisWeek", con); // יצירת הפקודה לקריאה ל-SP
+
+                // הוצאת התוצאה כערך סקלרי
+                purchasesThisWeek = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                // טיפול בשגיאות
+                throw new Exception("Error retrieving the number of purchases this week", ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    // סגירת החיבור ל-DB
+                    con.Close();
+                }
+            }
+
+            return purchasesThisWeek;
+        }
+        public List<Book> GetTopRatedBooks()
+        {
+            SqlConnection con = null;
+            SqlCommand cmd;
+            List<Book> books = new List<Book>();
+
+            try
+            {
+                con = connect("myProjDB");
+                cmd = CreateCommandWithStoredProcedureNoParameters("SP_GetTopRatedBooks", con);
+
+                SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                while (dataReader.Read())
+                {
+                    Book book = new Book
+                    {
+                        Id = dataReader["id"].ToString(),
+                        Title = dataReader["title"].ToString(),
+                        Subtitle = dataReader["subtitle"].ToString(),
+                        Authors = dataReader["authors"].ToString().Split(new[] { ", " }, StringSplitOptions.None),
+                        PublishedDate = dataReader["publishedDate"].ToString(),
+                        PageCount = Convert.ToInt32(dataReader["pageCount"]),
+                        IsMagazine = Convert.ToBoolean(dataReader["isMagazine"]),
+                        IsMature = Convert.ToBoolean(dataReader["isMature"]),
+                        IsEbook = Convert.ToBoolean(dataReader["isEbook"]),
+                        Language = dataReader["language"].ToString(),
+                        Price = Convert.ToSingle(dataReader["price"]),
+                        Thumbnail = dataReader["thumbnail"].ToString(),
+                        PreviewLink = dataReader["previewLink"].ToString(),
+                        InfoLink = dataReader["infoLink"].ToString(),
+                        EpubLink = dataReader["epubLink"].ToString(),
+                        PdfLink = dataReader["pdfLink"].ToString(),
+                        RatingAverage = Convert.ToSingle(dataReader["ratingAvg"]),
+                        RatingCount = Convert.ToInt32(dataReader["ratingCount"]),
+                        Description = dataReader["description"].ToString(),
+                        TextSnippet = dataReader["textSnippet"].ToString(),
+                    };
+                    books.Add(book);
+                }
+
+                return books;
+            }
+            catch (Exception ex)
+            {
+                // Write to log
+                throw new Exception("Error retrieving books", ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    // Close the DB connection
+                    con.Close();
+                }
+            }
+        }
+        public List<Book> GetMostNewBooks()
+        {
+            SqlConnection con = null;
+            SqlCommand cmd;
+            List<Book> books = new List<Book>();
+
+            try
+            {
+                con = connect("myProjDB");
+                cmd = CreateCommandWithStoredProcedureNoParameters("SP_GetMostNewBooks", con);
+
+                SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                while (dataReader.Read())
+                {
+                    Book book = new Book
+                    {
+                        Id = dataReader["id"].ToString(),
+                        Title = dataReader["title"].ToString(),
+                        Subtitle = dataReader["subtitle"].ToString(),
+                        Authors = dataReader["authors"].ToString().Split(new[] { ", " }, StringSplitOptions.None),
+                        PublishedDate = dataReader["publishedDate"].ToString(),
+                        PageCount = Convert.ToInt32(dataReader["pageCount"]),
+                        IsMagazine = Convert.ToBoolean(dataReader["isMagazine"]),
+                        IsMature = Convert.ToBoolean(dataReader["isMature"]),
+                        IsEbook = Convert.ToBoolean(dataReader["isEbook"]),
+                        Language = dataReader["language"].ToString(),
+                        Price = Convert.ToSingle(dataReader["price"]),
+                        Thumbnail = dataReader["thumbnail"].ToString(),
+                        PreviewLink = dataReader["previewLink"].ToString(),
+                        InfoLink = dataReader["infoLink"].ToString(),
+                        EpubLink = dataReader["epubLink"].ToString(),
+                        PdfLink = dataReader["pdfLink"].ToString(),
+                        RatingAverage = Convert.ToSingle(dataReader["ratingAvg"]),
+                        RatingCount = Convert.ToInt32(dataReader["ratingCount"]),
+                        Description = dataReader["description"].ToString(),
+                        TextSnippet = dataReader["textSnippet"].ToString(),
+                    };
+                    books.Add(book);
+                }
+
+                return books;
+            }
+            catch (Exception ex)
+            {
+                // Write to log
+                throw new Exception("Error retrieving books", ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    // Close the DB connection
+                    con.Close();
+                }
+            }
+        }
+        public List<object> GetUserLibraryDetails()
+        {
+            SqlConnection con = null;
+            SqlCommand cmd;
+            List<object> libraryDetails = new List<object>();
+
+            try
+            {
+                con = connect("myProjDB");
+                cmd = CreateCommandWithStoredProcedureNoParameters("SP_GetUserLibraryDetails", con);
+
+                SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                while (dataReader.Read())
+                {
+                    libraryDetails.Add(new
+                    {
+                        UserId = dataReader["UserId"].ToString(),
+                        UserName = dataReader["UserName"].ToString(),
+                        Email = dataReader["email"].ToString(),
+                        BookId = dataReader["BookId"].ToString(),
+                        Title = dataReader["title"].ToString(),
+                        Authors = dataReader["authors"].ToString().Split(new[] { ", " }, StringSplitOptions.None),
+                        Status = dataReader["Status"].ToString()
+                    });
+                }
+
+                return libraryDetails;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error retrieving user library details", ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+        }
+        public List<object> GetAuthorPopularity()
+        {
+            SqlConnection con = null;
+            SqlCommand cmd;
+            List<object> authorPopularity = new List<object>();
+
+            try
+            {
+                con = connect("myProjDB");
+                cmd = CreateCommandWithStoredProcedureNoParameters("SP_GetAuthorPopularity", con);
+
+                SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                while (dataReader.Read())
+                {
+                    authorPopularity.Add(new
+                    {
+                        AuthorId = dataReader["AuthorId"].ToString(),
+                        Name = dataReader["name"].ToString(),
+                        NumberOfAppearances = Convert.ToInt32(dataReader["NumberOfAppearances"])
+                    });
+                }
+
+                return authorPopularity;
+            }
+            catch (Exception ex)
+            {
+                // Write to log
+                throw new Exception("Error retrieving author popularity", ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+        }
+        public List<object> GetBookPopularity()
+        {
+            SqlConnection con = null;
+            SqlCommand cmd;
+            List<object> bookPopularity = new List<object>();
+
+            try
+            {
+                con = connect("myProjDB");
+                cmd = CreateCommandWithStoredProcedureNoParameters("SP_GetBookPopularity", con);
+
+                SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                while (dataReader.Read())
+                {
+                    bookPopularity.Add(new
+                    {
+                        BookId = dataReader["BookId"].ToString(),
+                        Title = dataReader["title"].ToString(),
+                        NumberOfAppearances = Convert.ToInt32(dataReader["NumberOfAppearances"])
+                    });
+                }
+
+                return bookPopularity;
+            }
+            catch (Exception ex)
+            {
+                // Write to log
+                throw new Exception("Error retrieving book popularity", ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+        }
+        public List<Book> GetAvailableBooks()
+        {
+            SqlConnection con = null;
+            SqlCommand cmd;
+            List<Book> availableBooks = new List<Book>();
+
+            try
+            {
+                con = connect("myProjDB");
+                cmd = CreateCommandWithStoredProcedureNoParameters("SP_GetAvailableBooks", con);
+
+                SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                while (dataReader.Read())
+                {
+                    availableBooks.Add(new Book
+                    {
+                        Id = dataReader["id"].ToString(),
+                        Title = dataReader["title"].ToString(),
+                        Subtitle = dataReader["subtitle"].ToString(),
+                        Authors = dataReader["authors"].ToString().Split(','), // Assuming authors are stored as a comma-separated string
+                        PublishedDate = dataReader["publishedDate"].ToString(),
+                        PageCount = Convert.ToInt32(dataReader["pageCount"]),
+                        IsMagazine = Convert.ToBoolean(dataReader["isMagazine"]),
+                        IsMature = Convert.ToBoolean(dataReader["isMature"]),
+                        IsEbook = Convert.ToBoolean(dataReader["isEbook"]),
+                        Language = dataReader["language"].ToString(),
+                        Price = Convert.ToSingle(dataReader["price"]),
+                        Thumbnail = dataReader["thumbnail"].ToString(),
+                        PreviewLink = dataReader["previewLink"].ToString(),
+                        InfoLink = dataReader["infoLink"].ToString(),
+                        EpubLink = dataReader["epubLink"].ToString(),
+                        PdfLink = dataReader["pdfLink"].ToString(),
+                        RatingAverage = Convert.ToSingle(dataReader["ratingAvg"]),
+                        RatingCount = Convert.ToInt32(dataReader["ratingCount"]),
+                        Description = dataReader["description"].ToString(),
+                        TextSnippet = dataReader["textSnippet"].ToString(),
+                        Category = dataReader["category"].ToString()
+                    });
+                }
+
+                return availableBooks;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error retrieving available books", ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+
+        }
+        public int GetAvailableBooksCount()
+        {
+            SqlConnection con = null;
+            SqlCommand cmd;
+            int availableBooksCount = 0;
+
+            try
+            {
+                con = connect("myProjDB");
+                cmd = CreateCommandWithStoredProcedureNoParameters("SP_GetAvailableBooksCount", con);
+
+                SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                if (dataReader.Read())
+                {
+                    availableBooksCount = Convert.ToInt32(dataReader["AvailableBooksCount"]);
+                }
+
+                return availableBooksCount;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error retrieving available books count", ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+        }
+        public float GetThisWeeksRevenue()
+        {
+            SqlConnection con = null;
+            SqlCommand cmd;
+            float revenue = 0;
+
+            try
+            {
+                con = connect("myProjDB");
+                cmd = CreateCommandWithStoredProcedureNoParameters("SP_GetThisWeeksRevenue", con);
+
+                // Execute the command and read the result
+                SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                if (dataReader.Read())
+                {
+                    revenue = Convert.ToSingle(dataReader["Revenue"]);
+                }
+
+                return revenue;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error retrieving this week's revenue", ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+        }
+        public List<Object> GetAllUsersWithBookCount()
+        {
+            SqlConnection con = null;
+            SqlCommand cmd;
+            List<Object> users = new List<Object>(); // Initialize the list of books
+
+            try
+            {
+                con = connect("myProjDB"); // Create the connection
+                cmd = CreateCommandWithStoredProcedureNoParameters("SP_GetAllUsersWithBookCount", con); // Create the command for reading books
+
+                SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                while (dataReader.Read())
+                {
+                    users.Add(new
+                    {
+                        Id = Convert.ToInt32(dataReader["Id"]),
+                        Name = dataReader["Name"].ToString(),
+                        Email = dataReader["Email"].ToString(),
+                        ProfilePic = dataReader["ProfilePic"].ToString(),
+                        IsActive = Convert.ToBoolean(dataReader["IsActive"]),
+                        TotalBooksPurchased = Convert.ToInt32(dataReader["TotalBooksPurchased"])
+                    });
+
+                }
+
+                return users; // Return the list of books
+            }
+            catch (Exception ex)
+            {
+                // Write to log
+                throw new Exception("Error retrieving books", ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    // Close the DB connection
+                    con.Close();
+                }
+            }
+        }
+        public int GetTotalBooksRead()
+        {
+            SqlConnection con = null;
+            SqlCommand cmd;
+            int totalBooksRead = 0;
+
+            try
+            {
+                con = connect("myProjDB");
+                cmd = CreateCommandWithStoredProcedureNoParameters("SP_GetTotalBooksRead", con);
+
+                SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                if (dataReader.Read())
+                {
+                    totalBooksRead = Convert.ToInt32(dataReader["TotalBooksRead"]);
+                }
+
+                return totalBooksRead;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error retrieving total books read", ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+        }
+        public int GetTotalBooksPurchased()
+        {
+            SqlConnection con = null;
+            SqlCommand cmd;
+            int totalBooksPurchased = 0;
+
+            try
+            {
+                con = connect("myProjDB");
+                cmd = CreateCommandWithStoredProcedureNoParameters("SP_GetTotalBooksPurchased", con);
+
+                SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                if (dataReader.Read())
+                {
+                    totalBooksPurchased = Convert.ToInt32(dataReader["TotalBooksPurchased"]);
+                }
+
+                return totalBooksPurchased;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error retrieving total books purchased", ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+        }
+        public int GetTotalBooksExchanged()
+        {
+            SqlConnection con = null;
+            SqlCommand cmd;
+            int totalBooksExchanged = 0;
+
+            try
+            {
+                con = connect("myProjDB");
+                cmd = CreateCommandWithStoredProcedureNoParameters("SP_GetTotalBooksExchanged", con);
+
+                SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                if (dataReader.Read())
+                {
+                    totalBooksExchanged = Convert.ToInt32(dataReader["TotalBooksExchanged"]);
+                }
+
+                return totalBooksExchanged;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error retrieving total books exchanged", ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+        }
+        public List<object> GetBooksSummary()
+        {
+            SqlConnection con = null;
+            SqlCommand cmd;
+            List<object> bookSummaries = new List<object>(); // Initialize the list of book summaries
+
+            try
+            {
+                con = connect("myProjDB");
+                cmd = CreateCommandWithStoredProcedureNoParameters("SP_GetBooksSummary", con); // Create the command for reading books
+                SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                while (dataReader.Read())
+                {
+                    bookSummaries.Add(new
+                    {
+                        Title = dataReader["BookTitle"].ToString(),
+                        Author = dataReader["AuthorName"].ToString(),
+                        PublishedDate = Convert.ToDateTime(dataReader["PublishedDate"]),
+                        BookType = dataReader["BookType"].ToString(),
+                    });
+                }
+
+                return bookSummaries;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error retrieving book summaries", ex);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+        }
+
+
+
 
     }
 }
+
