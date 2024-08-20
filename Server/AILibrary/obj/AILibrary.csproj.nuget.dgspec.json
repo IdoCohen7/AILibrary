@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\idoco\\OneDrive\\שולחן העבודה\\AILibrary\\Server\\AILibrary\\AILibrary.csproj": {}
+    "C:\\Users\\ayabr\\OneDrive\\שולחן העבודה\\AILibary\\Server\\AILibrary\\AILibrary.csproj": {}
   },
   "projects": {
-    "C:\\Users\\idoco\\OneDrive\\שולחן העבודה\\AILibrary\\Server\\AILibrary\\AILibrary.csproj": {
+    "C:\\Users\\ayabr\\OneDrive\\שולחן העבודה\\AILibary\\Server\\AILibrary\\AILibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\idoco\\OneDrive\\שולחן העבודה\\AILibrary\\Server\\AILibrary\\AILibrary.csproj",
+        "projectUniqueName": "C:\\Users\\ayabr\\OneDrive\\שולחן העבודה\\AILibary\\Server\\AILibrary\\AILibrary.csproj",
         "projectName": "AILibrary",
-        "projectPath": "C:\\Users\\idoco\\OneDrive\\שולחן העבודה\\AILibrary\\Server\\AILibrary\\AILibrary.csproj",
-        "packagesPath": "C:\\Users\\idoco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\idoco\\OneDrive\\שולחן העבודה\\AILibrary\\Server\\AILibrary\\obj\\",
+        "projectPath": "C:\\Users\\ayabr\\OneDrive\\שולחן העבודה\\AILibary\\Server\\AILibrary\\AILibrary.csproj",
+        "packagesPath": "C:\\Users\\ayabr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ayabr\\OneDrive\\שולחן העבודה\\AILibary\\Server\\AILibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\idoco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ayabr\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -77,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
         }
       }
     }

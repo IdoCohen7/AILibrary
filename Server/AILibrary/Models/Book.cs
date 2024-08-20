@@ -117,6 +117,11 @@ namespace AILibrary.Models
             DBservices dBservices = new DBservices();
             return dBservices.GetRandomBook();
         }
+        static public List<string> Get16ThumbnailRandomBooks()
+        {
+            DBservices dBservices = new DBservices();
+            return dBservices.Get16ThumbnailRandomBooks(); 
+        }
 
         static public List<Book> SearchBooksByParameter(string parameter, string text)
         {
@@ -129,13 +134,7 @@ namespace AILibrary.Models
             DBservices dbs = new DBservices();
             return dbs.GetMarketplace();
         }
-
-        static public List<Object> GetBookReviews(string bookId)
-        {
-            DBservices dbs = new DBservices();
-            return dbs.GetBookReviews(bookId);
-        }
-
+<<<<<<< Updated upstream
         public static int GetPurchasesThisWeek()
         {
             DBservices dbs = new DBservices();
@@ -188,19 +187,19 @@ namespace AILibrary.Models
             DBservices dbs = new DBservices();
             return dbs.GetBooksSummary();
         }
+=======
 
-        static public List<string> Get16ThumbnailRandomBooks()
+        static public int GetPurchasesThisWeek()
         {
-            DBservices dBservices = new DBservices();
-            return dBservices.Get16ThumbnailRandomBooks();
+            DBservices dbs = new DBservices();
+            return dbs.GetPurchasesThisWeek(); // החזרת מספר רכישות לשבוע
         }
-
-        static public List<object> GetBookLibraryDetails(string bookId)
-        {
-            DBservices dBservices = new DBservices();   
-            return dBservices.GetBookLibraryDetails(bookId);
-        }
-
+        //static public List<Book> GetBookPopularity()
+        //{
+        //    DBservices dbs = new DBservices();
+        //    return dbs.GetBookPopularity(); // החזרת ספרים זה בסדר
+        //}
+>>>>>>> Stashed changes
 
     }
 }
