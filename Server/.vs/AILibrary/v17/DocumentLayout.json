@@ -54,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
@@ -67,7 +67,19 @@
               "ViewState": "AQIAAB4AAAAAAAAAAAAYwA0AAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-14T15:21:40.897Z",
-              "IsPinned": true,
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthorController.cs",
+              "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\GitHub\\AILibrary2\\Server\\AILibrary\\Controllers\\AuthorController.cs",
+              "RelativeDocumentMoniker": "AILibrary\\Controllers\\AuthorController.cs",
+              "ToolTip": "C:\\Users\\idoco\\OneDrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\GitHub\\AILibrary2\\Server\\AILibrary\\Controllers\\AuthorController.cs",
+              "RelativeToolTip": "AILibrary\\Controllers\\AuthorController.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAYwEAAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-02T11:05:21.765Z",
               "EditorCaption": ""
             },
             {
@@ -80,8 +92,7 @@
               "RelativeToolTip": "AILibrary\\Controllers\\BookController.cs",
               "ViewState": "AQIAAFEAAAAAAAAAAAAAwJcAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T18:50:55.221Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-02T18:50:55.221Z"
             },
             {
               "$type": "Document",
@@ -93,8 +104,7 @@
               "RelativeToolTip": "AILibrary\\Controllers\\QuestionController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-03T08:48:25.601Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-03T08:48:25.601Z"
             },
             {
               "$type": "Document",
@@ -106,8 +116,7 @@
               "RelativeToolTip": "AILibrary\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T11:58:55.666Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-02T11:58:55.666Z"
             },
             {
               "$type": "Document",
@@ -119,21 +128,7 @@
               "RelativeToolTip": "AILibrary\\Models\\User.cs",
               "ViewState": "AQIAAHsAAAAAAAAAAAAqwKYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T10:53:24.223Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AuthorController.cs",
-              "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\GitHub\\AILibrary2\\Server\\AILibrary\\Controllers\\AuthorController.cs",
-              "RelativeDocumentMoniker": "AILibrary\\Controllers\\AuthorController.cs",
-              "ToolTip": "C:\\Users\\idoco\\OneDrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\GitHub\\AILibrary2\\Server\\AILibrary\\Controllers\\AuthorController.cs",
-              "RelativeToolTip": "AILibrary\\Controllers\\AuthorController.cs",
-              "ViewState": "AQIAADIAAAAAAAAAAAAowDwAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T11:05:21.765Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-02T10:53:24.223Z"
             },
             {
               "$type": "Document",
@@ -145,8 +140,7 @@
               "RelativeToolTip": "AILibrary\\AILibrary.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-08-15T08:27:35.842Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-15T08:27:35.842Z"
             },
             {
               "$type": "Document",
