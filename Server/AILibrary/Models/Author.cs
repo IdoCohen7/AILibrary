@@ -42,27 +42,26 @@ namespace AILibrary.Models
             DBservices dbs = new DBservices();
             return dbs.GetAuthorsBooks(id);
         }
-
+<<<<<<< Updated upstream
         public static List<object> GetAuthorPopularity()
         {
             DBservices dbs = new DBservices();
             return dbs.GetAuthorPopularity();
         }
-
-        static public List<Object> GetAuthorLibraryDetails(int authorId)
+=======
+      public static List<Author> GetAuthorPopularity(int id)
         {
             DBservices dbs = new DBservices();
-            return dbs.GetAuthorLibraryDetails(authorId);
+            return dbs.GetAuthorPopularity(id);
         }
 
-
-
+>>>>>>> Stashed changes
 
     }
 
+    
 
+    
 
-
-
-
+   
 }

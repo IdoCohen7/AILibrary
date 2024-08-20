@@ -32,13 +32,6 @@ namespace AILibrary.Controllers
         }
 
         // GET api/<BookController>/5
-        [HttpGet("Reviews")]
-        public List<Object> GetBookReviews(string bookId)
-        {
-            return Book.GetBookReviews(bookId);
-        }
-
-        // GET api/<BookController>/5
         [HttpGet("{id}")]
         public string Get(int id)
         {
@@ -51,6 +44,12 @@ namespace AILibrary.Controllers
             return Book.GetRandomBook();
         }
 
+        [HttpGet("16Random")]
+        public List<string> Get16ThumbnailRandomBooks()
+        {
+            return Book.Get16ThumbnailRandomBooks();
+
+        }
         // POST api/<BookController>
         [HttpPost]
         public int Post([FromBody] Book book)
@@ -78,14 +77,22 @@ namespace AILibrary.Controllers
         public void Delete(int id)
         {
         }
-
+<<<<<<< Updated upstream
+=======
         //// GET: api/Book/Popularity
-        [HttpGet("Popularity")]
-        public List<object> GetBookPopularity()
+        //[HttpGet("Popularity")]
+        //public List<Book> GetBookPopularity()
+        //{
+        //    return Book.GetBookPopularity();
+        //}
+>>>>>>> Stashed changes
+        // GET: api/Book/PurchasesThisWeek
+        [HttpGet("PurchasesThisWeek")]
+        public int GetPurchasesThisWeek()
         {
-            return Book.GetBookPopularity();
+            return Book.GetPurchasesThisWeek();
         }
-
+<<<<<<< Updated upstream
         // GET: api/Book/TopRated
         [HttpGet("TopRated")]
         public List<Book> GetTopRatedBooks()
@@ -99,7 +106,20 @@ namespace AILibrary.Controllers
             return Book.GetMostNewBooks();
         }
 
-        
+        // GET: api/Book/Popularity
+        [HttpGet("Popularity")]
+        public IActionResult GetBookPopularity()
+        {
+            try
+            {
+                var bookPopularityList = Book.GetBookPopularity();
+                return Ok(bookPopularityList);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal server error");
+            }
+        }
         // GET: api/Book/Available
         [HttpGet("Available")]
         public IActionResult GetAvailableBooks()
@@ -142,13 +162,6 @@ namespace AILibrary.Controllers
             {
                 return StatusCode(500, "Internal server error");
             }
-        }
-
-        // GET: api/Book/BookLibraryDetails
-        [HttpGet("BookLibraryDetails")]
-        public List<object> GetBookLibraryDetails(string bookId)
-        {
-            return Book.GetBookLibraryDetails(bookId);  
         }
 
         // GET: api/Book/TotalBooksPurchased
@@ -195,14 +208,9 @@ namespace AILibrary.Controllers
             }
         }
 
-        [HttpGet("16Random")]
-        public List<string> Get16ThumbnailRandomBooks()
-        {
-            return Book.Get16ThumbnailRandomBooks();
-
-        }
-
-
-
+=======
+>>>>>>> Stashed changes
     }
+
 }
+

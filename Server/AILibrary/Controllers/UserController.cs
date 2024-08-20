@@ -96,27 +96,6 @@ namespace AILibrary.Controllers
             return AILibrary.Models.User.CancelBookRequest(buyerId, sellerId, bookId);
         }
 
-        // PUT api/<UserController>/5
-        [HttpPut("ChangePassword")]
-        public int ChangePassword (int userId, string password)
-        {
-            return AILibrary.Models.User.ChangePassword(userId, password);
-        }
-
-        // PUT api/<UserController>/5
-        [HttpPut("ChangeUsername")]
-        public int ChangeUsername(int userId, string name)
-        {
-            return AILibrary.Models.User.ChangeUsername(userId, name);
-        }
-
-        // PUT api/<UserController>/5
-        [HttpPut("ChangeProfilePicture")]
-        public int ChangeProfilePicture(int userId, string picture)
-        {
-            return AILibrary.Models.User.ChangeProfilePicture(userId, picture);
-        }
-
         [HttpGet("GetAccepted")]
         public List<Book> GetAcceptedBooks(int userId)
         {
@@ -154,14 +133,13 @@ namespace AILibrary.Controllers
         public void Delete(int id)
         {
         }
-
         // GET: api/User/LibraryDetails
         [HttpGet("LibraryDetails")]
-        public IActionResult GetUserLibraryDetails(int userId)
+        public IActionResult GetUserLibraryDetails()
         {
             try
             {
-                var details = AILibrary.Models.User.GetUserLibraryDetails(userId);
+                var details = AILibrary.Models.User.GetUserLibraryDetails();
                 return Ok(details);
             }
             catch (Exception ex)
@@ -201,21 +179,8 @@ namespace AILibrary.Controllers
             }
         }
 
-        // PUT api/<UserController>/5
-        [HttpPut("BanUser")]
-        public int BanUser(int userId)
-        {
-            return AILibrary.Models.User.BanUser(userId);
-        }
-
-        // PUT api/<UserController>/5
-        [HttpPut("UnbanUser")]
-        public int UnbanUser(int userId)
-        {
-            return AILibrary.Models.User.UnbanUser(userId);
-        }
-
 
 
     }
+
 }
