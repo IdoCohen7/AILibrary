@@ -162,17 +162,63 @@ jQuery(document).ready(function ($) {
   const logoutBttn = document.getElementById("logout");
   if (logoutBttn != null) {
     logoutBttn.addEventListener("click", function () {
-      if (user != null) {
-        localStorage.removeItem("user");
-        window.location.reload(); // Reload the page after removing the item
-      }
+      Logout();
     });
   }
 
   if (user != null) {
     GetNotificationCount();
+    if (user.isAdmin == true) {
+      // Create admin sidebar
+      let sidebar = document.getElementById("sidebar");
+
+      let adminHeader = document.createElement("li");
+      adminHeader.classList.add("uk-nav-header");
+      adminHeader.textContent = "Admin";
+
+      let managementItem = document.createElement("li");
+      let managementLink = document.createElement("a");
+      managementLink.href = "admin.html";
+      let managementIcon = document.createElement("i");
+      managementIcon.classList.add("ico_clipboard-text");
+      let managementSpan = document.createElement("span");
+      managementSpan.textContent = "Management";
+
+      managementLink.appendChild(managementIcon);
+      managementLink.appendChild(managementSpan);
+      managementItem.appendChild(managementLink);
+
+      let librariesItem = document.createElement("li");
+      let librariesLink = document.createElement("a");
+      librariesLink.href = "libraries.html";
+      let librariesIcon = document.createElement("i");
+      librariesIcon.classList.add("ico_library");
+      let librariesSpan = document.createElement("span");
+      librariesSpan.textContent = "Libraries";
+
+      librariesLink.appendChild(librariesIcon);
+      librariesLink.appendChild(librariesSpan);
+      librariesItem.appendChild(librariesLink);
+
+      let sidebarNav = sidebar.querySelector(".uk-nav");
+      sidebarNav.appendChild(adminHeader);
+      sidebarNav.appendChild(managementItem);
+      sidebarNav.appendChild(librariesItem);
+    }
+  }
+
+  if (user.isActive == 0) {
+    alert("You are banned, please contact management to discuss your status");
+    window.location.href = "01_login-in.html";
   }
 });
+
+function Logout() {
+  if (user != null) {
+    localStorage.removeItem("user");
+    window.location.href = "01_login-in.html"; // Reload the page after removing the item
+  }
+}
 
 let user = JSON.parse(localStorage.getItem("user"));
 
@@ -193,16 +239,40 @@ function SetProfilePicture() {
   const userPic = document.getElementById("userPic");
   let user = JSON.parse(localStorage.getItem("user"));
 
-  if (user != null && userPic != null) {
+  if (user != null) {
     userPic.src = user.profilePic;
     userPic.alt = user.name + "'s profile picture";
+    const dashboard = document.getElementById("userDashboard");
+    let anchor = document.createElement("a");
+    let disconnectBttn = document.createElement("img");
+    disconnectBttn.src = "assets/img/disconnect.png";
+    anchor.appendChild(disconnectBttn);
+    anchor.classList.add("profile");
+    anchor.id = "logout";
+
+    dashboard.appendChild(anchor);
+  } else {
+    userPic.src =
+      "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png";
   }
 }
 
+function SortBooks(array) {
+  return array.sort((a, b) => a.title.localeCompare(b.title));
+}
+
 function GetBooksSuccess(allBooks, containerId, callback) {
+  allBooks = SortBooks(allBooks);
+
   let booksContainer = document.getElementById(containerId);
+
   if (!booksContainer) return; // Ensure the container exists
   booksContainer.innerHTML = "";
+
+  if (allBooks.length == 0) {
+    booksContainer.innerHTML = "No books to display.";
+    return;
+  }
 
   allBooks.forEach((book) => {
     let outerDiv = document.createElement("div");
@@ -216,6 +286,7 @@ function GetBooksSuccess(allBooks, containerId, callback) {
     let mediaDiv = document.createElement("div");
     mediaDiv.classList.add("game-card__media");
 
+    let imgAnchor = document.createElement("a");
     let mediaImg = document.createElement("img");
     mediaImg.style.width = "100%";
     mediaImg.style.objectFit = "contain";
@@ -223,12 +294,12 @@ function GetBooksSuccess(allBooks, containerId, callback) {
     mediaImg.alt = book.title;
     mediaImg.addEventListener("click", function () {
       // Populate modal with book details
-
       // Open the modal
       UIkit.modal("#modal-book").show();
       FillModalContent(book);
     });
-    mediaDiv.appendChild(mediaImg);
+    imgAnchor.appendChild(mediaImg);
+    mediaDiv.appendChild(imgAnchor);
 
     let infoDiv = document.createElement("div");
     infoDiv.classList.add("game-card__info");
@@ -245,8 +316,14 @@ function GetBooksSuccess(allBooks, containerId, callback) {
     let ratingAndPriceDiv = document.createElement("div");
     ratingAndPriceDiv.classList.add("game-card__rating-and-price");
 
+    let ratingAnchor = document.createElement("a");
     let ratingDiv = document.createElement("div");
     ratingDiv.classList.add("game-card__rating");
+    ratingDiv.addEventListener("click", function () {
+      UIkit.modal("#modal-reviews").show();
+      GetBookReviews(book.id);
+    });
+    ratingAnchor.appendChild(ratingDiv);
 
     let ratingSpan = document.createElement("span");
     ratingSpan.textContent = book.ratingAverage;
@@ -271,7 +348,7 @@ function GetBooksSuccess(allBooks, containerId, callback) {
 
     priceDiv.appendChild(priceSpan);
 
-    ratingAndPriceDiv.appendChild(ratingDiv);
+    ratingAndPriceDiv.appendChild(ratingAnchor);
     ratingAndPriceDiv.appendChild(priceDiv);
 
     let bottomDiv = document.createElement("div");
@@ -319,9 +396,14 @@ function GetBooksSuccess(allBooks, containerId, callback) {
     heartAnchor.classList.add("heartFavorite");
 
     heartAnchor.addEventListener("click", function AddBookToFavorite() {
-      if (user != null && confirm("Buy this book for " + book.price + "?")) {
-        AddToFavorite(book.id);
-      } else alert("you must log in first");
+      if (user == null) {
+        alert("you must log in first");
+        return;
+      } else {
+        if (confirm("Buy this book for " + book.price + "$?")) {
+          AddToFavorite(book.id);
+        }
+      }
     });
     let heart = document.createElement("img");
     heart.src = "assets/img/icons/addFavorite.png";
@@ -370,8 +452,10 @@ function AddToFavoriteSCB(Message) {
   }
 }
 
-function AjaxECB(response) {
-  alert("Error: " + response);
+function AjaxECB(xhr) {
+  let title = xhr.getResponseHeader("X-Title") || "No Title";
+  let errorDetails = xhr.responseText || "No error details available";
+  alert("Error occurred : " + title + "\nInfo: " + errorDetails);
 }
 
 function GetNotificationCount() {
@@ -427,4 +511,122 @@ function FillModalContent(book) {
   modalBody.innerHTML = content;
 
   // Optionally, you can add other elements or update existing ones if needed
+}
+
+function GetBookReviews(bookId) {
+  let api = "https://localhost:7063/api/Book/Reviews?bookId=" + bookId;
+  ajaxCall("GET", api, null, GetBookReviewsSCB, AjaxECB);
+}
+
+async function query(data) {
+  const response = await fetch(
+    "https://api-inference.huggingface.co/models/avichr/heBERT_sentiment_analysis",
+    {
+      headers: {
+        Authorization: "Bearer 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", // Replace with your API key
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify(data),
+    }
+  );
+  const result = await response.json();
+  return result;
+}
+
+function GetBookReviewsSCB(reviews) {
+  let modalBody = document.getElementById("reviewModalHeader");
+  modalBody.innerHTML = ""; // Clear previous content if any
+
+  // Add the h2 element at the top
+  let title = document.createElement("h2");
+  title.classList.add("uk-modal-title");
+  title.textContent = "Reviews";
+  modalBody.appendChild(title);
+
+  // Add the reviews or the "no reviews" message
+  if (reviews.length === 0) {
+    let noReviewsDiv = document.createElement("div");
+    noReviewsDiv.innerHTML = "There are no reviews available.";
+    modalBody.appendChild(noReviewsDiv);
+  } else {
+    reviews.forEach((review, index) => {
+      let outerDiv = document.createElement("div");
+      outerDiv.classList.add("user-item", "--active");
+
+      let imgDiv = document.createElement("div");
+      imgDiv.classList.add("user-item__avatar");
+      let img = document.createElement("img");
+      img.src = review.profilePic;
+      img.alt = "user";
+      imgDiv.appendChild(img);
+
+      let userDiv = document.createElement("div");
+      userDiv.classList.add("user-item__box");
+
+      let usernameDiv = document.createElement("div");
+      usernameDiv.classList.add("user-item__name");
+      let usernameLink = document.createElement("a");
+      usernameLink.textContent = review.userName;
+      usernameDiv.appendChild(usernameLink);
+
+      let reviewTextDiv = document.createElement("div");
+      reviewTextDiv.classList.add("user-item__playing");
+      reviewTextDiv.textContent = "Review: " + review.text;
+
+      let ratingDiv = document.createElement("div");
+      ratingDiv.classList.add("user-item__playing");
+      ratingDiv.innerHTML = `Rating: <b>${review.rating}/5</b>`;
+
+      let dateDiv = document.createElement("div");
+      dateDiv.classList.add("user-item__playing");
+      dateDiv.innerHTML = `Date: <b>${review.date}</b>`;
+
+      let sentimentButton = document.createElement("button");
+      sentimentButton.textContent = "Analyze Sentiment";
+      sentimentButton.classList.add("sentiment-button");
+      sentimentButton.addEventListener("click", async () => {
+        try {
+          const sentimentResult = await query({ inputs: review.text });
+
+          // Ensure correct access to sentiment result
+          const label = sentimentResult[0][0]?.label || "Unknown";
+          const score = sentimentResult[0][0]?.score || 0;
+
+          // Capitalize the first letter of the sentiment label
+          const capitalizedLabel =
+            label.charAt(0).toUpperCase() + label.slice(1);
+
+          // Format score to two decimal places
+          const formattedScore = score.toFixed(2);
+
+          // Display the result in an alert
+          alert(`Sentiment: ${capitalizedLabel}\n(Score: ${formattedScore})`);
+        } catch (error) {
+          console.error("Error analyzing sentiment:", error);
+          alert("Error analyzing sentiment.");
+        }
+      });
+
+      userDiv.appendChild(usernameDiv);
+      userDiv.appendChild(reviewTextDiv);
+      userDiv.appendChild(ratingDiv);
+      userDiv.appendChild(dateDiv);
+      userDiv.appendChild(sentimentButton);
+
+      outerDiv.appendChild(imgDiv);
+      outerDiv.appendChild(userDiv);
+
+      modalBody.appendChild(outerDiv);
+    });
+  }
+
+  // Add the p element at the bottom
+  let infoParagraph = document.createElement("p");
+  infoParagraph.id = "reviewBookId";
+  infoParagraph.classList.add("uk-form-label");
+  infoParagraph.style.textAlign = "center";
+  infoParagraph.textContent =
+    "Rating data is also based on external rating sites!";
+  modalBody.appendChild(infoParagraph);
 }

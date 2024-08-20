@@ -61,25 +61,15 @@
               <button class="menu-btn ico_menu is-active"></button>
             </div>
             <div class="page-header__logo">
-              <img src="assets/img/logo.png" alt="logo" /><span
-                class="page-header__logo_text"
-                >TEAMHOST</span
-              >
+              <img
+                src="assets/img/android-chrome-512x512.png"
+                alt="logo"
+              /><span class="page-header__logo_text">MyBook</span>
             </div>
           </div>
           <div class="page-header__content">
-            <div class="page-header__search">
-              <div class="search">
-                <div class="search__input">
-                  <i class="ico_search"></i
-                  ><input type="search" name="search" placeholder="Search" />
-                </div>
-                <div class="search__btn">
-                  <button type="button"><i class="ico_microphone"></i></button>
-                </div>
-              </div>
-            </div>
-            <div class="page-header__action">
+            <div></div>
+            <div class="page-header__action" id="userDashboard">
               <a class="action-btn" href="06_chats.html"
                 ><i class="ico_message"></i
                 ><span class="animation-ripple-delay1"></span
@@ -89,9 +79,8 @@
                 ><span class="animation-ripple-delay2"></span
               ></a>
               <a class="profile" href="04_profile.html"
-                ><img src="assets/img/profile.png" alt="profile" id="userPic"
+                ><img alt="profile" id="userPic"
               /></a>
-              <a class="profile" id="logout">logout</a>
             </div>
           </div>
         </div>
@@ -176,6 +165,25 @@
       </div>
     </div>
     <div class="page-modals">
+      <div class="uk-flex-top" id="modal-reviews" data-uk-modal>
+        <div
+          id="reviewModalHeader"
+          class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical"
+        >
+          <button
+            class="uk-modal-close-default"
+            type="button"
+            data-uk-close
+          ></button>
+          <h2 class="uk-modal-title">Reviews</h2>
+
+          <div class="uk-margin" class="uk-form-label">
+            <span id="reviewBookId" class="uk-form-label"
+              >Rating data is also based on external rating sites!</span
+            >
+          </div>
+        </div>
+      </div>
       <div class="uk-flex-top" id="modal-book" data-uk-modal>
         <div
           id="modalHeader"

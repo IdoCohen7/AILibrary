@@ -49,5 +49,20 @@ namespace AILibrary.Controllers
         public void Delete(int id)
         {
         }
+
+        // GET: api/Author/Popularity?id=5
+        [HttpGet("Popularity")]
+        public List<object> GetAuthorPopularity()
+        {
+            return Author.GetAuthorPopularity();
+        }
+
+        // GET: api/Author/AuthorLibraryDetails
+        [HttpGet("AuthorLibraryDetails")]
+        public List<object> GetAuthorLibraryDetails(int authorId)
+        {
+            return Author.GetAuthorLibraryDetails(authorId);
+        }
+
     }
 }

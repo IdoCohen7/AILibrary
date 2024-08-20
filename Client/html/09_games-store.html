@@ -68,7 +68,7 @@
           </div>
           <div class="page-header__content">
             <div></div>
-            <div class="page-header__action">
+            <div class="page-header__action" id="userDashboard">
               <a class="action-btn" href="06_chats.html"
                 ><i class="ico_message"></i
                 ><span class="animation-ripple-delay1"></span
@@ -78,9 +78,8 @@
                 ><span class="animation-ripple-delay2"></span
               ></a>
               <a class="profile" href="04_profile.html"
-                ><img src="assets/img/profile.png" alt="profile" id="userPic"
+                ><img alt="profile" id="userPic"
               /></a>
-              <a class="profile" id="logout">logout</a>
             </div>
           </div>
         </div>
@@ -102,19 +101,10 @@
               </li>
               <li>
                 <a href="05_favourites.html"
-                  ><i class="ico_favourites"></i><span>Favorites</span></a
+                  ><i class="ico_favourites"></i><span>Library</span></a
                 >
               </li>
-              <li>
-                <a href="06_chats.html"
-                  ><i class="ico_chats"></i><span>Chats</span></a
-                >
-              </li>
-              <li>
-                <a href="07_friends.html"
-                  ><i class="ico_friends"></i><span>Friends</span></a
-                >
-              </li>
+             
               <li>
                 <a href="08_wallet.html" id="requestNote"
                   ><i class="ico_wallet"></i><span>Requests </span>
@@ -150,14 +140,6 @@
           </div>
         </aside>
         <main class="page-main">
-          <div id="myModal" class="modal">
-            <div class="modal-content">
-              <span class="close">&times;</span>
-              <div id="modalBookContent">
-                <!-- Book details will be filled here -->
-              </div>
-            </div>
-          </div>
           <div class="widjet --filters">
             <div class="widjet__head">
               <h3 class="uk-text-lead">Browse our book list</h3>
@@ -208,8 +190,18 @@
                 </div>
                 <div class="uk-text-right"><a href="#!" id="bookSum"></a></div>
               </div>
+              <div class="search" id="sortDiv">
+                <select class="js-select" id="sort">
+                  <option value="ABC">A-Z</option>
+                  <option value="Rating">Best Rated First</option>
+                  <option value="Price">Cheapest First</option>
+                </select>
+                <button class="uk-button uk-button-secondary" id="sortBttn">Sort</button>
+              </div>
             </div>
+            
           </div>
+          
           <div
             class="uk-grid uk-child-width-1-6@xl uk-child-width-1-4@l uk-child-width-1-3@s uk-flex-middle uk-grid-small"
             data-uk-grid
@@ -217,6 +209,16 @@
           ></div>
         </main>
         <div class="page-modals">
+          <div class="uk-flex-top" id="modal-reviews" data-uk-modal>
+            <div id="reviewModalHeader" class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical"><button class="uk-modal-close-default" type="button" data-uk-close></button>
+                                <h2 class="uk-modal-title">Reviews</h2>
+                                
+                    <div class="uk-margin" class="uk-form-label">
+                        
+                        <span id="reviewBookId" class="uk-form-label">Rating data is also based on external rating sites!</span>
+        </div>
+      </div>
+    </div>
           <div class="uk-flex-top" id="modal-book" data-uk-modal>
             <div id="modalHeader" class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical"><button class="uk-modal-close-default" type="button" data-uk-close></button>
                     <div class="uk-margin">

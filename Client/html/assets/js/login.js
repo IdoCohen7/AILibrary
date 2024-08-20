@@ -29,7 +29,7 @@ $(document).ready(function () {
       Login($("#email2TB").val(), $("#password2TB").val());
     } else {
       alert(
-        "ERROR: Password shorter than 4 characters or invalid email format"
+        "ERROR: Password shorter than 3 characters or invalid email format"
       );
     }
   });
@@ -40,7 +40,13 @@ $(document).ready(function () {
       passwordPattern.test($("#passwordTB").val())
     ) {
       event.preventDefault(); // Prevent default form submission
-      SignUp($("#nameTB").val(), $("#emailTB").val(), $("#passwordTB").val());
+
+      SignUp(
+        $("#nameTB").val(),
+        $("#emailTB").val(),
+        $("#passwordTB").val(),
+        uploadedImage
+      );
     } else {
       alert(
         "ERROR: Password shorter than 4 characters or invalid email format"
@@ -92,13 +98,17 @@ function LoginECB() {
   localStorage.removeItem("user");
 }
 
-function SignUp(name, email, password) {
+function SignUp(name, email, password, profilePic) {
+  if (profilePic == null) {
+    profilePic =
+      "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png";
+  }
   let api = "https://localhost:7063/api/User/Register";
   let newUser = {
     name: name,
     email: email,
     password: password,
-    profilePic: "",
+    profilePic: profilePic,
   };
   ajaxCall("POST", api, JSON.stringify(newUser), SignUPSCB, SignUPECB);
 }
@@ -112,4 +122,61 @@ function SignUPSCB(status) {
 
 function SignUPECB(err) {
   alert("ERROR: " + err.responseText || "An error occurred during sign-up.");
+}
+
+// Global variables to store the image data and folder path
+var uploadedImage;
+var imageFolder = "https://localhost:7063/Images/";
+
+$(document).ready(function () {
+  $("#buttonUpload").on("click", function () {
+    var data = new FormData();
+    var files = $("#files").get(0).files;
+
+    // Add the uploaded file to the form data collection
+    if (files.length > 0) {
+      for (f = 0; f < files.length; f++) {
+        data.append("files", files[f]);
+      }
+    }
+
+    var api = "https://localhost:7063/api/Upload";
+
+    // Ajax upload
+    $.ajax({
+      type: "POST",
+      url: api,
+      contentType: false,
+      processData: false,
+      data: data,
+      success: showImages,
+      error: error,
+    });
+
+    return false;
+  });
+});
+
+function showImages(data) {
+  var bttn = document.getElementById("buttonUpload");
+  bttn.style.display = "none";
+  var imgStr = "";
+
+  if (Array.isArray(data)) {
+    for (var i = 0; i < data.length; i++) {
+      var src = imageFolder + data[i];
+      imgStr += `<img src='${src}' style="width: 80px;"/>`;
+      uploadedImage = src;
+    }
+  } else {
+    var src = imageFolder + data;
+    imgStr = `<img src='${src}'/>`;
+  }
+  document.getElementById("ph").innerHTML = imgStr;
+}
+
+// Now you can access uploadedImages anywhere in your script
+
+function error(data) {
+  console.log(data);
 }

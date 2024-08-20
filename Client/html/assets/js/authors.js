@@ -9,73 +9,117 @@ function GetAuthorsSCB(allAuthors) {
   headOne.innerHTML = "Our site features creations by:";
   let remainingAuthors = allAuthors.length;
   let authorsList = [];
-
-  function handleAuthorResponse(index, html) {
-    authorsList[index] = html;
-    remainingAuthors--;
-
-    div.appendChild(headOne);
-    // Once all authors are processed, append to the page
-    if (remainingAuthors === 0) {
-      $(".page-main").append(authorsList.join(""));
-
-      // Now attach event listeners to the buttons
-      let buttons = document.querySelectorAll(".author button");
-      buttons.forEach((button) => {
-        button.addEventListener("click", function () {
-          ShowBooksWrittenBy(button.value);
-        });
-      });
-    }
-  }
+  let authorPromises = [];
 
   allAuthors.forEach((author, index) => {
-    const authorName = author.name.split(" ").join("_");
-    const apiUrl = `https://en.wikipedia.org/w/api.php?action=query&prop=extracts|pageimages&format=json&titles=${authorName}&exintro=1&origin=*`;
+    const authorName = encodeURIComponent(author.name);
 
-    ajaxCall(
-      "GET",
-      apiUrl,
-      null,
-      (data) => {
-        const page = Object.values(data.query.pages)[0];
-        const biography = page.extract || "No biography available.";
-        const imageUrl = page.thumbnail ? page.thumbnail.source : null;
+    // Create promises for both Wikipedia and Open Library API calls
+    const wikiUrl = `https://en.wikipedia.org/w/api.php?action=query&prop=extracts|pageimages&format=json&titles=${authorName}&exintro=1&origin=*`;
+    const wikiPromise = new Promise((resolve) => {
+      ajaxCall(
+        "GET",
+        wikiUrl,
+        null,
+        (data) => {
+          const page = Object.values(data.query.pages)[0];
+          const biography = page.extract || "No biography available.";
+          const imageUrl = page.thumbnail ? page.thumbnail.source : null;
 
-        // Check if the biography seems to be about multiple people or not about a person
-        const isDisambiguation =
-          biography.includes("may refer to") ||
-          biography.includes("disambiguation") ||
-          biography.includes("is the name of");
+          // filter biographies that are not related to one person
+          const isDisambiguation =
+            biography.includes("may refer to") ||
+            biography.includes("disambiguation") ||
+            biography.includes("is the name of");
 
-        const html = `
-              <div class="author" style="margin-bottom: 80px;">
-                <h3>${author.name}</h3>
-                ${
-                  imageUrl
-                    ? `<img src="${imageUrl}" alt="${author.name}" style="max-width: 200px; height: auto;">`
-                    : ""
-                }
-                <p>${
-                  isDisambiguation ? "No biography available." : biography
-                }</p>
-                <button class="uk-button uk-button-secondary" value="${
-                  author.id
-                }">View Books by ${author.name}</button>
-              </div>`;
+          resolve({
+            biography: isDisambiguation ? "No biography available." : biography,
+            imageUrl,
+          });
+        },
+        () => {
+          resolve({
+            biography: "No biography available.",
+            imageUrl: null,
+          });
+        }
+      );
+    });
 
-        handleAuthorResponse(index, html);
-      },
-      () => {
-        const html = `
-              <div class="author">
-                <h3>${author.name}</h3>
-                <p>No biography available.</p>
-              </div>`;
+    const openLibraryUrl = `https://openlibrary.org/search/authors.json?q=${authorName}`;
+    const openLibraryPromise = fetch(openLibraryUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        const doc = data.docs[0];
+        return {
+          birthDate: doc.birth_date
+            ? `<p><strong>Birth Date:</strong> ${doc.birth_date}</p>`
+            : "",
+          deathDate: doc.death_date
+            ? `<p><strong>Death Date:</strong> ${doc.death_date}</p>`
+            : "",
+          topSubjects: doc.top_subjects
+            ? `<p><strong>Top Subjects:</strong> ${doc.top_subjects.join(
+                ", "
+              )}</p>`
+            : "",
+          topWork: doc.top_work
+            ? `<p><strong>Top Work:</strong> ${doc.top_work}</p>`
+            : "",
+        };
+      })
+      .catch((error) => {
+        console.error("Error fetching Open Library data:", error);
+        return {
+          birthDate: "",
+          deathDate: "",
+          topSubjects: "",
+          topWork: "",
+        };
+      });
 
-        handleAuthorResponse(index, html);
-      }
+    authorPromises.push(
+      Promise.all([wikiPromise, openLibraryPromise]).then(
+        ([wikiData, openLibraryData]) => {
+          const { biography, imageUrl } = wikiData;
+          const { birthDate, deathDate, topSubjects, topWork } =
+            openLibraryData;
+
+          return `
+          <div class="author" style="margin-bottom: 80px;">
+            <h3>${author.name}</h3>
+            ${
+              imageUrl
+                ? `<img src="${imageUrl}" alt="${author.name}" style="max-width: 200px; height: auto;">`
+                : ""
+            }
+            <p>${biography}</p>
+            <div class="additional-info">
+              ${birthDate}
+              ${deathDate}
+              ${topSubjects}
+              ${topWork}
+            </div>
+            <button class="uk-button uk-button-secondary" value="${
+              author.id
+            }">View Books by ${author.name}</button>
+          </div>`;
+        }
+      )
     );
+  });
+
+  Promise.all(authorPromises).then((authorsHtml) => {
+    div.appendChild(headOne);
+    $(".page-main").append(authorsHtml.join(""));
+
+    // Now attach event listeners to the buttons
+    let buttons = document.querySelectorAll(".author button");
+    buttons.forEach((button) => {
+      button.addEventListener("click", function () {
+        ShowBooksWrittenBy(button.value);
+      });
+    });
   });
 }
 
@@ -89,44 +133,41 @@ function ShowBooksWrittenBy(authorId) {
 }
 
 function ShowBooksWrittenBySCB(booksByAuthor) {
-  let booksAuthorContainer = document.createElement("div");
+  // clear main div
+  const mainDiv = document.getElementById("mainDiv");
+  mainDiv.innerHTML = "";
 
-  // Display books in the booksContainer div
-  GetBooksSuccess(booksByAuthor, "booksContainer");
-
-  // Create and add return button
+  // add return button
   const returnButton = document.createElement("button");
   returnButton.textContent = "Return";
+  returnButton.style.margin = "20px";
+  returnButton.classList.add("uk-button");
+  returnButton.classList.add("uk-button-secondary");
   returnButton.onclick = () => {
     window.location.href = "13_community.html";
   };
 
-  // Add the return button to the booksAuthorContainer
-  booksAuthorContainer.appendChild(returnButton);
+  // Append return button
+  mainDiv.appendChild(returnButton);
 
-  // Select the mainDiv and booksContainer
-  const mainDiv = document.getElementById("mainDiv");
-  const booksContainer = document.getElementById("booksContainer");
+  // Create a new booksContainer div
+  const booksContainer = document.createElement("div");
+  booksContainer.className =
+    "uk-grid uk-child-width-1-6@xl uk-child-width-1-4@l uk-child-width-1-3@s uk-flex-middle uk-grid-small";
+  booksContainer.setAttribute("data-uk-grid", "");
+  booksContainer.id = "booksContainer";
 
-  // Clear all content in mainDiv except for booksContainer
-  if (booksContainer) {
-    // Store the booksContainer's content
-    const booksContainerContent = booksContainer.innerHTML;
+  // Append the booksContainer to the mainDiv
+  mainDiv.appendChild(booksContainer);
 
-    // Clear mainDiv
-    mainDiv.innerHTML = "";
-
-    // Reinsert booksContainer and its content
-    mainDiv.innerHTML = booksContainerContent;
-    mainDiv.appendChild(booksAuthorContainer);
-  } else {
-    // If booksContainer does not exist, just clear the mainDiv and add the booksAuthorContainer
-    mainDiv.innerHTML = "";
-    mainDiv.appendChild(booksAuthorContainer);
-  }
+  // Display books in the new booksContainer div
+  GetBooksSuccess(booksByAuthor, "booksContainer");
 }
 
 function ShowBooksWrittenByECB(Error) {
   alert("Error: " + Error);
 }
-GetAuthors();
+
+jQuery(document).ready(function ($) {
+  GetAuthors();
+});

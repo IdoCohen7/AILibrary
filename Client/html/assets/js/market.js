@@ -32,14 +32,17 @@ function AddSellerDetails() {
   for (let i = 0; i < interactionDivs.length; i++) {
     if (i < marketPlaceArray.length) {
       let seller = marketPlaceArray[i].username || "Unknown seller";
-      let finishedDate = formatDate(marketPlaceArray[i].finishedDate);
+      let finishedDate = marketPlaceArray[i].finishedDate;
 
       // Create the HTML content
-      let content = `Up for sale by ${seller}<br>Finished reading on ${finishedDate}`;
+      let content = document.createElement("p");
+      content.innerHTML = `Up for sale by ${seller}<br>Finished reading on ${finishedDate}`;
+      content.style.fontSize = "11px";
+      content.classList.add("game-card__genre");
 
       // Create the "request to buy" link
       let requestLink = document.createElement("a");
-      requestLink.textContent = "Request to Buy";
+      requestLink.textContent = "Request";
       requestLink.addEventListener("click", function () {
         let api =
           "https://localhost:7063/api/User/SendRequest?buyerId=" +
@@ -53,7 +56,8 @@ function AddSellerDetails() {
       requestLink.classList.add("request-to-buy"); // Add a class for styling if needed
 
       // Append the link to the content
-      interactionDivs[i].innerHTML = content;
+      interactionDivs[i].innerHTML = "";
+      interactionDivs[i].appendChild(content);
       interactionDivs[i].appendChild(requestLink);
     } else {
       console.warn("No corresponding book for interactionDiv index:", i);

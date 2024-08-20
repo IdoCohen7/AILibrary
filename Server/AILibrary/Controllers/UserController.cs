@@ -96,6 +96,27 @@ namespace AILibrary.Controllers
             return AILibrary.Models.User.CancelBookRequest(buyerId, sellerId, bookId);
         }
 
+        // PUT api/<UserController>/5
+        [HttpPut("ChangePassword")]
+        public int ChangePassword (int userId, string password)
+        {
+            return AILibrary.Models.User.ChangePassword(userId, password);
+        }
+
+        // PUT api/<UserController>/5
+        [HttpPut("ChangeUsername")]
+        public int ChangeUsername(int userId, string name)
+        {
+            return AILibrary.Models.User.ChangeUsername(userId, name);
+        }
+
+        // PUT api/<UserController>/5
+        [HttpPut("ChangeProfilePicture")]
+        public int ChangeProfilePicture(int userId, string picture)
+        {
+            return AILibrary.Models.User.ChangeProfilePicture(userId, picture);
+        }
+
         [HttpGet("GetAccepted")]
         public List<Book> GetAcceptedBooks(int userId)
         {
@@ -133,5 +154,68 @@ namespace AILibrary.Controllers
         public void Delete(int id)
         {
         }
+
+        // GET: api/User/LibraryDetails
+        [HttpGet("LibraryDetails")]
+        public IActionResult GetUserLibraryDetails(int userId)
+        {
+            try
+            {
+                var details = AILibrary.Models.User.GetUserLibraryDetails(userId);
+                return Ok(details);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception here if needed
+                return StatusCode(500, "Internal server error");
+            }
+        }
+        // GET: api/User/ThisWeeksRevenue
+        [HttpGet("ThisWeeksRevenue")]
+        public IActionResult GetThisWeeksRevenue()
+        {
+            try
+            {
+                float revenue = AILibrary.Models.User.GetThisWeeksRevenue();
+                return Ok(revenue);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception here if needed
+                return StatusCode(500, "Internal server error");
+            }
+        }
+        // GET: api/User/AllUsersWithBookCount
+        [HttpGet("AllUsersWithBookCount")]
+        public IActionResult GetAllUsersWithBookCount()
+        {
+            try
+            {
+                DBservices dbs = new DBservices();
+                List<object> users = dbs.GetAllUsersWithBookCount();
+                return Ok(users);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+        // PUT api/<UserController>/5
+        [HttpPut("BanUser")]
+        public int BanUser(int userId)
+        {
+            return AILibrary.Models.User.BanUser(userId);
+        }
+
+        // PUT api/<UserController>/5
+        [HttpPut("UnbanUser")]
+        public int UnbanUser(int userId)
+        {
+            return AILibrary.Models.User.UnbanUser(userId);
+        }
+
+
+
     }
 }
