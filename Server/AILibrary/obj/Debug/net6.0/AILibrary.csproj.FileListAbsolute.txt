@@ -90,3 +90,4 @@ C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\D
 C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\AILibrary.staticwebassets.runtime.json

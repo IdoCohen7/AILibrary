@@ -137,3 +137,13 @@ function CancelBookRequestSCB(message) {
     alert("Error: can't exchange book.");
   }
 }
+const url = "https://openlibrary.org/search/authors.json?q=Plato";
+
+fetch(url)
+  .then((response) => response.json()) // המרת התשובה לפורמט JSON
+  .then((data) => {
+    console.log(data); // הצגת התוצאה ב-console
+  })
+  .catch((error) => {
+    console.error("Error:", error); // טיפול בשגיאות אם יש
+  });

@@ -1,11 +1,6 @@
-jQuery(document).ready(function ($) {
+$(document).ready(function () {
   if (user != null) {
-    SetLibraryHeader();
-    GetFavoriteBooks();
-    GetReadBooks();
-    GetBoughtBooks();
-    SetStarSystem();
-    SetRatingSystem();
+    LoadPage();
   } else {
     if (
       confirm(
@@ -22,243 +17,188 @@ jQuery(document).ready(function ($) {
   }
 });
 
-function SetLibraryHeader() {
-  const libraryHeader = document.getElementById("libraryHeader");
-  libraryHeader.innerText = user.name + "'s Library";
-}
-
-function GetFavoriteBooks() {
-  let api = "https://localhost:7063/api/User/GetFavorites?userId=" + user.id;
-  ajaxCall("GET", api, null, GetFavoriteBooksSCB, AjaxECB);
-}
-
-function GetFavoriteBooksSCB(favoriteBooks) {
-  GetBooksSuccess(favoriteBooks, "booksContainer");
-  ReplaceHearts("booksContainer");
-}
-
-function ReplaceHearts(containerName) {
-  let booksContainer = document.getElementById(containerName);
-  let hearts = booksContainer.getElementsByClassName("interact");
-
-  for (let i = 0; i < hearts.length; i++) {
-    let bookId = hearts[i].id;
-    hearts[i].innerHTML = "";
-
-    // Create and configure the "remove from favorites" anchor
-    let heartAnchor = document.createElement("a");
-    heartAnchor.classList.add("heartFavorite");
-
-    let heart = document.createElement("img");
-    heart.src = "assets/img/icons/removeFavorite.png";
-    heart.style.width = "40px";
-    heart.style.height = "40px";
-    heartAnchor.appendChild(heart);
-    heartAnchor.addEventListener("click", function () {
-      RemoveFromFavorites(bookId);
-    });
-    hearts[i].appendChild(heartAnchor);
-
-    // Create and configure the "mark as read" anchor
-    let doneAnchor = document.createElement("a");
-    doneAnchor.classList.add("heartFavorite");
-
-    let done = document.createElement("img");
-    done.src = "assets/img/icons/done.png";
-    done.style.width = "40px";
-    done.style.height = "40px";
-    doneAnchor.appendChild(done);
-    doneAnchor.addEventListener("click", function () {
-      MarkAsRead(bookId);
-    });
-    hearts[i].appendChild(doneAnchor);
-  }
-}
-
-function GetReadBooks() {
-  let api = "https://localhost:7063/api/User/GetHistory?userId=" + user.id;
-  ajaxCall("GET", api, null, GetReadBooksSCB, AjaxECB);
-}
-
-function GetReadBooksSCB(readBooks) {
-  GetBooksSuccess(readBooks, "readContainer");
-  AddReviewLogo("readContainer");
-}
-
-function RemoveHearts(containerName) {
-  let readContainer = document.getElementById(containerName);
-  let hearts = readContainer.getElementsByClassName("interact");
-
-  for (let i = 0; i < hearts.length; i++) {
-    hearts[i].innerHTML = "";
-  }
-}
-
-function RemoveFromFavorites(bookId) {
-  let api =
-    "https://localhost:7063/api/User/RemoveFavorite?userId=" +
-    user.id +
-    "&bookId=" +
-    bookId;
-  ajaxCall("DELETE", api, null, RemoveFromFavoritesSCB, AjaxECB);
-}
-
-function RemoveFromFavoritesSCB(Message) {
-  if (Message == 1) {
-    window.location.reload();
+function LoadPage() {
+  // fill details
+  let profilePic = document.getElementById("profilePic");
+  profilePic.src = user.profilePic;
+  let header = document.getElementById("userHeader");
+  header.innerHTML = user.name + "'s Account";
+  let emailDiv = document.getElementById("emailDiv");
+  emailDiv.innerHTML = user.email;
+  let statusDiv = document.getElementById("statusDiv");
+  if (user.isActive == true) {
+    statusDiv.innerHTML = "Activated";
   } else {
-    alert("Error occured");
+    statusDiv.innerHTML = "Banned";
   }
-}
+  let dateDiv = document.getElementById("dateDiv");
+  dateDiv.innerHTML = user.registrationDate;
 
-function MarkAsRead(bookId) {
-  if (confirm("Have you finished reading this book?")) {
-    let api =
-      "https://localhost:7063/api/User/Mark?userId=" +
-      user.id +
-      "&bookId=" +
-      bookId;
-    ajaxCall("POST", api, null, MarkAsReadSCB, AjaxECB);
-  } else {
-  }
-}
+  // give functions
 
-function MarkAsReadSCB(Message) {
-  if (Message == 2) {
-    window.location.reload();
-  } else {
-    // Show an error alert if Message is not 2
-    alert("Book is already read");
-  }
-}
-
-function GetBoughtBooks() {
-  let api = "https://localhost:7063/api/User/GetAccepted?userId=" + user.id;
-  ajaxCall("GET", api, null, GetBoughtBooksSCB, AjaxECB);
-}
-
-function GetBoughtBooksSCB(boughtBooks) {
-  GetBooksSuccess(boughtBooks, "boughtContainer");
-  ReplaceHearts("boughtContainer");
-}
-
-function AddReviewLogo(containerName) {
-  let booksContainer = document.getElementById(containerName);
-  let hearts = booksContainer.getElementsByClassName("interact");
-
-  for (let i = 0; i < hearts.length; i++) {
-    let bookId = hearts[i].id;
-    hearts[i].innerHTML = "";
-
-    // Create and configure the "remove from favorites" anchor
-    let heartAnchor = document.createElement("a");
-    heartAnchor.classList.add("heartFavorite");
-
-    let heart = document.createElement("img");
-    heart.src = "assets/img/icons/review.png";
-    heart.style.width = "40px";
-    heart.style.height = "40px";
-    heartAnchor.appendChild(heart);
-    heartAnchor.href = "#modal-review";
-    heartAnchor.setAttribute("data-uk-toggle", "");
-    heartAnchor.addEventListener("click", function () {
-      let idp = document.getElementById("bookId");
-      idp.innerHTML = "";
-      idp.innerHTML = bookId;
-    });
-    hearts[i].appendChild(heartAnchor);
-  }
-}
-
-function SetStarSystem() {
-  document.querySelectorAll(".star-rating .star").forEach(function (star) {
-    star.addEventListener("mouseover", function () {
-      // Add hover effect to the current star and all stars to the right
-      let currentStar = this;
-      while (currentStar) {
-        currentStar.classList.add("hover");
-        currentStar = currentStar.nextElementSibling;
-      }
-    });
-
-    star.addEventListener("mouseout", function () {
-      // Remove hover effect from all stars
-      this.parentNode.querySelectorAll(".star").forEach(function (s) {
-        s.classList.remove("hover");
-      });
-    });
-
-    star.addEventListener("click", function () {
-      // Remove selected class from all stars
-      this.parentNode.querySelectorAll(".star").forEach(function (s) {
-        s.classList.remove("selected");
-      });
-
-      // Add selected class to the current star and all stars to the right
-      let currentStar = this;
-      while (currentStar) {
-        currentStar.classList.add("selected");
-        currentStar = currentStar.nextElementSibling;
-      }
-
-      // Store the selected rating value
-      const ratingValue = this.getAttribute("data-value");
-      console.log("Selected rating:", ratingValue);
-
-      // Store the rating value for further use (e.g., form submission)
-      document
-        .querySelector(".uk-form-controls")
-        .setAttribute("data-rating", ratingValue);
-    });
+  let passwordBttn = document.getElementById("changePasswordBttn");
+  passwordBttn.addEventListener("click", function () {
+    UIkit.modal("#modal-password").show();
   });
-}
 
-function SetRatingSystem() {
-  let bookId = document.getElementById("bookId");
-  let text = document.getElementById("reviewText");
+  let nameBttn = document.getElementById("changeNameBttn");
+  nameBttn.addEventListener("click", function () {
+    UIkit.modal("#modal-username").show();
+  });
+
   document
-    .getElementById("ratingForm")
+    .getElementById("changePasswordForm")
     .addEventListener("submit", function (event) {
       event.preventDefault();
-      let reviewText = text.value;
-      if (reviewText == null) {
-        reviewText = "Empty";
+      let oldPassword = document.getElementById("old-password");
+      let newPassword = document.getElementById("new-password");
+      let confirmPassword = document.getElementById("confirm-password");
+      const passwordPattern = /^.{3,}$/;
+
+      if (oldPassword.value == user.password) {
+        if (passwordPattern.test(newPassword.value)) {
+          if (newPassword.value == confirmPassword.value) {
+            ChangePassword(user.id, newPassword.value);
+          } else {
+            alert("You didn't repeat the new password correctly");
+          }
+        } else {
+          alert("password needs to be than 2 characters!");
+        }
+      } else {
+        alert("Old password is not correct");
       }
-      let api =
-        "https://localhost:7063/api/User/AddReview?userId=" +
-        user.id +
-        "&bookId=" +
-        bookId.innerHTML +
-        "&text=" +
-        reviewText +
-        "&rating= " +
-        GetSelectedRating();
-      ajaxCall("POST", api, null, AddReviewSCB, AddReviewECB);
+    });
+
+  document
+    .getElementById("changeUsernameForm")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+      let newUsername = document.getElementById("new-username");
+      if (newUsername.value == user.name) {
+        alert("This is already your username");
+      } else {
+        ChangeUsername(user.id, newUsername.value);
+      }
     });
 }
 
-function AddReviewECB(Error) {
-  alert("Error: Review form was not filled");
+function ChangePassword(userId, newPassword) {
+  let api =
+    "https://localhost:7063/api/User/ChangePassword?userId=" +
+    userId +
+    "&password=" +
+    newPassword;
+  ajaxCall("PUT", api, null, ChangePasswordSCB, AjaxECB);
 }
 
-function GetSelectedRating() {
-  // Find the star element with the 'selected' class
-  const selectedStar = document.querySelector(".star-rating .star.selected");
-
-  // Check if a selected star exists
-  if (selectedStar) {
-    // Get the value from the data-value attribute
-    return selectedStar.getAttribute("data-value");
+function ChangePasswordSCB(message) {
+  if (message == 1) {
+    alert("Password changed successfuly, please log in once again");
+    Logout();
   } else {
-    // Return null or a default value if no star is selected
-    return 0;
+    alert("Unable to change password");
   }
 }
 
-function AddReviewSCB(message) {
-  if (message == 2) {
-    window.location.reload();
+function ChangeUsername(userId, newName) {
+  let api =
+    "https://localhost:7063/api/User/ChangeUsername?userId=" +
+    userId +
+    "&name= " +
+    newName;
+  ajaxCall("PUT", api, null, ChangeUsernameSCB, AjaxECB);
+}
+
+function ChangeUsernameSCB(message) {
+  if (message == 1) {
+    alert("Username changed successfuly, please reconnect");
+    Logout();
   } else {
-    alert("You already added a review for this book!");
+    alert("Unable to change username");
+  }
+}
+
+$(document).ready(function () {
+  // Show file input dialog when profile picture is clicked
+  $("#changePicture").on("click", function () {
+    $("#fileInput").click();
+  });
+
+  // Handle file selection and upload
+  $("#fileInput").on("change", function () {
+    var files = $(this).get(0).files;
+    if (files.length > 0) {
+      var data = new FormData();
+      for (var f = 0; f < files.length; f++) {
+        data.append("files", files[f]);
+      }
+
+      var api = "https://localhost:7063/api/Upload";
+
+      // Ajax upload
+      $.ajax({
+        type: "POST",
+        url: api,
+        contentType: false,
+        processData: false,
+        data: data,
+        success: ChangeProfilePicture,
+        error: error,
+      });
+    }
+  });
+});
+
+function showImages(data) {
+  var imgStr = "";
+  var imageFolder = "https://localhost:7063/Images/"; // Set the path to your image folder
+
+  if (Array.isArray(data)) {
+    for (var i = 0; i < data.length; i++) {
+      var src = imageFolder + data[i];
+      imgStr += `<img src='${src}' style="width: 80px;"/>`;
+      uploadedImage = src;
+    }
+  } else {
+    var src = imageFolder + data;
+    imgStr = `<img src='${src}'/>`;
+  }
+
+  // Update profile picture
+  $("#profilePic").attr("src", imgStr);
+}
+
+function error(data) {
+  console.log(data);
+}
+
+var userNewPicture;
+
+function ChangeProfilePicture(data) {
+  var imageFolder = "https://localhost:7063/Images/";
+  let src = imageFolder + data;
+  userNewPicture = src;
+  let api =
+    "https://localhost:7063/api/User/ChangeProfilePicture?userId=" +
+    user.id +
+    "&picture=" +
+    src;
+  ajaxCall("PUT", api, null, ChangeProfilePictureSCB, AjaxECB);
+}
+
+function ChangeProfilePictureSCB(message) {
+  if (message == 1) {
+    let userJsonString = localStorage.getItem("user");
+    if (userJsonString) {
+      let userObject = JSON.parse(userJsonString);
+
+      userObject.profilePic = userNewPicture;
+
+      let updatedUserJsonString = JSON.stringify(userObject);
+
+      localStorage.setItem("user", updatedUserJsonString);
+    }
+    window.location.reload();
   }
 }

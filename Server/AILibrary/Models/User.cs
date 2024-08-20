@@ -12,15 +12,17 @@ namespace AILibrary.Models
         bool isAdmin;
         bool isActive;
         string profilePic;
+        string registrationDate;
 
-        public User(string name, string email, string password, string profilePic)
+        public User(string name, string email, string password, string profilePic, string registrationDate)
         {
             Name = name;
             Email = email;
             Password = password;
             IsAdmin = false;
             IsActive = true;
-            ProfilePic = profilePic; // Initialize to an empty string or a default value
+            ProfilePic = profilePic;
+            RegistrationDate = registrationDate;
         }
 
         public User() { }
@@ -31,9 +33,10 @@ namespace AILibrary.Models
         public string Password { get => password; set => password = value; }
         public bool IsAdmin { get => isAdmin; set => isAdmin = value; }
         public bool IsActive { get => isActive; set => isActive = value; }
-        public string ProfilePic { get => profilePic; set => profilePic = value; } // New property
+        public string ProfilePic { get => profilePic; set => profilePic = value; }
+        public string RegistrationDate { get => registrationDate; set => registrationDate = value; }
 
-        static public User Login(string email, string password)
+    static public User Login(string email, string password)
         {
             DBservices dbs = new DBservices();
             return dbs.Login(email, password);
@@ -122,5 +125,52 @@ namespace AILibrary.Models
             DBservices db = new DBservices();
             return (db.AddReview(userId, bookId, text, rating));
         }
+
+        static public int ChangePassword(int userId, string password)
+        {
+            DBservices db = new DBservices();
+            return (db.ChangePassword(userId, password));
+        }
+
+        static public int ChangeUsername(int userId, string name)
+        {
+            DBservices db = new DBservices();
+            return (db.ChangeUsername(userId, name));   
+        }
+
+        static public int ChangeProfilePicture(int userId, string picture) { 
+            DBservices db=new DBservices();
+            return (db.ChangeProfilePicture(userId, picture));
+        }
+
+        public static List<object> GetUserLibraryDetails(int userId)
+        {
+            DBservices dbs = new DBservices();
+            return dbs.GetUserLibraryDetails(userId);
+        }
+        public static float GetThisWeeksRevenue()
+        {
+            DBservices dbs = new DBservices();
+            return dbs.GetThisWeeksRevenue();
+        }
+        public static List<object> GetAllUsersWithBookCount()
+        {
+            DBservices dbs = new DBservices();
+            return dbs.GetAllUsersWithBookCount();
+        }
+
+        static public int BanUser(int userId)
+        {
+            DBservices dbs = new DBservices();
+            return dbs.BanUser(userId);
+        }
+
+        static public int UnbanUser(int userId)
+        {
+            DBservices dbs = new DBservices();
+            return dbs.UnbanUser(userId);
+        }
+
+
     }
 }
