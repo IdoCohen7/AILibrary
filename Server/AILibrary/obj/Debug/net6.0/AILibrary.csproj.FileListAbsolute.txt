@@ -1,0 +1,148 @@
+C:\Users\idoco\source\repos\AILibrary\AILibrary\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\idoco\source\repos\AILibrary\AILibrary\bin\Debug\net6.0\appsettings.json
+C:\Users\idoco\source\repos\AILibrary\AILibrary\bin\Debug\net6.0\AILibrary.exe
+C:\Users\idoco\source\repos\AILibrary\AILibrary\bin\Debug\net6.0\AILibrary.deps.json
+C:\Users\idoco\source\repos\AILibrary\AILibrary\bin\Debug\net6.0\AILibrary.runtimeconfig.json
+C:\Users\idoco\source\repos\AILibrary\AILibrary\bin\Debug\net6.0\AILibrary.dll
+C:\Users\idoco\source\repos\AILibrary\AILibrary\bin\Debug\net6.0\AILibrary.pdb
+C:\Users\idoco\source\repos\AILibrary\AILibrary\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\idoco\source\repos\AILibrary\AILibrary\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\idoco\source\repos\AILibrary\AILibrary\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\idoco\source\repos\AILibrary\AILibrary\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\idoco\source\repos\AILibrary\AILibrary\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\idoco\source\repos\AILibrary\AILibrary\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\idoco\source\repos\AILibrary\AILibrary\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\idoco\source\repos\AILibrary\AILibrary\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\idoco\source\repos\AILibrary\AILibrary\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\idoco\source\repos\AILibrary\AILibrary\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\idoco\source\repos\AILibrary\AILibrary\obj\Debug\net6.0\AILibrary.csproj.AssemblyReference.cache
+C:\Users\idoco\source\repos\AILibrary\AILibrary\obj\Debug\net6.0\AILibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\idoco\source\repos\AILibrary\AILibrary\obj\Debug\net6.0\AILibrary.AssemblyInfoInputs.cache
+C:\Users\idoco\source\repos\AILibrary\AILibrary\obj\Debug\net6.0\AILibrary.AssemblyInfo.cs
+C:\Users\idoco\source\repos\AILibrary\AILibrary\obj\Debug\net6.0\AILibrary.csproj.CoreCompileInputs.cache
+C:\Users\idoco\source\repos\AILibrary\AILibrary\obj\Debug\net6.0\AILibrary.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\idoco\source\repos\AILibrary\AILibrary\obj\Debug\net6.0\AILibrary.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\idoco\source\repos\AILibrary\AILibrary\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\idoco\source\repos\AILibrary\AILibrary\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\idoco\source\repos\AILibrary\AILibrary\obj\Debug\net6.0\staticwebassets\msbuild.AILibrary.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\idoco\source\repos\AILibrary\AILibrary\obj\Debug\net6.0\staticwebassets\msbuild.build.AILibrary.props
+C:\Users\idoco\source\repos\AILibrary\AILibrary\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.AILibrary.props
+C:\Users\idoco\source\repos\AILibrary\AILibrary\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.AILibrary.props
+C:\Users\idoco\source\repos\AILibrary\AILibrary\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\idoco\source\repos\AILibrary\AILibrary\obj\Debug\net6.0\scopedcss\bundle\AILibrary.styles.css
+C:\Users\idoco\source\repos\AILibrary\AILibrary\obj\Debug\net6.0\AILibrary.csproj.Up2Date
+C:\Users\idoco\source\repos\AILibrary\AILibrary\obj\Debug\net6.0\AILibrary.dll
+C:\Users\idoco\source\repos\AILibrary\AILibrary\obj\Debug\net6.0\refint\AILibrary.dll
+C:\Users\idoco\source\repos\AILibrary\AILibrary\obj\Debug\net6.0\AILibrary.pdb
+C:\Users\idoco\source\repos\AILibrary\AILibrary\obj\Debug\net6.0\AILibrary.genruntimeconfig.cache
+C:\Users\idoco\source\repos\AILibrary\AILibrary\obj\Debug\net6.0\ref\AILibrary.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\appsettings.json
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\AILibrary.exe
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\AILibrary.deps.json
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\AILibrary.runtimeconfig.json
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\AILibrary.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\AILibrary.pdb
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\obj\Debug\net6.0\AILibrary.csproj.AssemblyReference.cache
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\obj\Debug\net6.0\AILibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\obj\Debug\net6.0\AILibrary.AssemblyInfoInputs.cache
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\obj\Debug\net6.0\AILibrary.AssemblyInfo.cs
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\obj\Debug\net6.0\AILibrary.csproj.CoreCompileInputs.cache
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\obj\Debug\net6.0\AILibrary.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\obj\Debug\net6.0\AILibrary.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\obj\Debug\net6.0\staticwebassets\msbuild.AILibrary.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\obj\Debug\net6.0\staticwebassets\msbuild.build.AILibrary.props
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.AILibrary.props
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.AILibrary.props
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\obj\Debug\net6.0\scopedcss\bundle\AILibrary.styles.css
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\obj\Debug\net6.0\AILibrary.csproj.Up2Date
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\obj\Debug\net6.0\AILibrary.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\obj\Debug\net6.0\refint\AILibrary.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\obj\Debug\net6.0\AILibrary.pdb
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\obj\Debug\net6.0\AILibrary.genruntimeconfig.cache
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\obj\Debug\net6.0\ref\AILibrary.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\obj\Debug\net6.0\AILibrary.sourcelink.json
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\itext.barcodes.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\itext.bouncy-castle-connector.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\itext.forms.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\itext.io.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\itext.kernel.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\itext.layout.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\itext.pdfa.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\itext.pdfua.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\itext.sign.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\itext.styledxmlparser.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\itext.svg.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\itext.commons.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\idoco\OneDrive\שולחן העבודה\AILibrary\Server\AILibrary\bin\Debug\net6.0\AILibrary.staticwebassets.runtime.json
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\appsettings.json
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\AILibrary.staticwebassets.runtime.json
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\AILibrary.exe
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\AILibrary.deps.json
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\AILibrary.runtimeconfig.json
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\AILibrary.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\AILibrary.pdb
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\itext.barcodes.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\itext.bouncy-castle-connector.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\itext.forms.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\itext.io.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\itext.kernel.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\itext.layout.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\itext.pdfa.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\itext.pdfua.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\itext.sign.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\itext.styledxmlparser.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\itext.svg.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\itext.commons.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Debug\net6.0\AILibrary.csproj.AssemblyReference.cache
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Debug\net6.0\AILibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Debug\net6.0\AILibrary.AssemblyInfoInputs.cache
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Debug\net6.0\AILibrary.AssemblyInfo.cs
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Debug\net6.0\AILibrary.csproj.CoreCompileInputs.cache
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Debug\net6.0\AILibrary.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Debug\net6.0\AILibrary.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Debug\net6.0\AILibrary.sourcelink.json
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Debug\net6.0\staticwebassets\msbuild.AILibrary.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Debug\net6.0\staticwebassets\msbuild.build.AILibrary.props
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.AILibrary.props
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.AILibrary.props
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Debug\net6.0\scopedcss\bundle\AILibrary.styles.css
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Debug\net6.0\AILibrary.csproj.Up2Date
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Debug\net6.0\AILibrary.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Debug\net6.0\refint\AILibrary.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Debug\net6.0\AILibrary.pdb
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Debug\net6.0\AILibrary.genruntimeconfig.cache
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Debug\net6.0\ref\AILibrary.dll
