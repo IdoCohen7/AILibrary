@@ -1,111 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>MyBook</title>
-    <meta content="Templines" name="author">
-    <meta content="TeamHost" name="description">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="HandheldFriendly" content="true">
-    <meta name="format-detection" content="telephone=no">
-    <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/libs.min.css">
-    <link rel="stylesheet" href="assets/css/main.css">
+    <meta content="Templines" name="author" />
+    <meta content="TeamHost" name="description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <link
+      rel="shortcut icon"
+      href="assets/img/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="assets/css/libs.min.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
 
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+    
+      href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
-
-
-</head>
-
-<body class="page-profile">
-
-
-    <input id="toggle" type="checkbox">
+  <body class="page-home">
+    <input id="toggle" type="checkbox" />
     <script type="text/javascript">
-        document.getElementById("toggle").addEventListener("click", function() {
-            document.getElementsByTagName('body')[0].classList.toggle("dark-theme");
-        });
-
+      document.getElementById("toggle").addEventListener("click", function () {
+        document.getElementsByTagName("body")[0].classList.toggle("dark-theme");
+      });
     </script>
 
     <!-- Loader-->
     <div id="page-preloader">
-        <div class="preloader-1">
-            <div class="loader-text">Loading</div>
-            <span class="line line-1"></span>
-            <span class="line line-2"></span>
-            <span class="line line-3"></span>
-            <span class="line line-4"></span>
-            <span class="line line-5"></span>
-            <span class="line line-6"></span>
-            <span class="line line-7"></span>
-            <span class="line line-8"></span>
-            <span class="line line-9"></span>
-        </div>
-
+      <div class="preloader-1">
+        <div class="loader-text">Loading</div>
+        <span class="line line-1"></span>
+        <span class="line line-2"></span>
+        <span class="line line-3"></span>
+        <span class="line line-4"></span>
+        <span class="line line-5"></span>
+        <span class="line line-6"></span>
+        <span class="line line-7"></span>
+        <span class="line line-8"></span>
+        <span class="line line-9"></span>
+      </div>
     </div>
     <!-- Loader end-->
 
-
     <div class="page-wrapper">
-        <header class="page-header">
-            <div class="page-header__inner">
-                <div class="page-header__sidebar">
-                    <div class="page-header__menu-btn"><button class="menu-btn ico_menu is-active"></button></div>
-                    <div class="page-header__logo"><img src="assets/img/android-chrome-512x512.png" alt="logo"><span class="page-header__logo_text">MyBook</span></div>
-                </div>
-                <div class="page-header__content">
-                  <div></div>
-                  <div class="page-header__action" id="userDashboard">
-                    <a class="action-btn" href="06_chats.html"
-                      ><i class="ico_message"></i
-                      ><span class="animation-ripple-delay1"></span
-                    ></a>
-                    <a class="action-btn" href="07_friends.html"
-                      ><i class="ico_notification"></i
-                      ><span class="animation-ripple-delay2"></span
-                    ></a>
-                    <div class="profile-dropdown">
-                      <a class="profile" href="04_profile.html">
-                        <img
-                          alt="profile"
-                          id="userPic"
-                        />
-                      </a>
-                      
-                  </div>
-                </div>
-                </div>
+      <header class="page-header">
+        <div class="page-header__inner">
+          <div class="page-header__sidebar">
+            <div class="page-header__menu-btn">
+              <button class="menu-btn ico_menu is-active"></button>
             </div>
-        </header>
-        <div class="page-content">
-            <aside class="sidebar is-show" id="sidebar">
-                <div class="sidebar-box">
-                    <ul class="uk-nav">
-                        <li><a href="03_home.html"><i class="ico_home"></i><span>Home</span></a></li>
-                        <li class="uk-nav-header">Account</li>
-                        <li ><a href="04_profile.html"><i class="ico_profile"></i><span>Profile</span></a></li>
-                        <li class="uk-active"><a href="05_favourites.html"><i class="ico_favourites"></i><span>Library</span></a></li>
-                      
-                        <li><a href="08_wallet.html" id="requestNote"
-                            ><i class="ico_wallet"></i><span>Requests </span>
-                          </a></li>
-                        <li class="uk-nav-header">Main</li>
-                        <li><a href="09_games-store.html"><i class="ico_store"></i><span>Store</span></a></li>
-                        <li><a href="11_market.html"><i class="ico_market"></i><span>Market</span></a></li>
-                        <li><a href="13_community.html"><i class="ico_community"></i><span>Authors</span></a></li>
-                        <li>
-                          <a href="15_games.html"
-                            ><i class="ico_store"></i><span>Games</span></a
-                          >
-                        </li>
-                    </ul>
-                </div>
-            </aside>
+            <div class="page-header__logo">
+              <img
+                src="assets/img/android-chrome-512x512.png"
+                alt="logo"
+              /><span class="page-header__logo_text">MyBook</span>
+            </div>
+          </div>
+          <div class="page-header__content">
+            <div></div>
+            <div class="page-header__action" id="userDashboard">
+             
+              <a class="profile" href="04_profile.html"
+                ><img alt="profile" id="userPic"
+              /></a>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="page-content">
+        <aside class="sidebar is-show" id="sidebar">
+          <div class="sidebar-box">
+            <ul class="uk-nav">
+              <li>
+                <a href="index.html"
+                  ><i class="ico_home"></i><span>Home</span></a
+                >
+              </li>
+              <li class="uk-nav-header">Account</li>
+              <li>
+                <a href="04_profile.html"
+                  ><i class="ico_profile"></i><span>Profile</span></a
+                >
+              </li>
+              <li class="uk-active">
+                <a href="05_libary.html"
+                  ><i class="ico_favourites"></i><span>Library</span></a
+                >
+              </li>
+
+              <li>
+                <a href="06_requests.html" id="requestNote"
+                  ><i class="ico_wallet"></i><span>Requests </span>
+                </a>
+              </li>
+              <li class="uk-nav-header">Main</li>
+              <li>
+                <a href="07_store.html"
+                  ><i class="ico_shopping-cart"></i><span>Store</span></a
+                >
+              </li>
+              <li>
+                <a href="08_market.html"
+                  ><i class="ico_market"></i><span>Market</span></a
+                >
+              </li>
+              <li>
+                <a href="09_authors.html"
+                  ><i class="ico_community"></i><span>Authors</span></a
+                >
+              </li>
+              <li>
+                <a href="10_games.html"
+                  ><i class="ico_store"></i><span>Games</span></a
+                >
+              </li>
+            </ul>
+          </div>
+        </aside>
             <main class="page-main">
                 <div class="uk-grid" data-uk-grid id="mainContainer">
                     <div class="uk-width-2-3@l">
@@ -113,21 +135,21 @@
                             <div class="widjet__head">
                                 <h1 class="uk-text-lead" id="libraryHeader"></h1>
                             </div>
-                            <h3>Favorite books</h3>
+                            <h3 class="uk-text-lead">Favorite books</h3>
                             <div
                             class="uk-grid uk-child-width-1-6@xl uk-child-width-1-4@l uk-child-width-1-3@s uk-flex-middle uk-grid-small"
                             data-uk-grid
                             id="booksContainer"
                           >
                         </div>
-                        <h3>Bought from others</h3>
+                        <h3 class="uk-text-lead">Bought from others</h3>
                             <div
                             class="uk-grid uk-child-width-1-6@xl uk-child-width-1-4@l uk-child-width-1-3@s uk-flex-middle uk-grid-small"
                             data-uk-grid
                             id="boughtContainer"
                           >
                         </div>
-                        <h3>Finished reading</h3>
+                        <h3 class="uk-text-lead">Finished reading</h3>
                             <div
                             class="uk-grid uk-child-width-1-6@xl uk-child-width-1-4@l uk-child-width-1-3@s uk-flex-middle uk-grid-small"
                             data-uk-grid

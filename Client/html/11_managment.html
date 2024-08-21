@@ -9,7 +9,6 @@
     <meta name="HandheldFriendly" content="true" />
     <meta name="format-detection" content="telephone=no" />
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
-    
     <link
       rel="shortcut icon"
       href="assets/img/favicon.ico"
@@ -17,8 +16,14 @@
     />
     <link rel="stylesheet" href="assets/css/libs.min.css" />
     <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.dataTables.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.dataTables.min.css"
+    />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
@@ -70,32 +75,12 @@
             </div>
           </div>
           <div class="page-header__content">
-            <div class="page-header__search">
-              <div class="search">
-                <div class="search__input">
-                
-                </div>
-              </div>
-            </div>
+            <div></div>
             <div class="page-header__action" id="userDashboard">
-              <a class="action-btn" href="06_chats.html"
-                ><i class="ico_message"></i
-                ><span class="animation-ripple-delay1"></span
-              ></a>
-              <a class="action-btn" href="07_friends.html"
-                ><i class="ico_notification"></i
-                ><span class="animation-ripple-delay2"></span
-              ></a>
-              
-             
-                <a class="profile" href="04_profile.html">
-                  <img
-                    alt="profile"
-                    id="userPic"
-                  />
-                </a>
-                
-            
+              <a class="profile" href="04_profile.html"
+                ><img alt="profile" id="userPic"
+              /></a>
+            </div>
           </div>
         </div>
       </header>
@@ -103,8 +88,8 @@
         <aside class="sidebar is-show" id="sidebar">
           <div class="sidebar-box">
             <ul class="uk-nav">
-              <li >
-                <a href="03_home.html"
+              <li>
+                <a href="index.html"
                   ><i class="ico_home"></i><span>Home</span></a
                 >
               </li>
@@ -115,48 +100,34 @@
                 >
               </li>
               <li>
-                <a href="05_favourites.html"
-                  ><i class="ico_favourites"></i><span>Favorites</span></a
+                <a href="05_libary.html"
+                  ><i class="ico_favourites"></i><span>Library</span></a
                 >
               </li>
+
               <li>
-                <a href="06_chats.html"
-                  ><i class="ico_chats"></i><span>Chats</span></a
-                >
-              </li>
-              <li>
-                <a href="07_friends.html"
-                  ><i class="ico_friends"></i><span>Friends</span></a
-                >
-              </li>
-              <li>
-                <a href="08_wallet.html" id="requestNote"
+                <a href="06_requests.html" id="requestNote"
                   ><i class="ico_wallet"></i><span>Requests </span>
                 </a>
               </li>
               <li class="uk-nav-header">Main</li>
               <li>
-                <a href="09_games-store.html"
-                  ><i class="ico_store"></i><span>Store</span></a
+                <a href="07_store.html"
+                  ><i class="ico_shopping-cart"></i><span>Store</span></a
                 >
               </li>
               <li>
-                <a href="11_market.html"
+                <a href="08_market.html"
                   ><i class="ico_market"></i><span>Market</span></a
                 >
               </li>
               <li>
-                <a href="12_streams.html"
-                  ><i class="ico_streams"></i><span>Streams</span></a
-                >
-              </li>
-              <li>
-                <a href="13_community.html"
+                <a href="09_authors.html"
                   ><i class="ico_community"></i><span>Authors</span></a
                 >
               </li>
               <li>
-                <a href="15_games.html"
+                <a href="10_games.html"
                   ><i class="ico_store"></i><span>Games</span></a
                 >
               </li>
@@ -164,10 +135,14 @@
           </div>
         </aside>
         <main class="page-main">
-       
-            <h2>User Management</h2>
-            <button class="uk-button uk-button-secondary" onclick="exportToExcel()">Export to Excel</button>
-            <button class="uk-button uk-button-secondary" onclick="exportToPDF()">Export to PDF</button>
+          <div class="content-wrapper">
+            <h3 class="uk-text-lead">User Management</h3>
+            <button onclick="exportToExcel()">
+              <i class="fas fa-file-excel"></i> Export to Excel
+            </button>
+            <button onclick="exportToPDF()">
+              <i class="fas fa-file-pdf"></i> Export to PDF
+            </button>
 
             <table id="userTable" class="user-table">
               <thead>
@@ -185,11 +160,10 @@
                 <!-- User data will be dynamically inserted here -->
               </tbody>
             </table>
-          
+          </div>
         </main>
       </div>
     </div>
-    
     <script src="assets/js/libs.js"></script>
 
     <script src="assets/js/main.js"></script>
@@ -197,12 +171,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
 
-<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js"></script>
-    <script src="assets/js/adminAya.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js"></script>
+    <script src="assets/js/management.js"></script>
   </body>
 </html>

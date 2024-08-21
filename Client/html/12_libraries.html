@@ -16,18 +16,21 @@
     />
     <link rel="stylesheet" href="assets/css/libs.min.css" />
     <link rel="stylesheet" href="assets/css/main.css" />
-
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
+    
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
     <link
+    
       href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap"
       rel="stylesheet"
     />
   </head>
 
-  <body class="page-store">
+  <body class="page-home">
     <input id="toggle" type="checkbox" />
     <script type="text/javascript">
       document.getElementById("toggle").addEventListener("click", function () {
@@ -69,16 +72,9 @@
           <div class="page-header__content">
             <div></div>
             <div class="page-header__action" id="userDashboard">
-              <a class="action-btn" href="06_chats.html"
-                ><i class="ico_message"></i
-                ><span class="animation-ripple-delay1"></span
-              ></a>
-              <a class="action-btn" href="07_friends.html"
-                ><i class="ico_notification"></i
-                ><span class="animation-ripple-delay2"></span
-              ></a>
+             
               <a class="profile" href="04_profile.html"
-                ><img alt="profile" id="userPic"
+                ><img  alt="profile" id="userPic"
               /></a>
             </div>
           </div>
@@ -88,8 +84,8 @@
         <aside class="sidebar is-show" id="sidebar">
           <div class="sidebar-box">
             <ul class="uk-nav">
-              <li>
-                <a href="03_home.html"
+              <li >
+                <a href="index.html"
                   ><i class="ico_home"></i><span>Home</span></a
                 >
               </li>
@@ -100,49 +96,44 @@
                 >
               </li>
               <li>
-                <a href="05_favourites.html"
+                <a href="05_libary.html"
                   ><i class="ico_favourites"></i><span>Library</span></a
                 >
               </li>
-             
+
               <li>
-                <a href="08_wallet.html" id="requestNote"
+                <a href="06_requests.html" id="requestNote"
                   ><i class="ico_wallet"></i><span>Requests </span>
                 </a>
               </li>
               <li class="uk-nav-header">Main</li>
-              <li class="uk-active">
-                <a href="09_games-store.html"
-                  ><i class="ico_store"></i><span>Store</span></a
+              <li>
+                <a href="07_store.html"
+                  ><i class="ico_shopping-cart"></i><span>Store</span></a
                 >
               </li>
               <li>
-                <a href="11_market.html"
+                <a href="08_market.html"
                   ><i class="ico_market"></i><span>Market</span></a
                 >
               </li>
               <li>
-                <a href="12_streams.html"
-                  ><i class="ico_streams"></i><span>Streams</span></a
-                >
-              </li>
-              <li>
-                <a href="13_community.html"
+                <a href="09_authors.html"
                   ><i class="ico_community"></i><span>Authors</span></a
                 >
               </li>
               <li>
-                <a href="#modal-help" data-uk-toggle
-                  ><i class="ico_help"></i><span>Help</span></a
+                <a href="10_games.html"
+                  ><i class="ico_store"></i><span>Games</span></a
                 >
               </li>
             </ul>
           </div>
         </aside>
-        <main class="page-main">
+        <main class="page-main" id="mainDiv">
           <div class="widjet --filters">
             <div class="widjet__head">
-              <h3 class="uk-text-lead">Browse our book list</h3>
+              <h3 class="uk-text-lead">Browse Libraries</h3>
             </div>
             <div class="widjet__body">
               <div
@@ -150,63 +141,36 @@
                 data-uk-grid
               >
                 <div class="uk-width-1-1">
-                  <div class="search">
-                    <div class="search__input">
-                      <i class="ico_search"></i>
-                      <input
-                        type="search"
-                        name="search"
-                        placeholder="Search"
-                        id="bookTextInput"
-                      />
-                    </div>
-                    <div class="search__btn">
-                      <button type="button" id="micBtn">
-                        <i class="ico_microphone"></i>
-                      </button>
-                    </div>
-                  </div>
                 </div>
                 <div>
-                  <select class="js-select" id="parameter">
-                    <option value="Title">Title</option>
+                  <select class="js-select" id="searchType">
+                    <option value="User">User</option>
+                    <option value="Book">Book</option>
                     <option value="Author">Author</option>
-                    <option value="Content">Content</option>
                   </select>
                 </div>
                 <div>
                   <button
                     class="uk-button uk-button-secondary"
-                    id="searchBooksBttn"
+                    id="searchLibraryBttn"
                   >
                     Search
                   </button>
-                  <button
-                    class="uk-button uk-button-secondary"
-                    id="refreshBooksBttn"
-                  >
-                    Refresh
-                  </button>
+                  
                 </div>
-                <div class="uk-text-right"><a href="#!" id="bookSum"></a></div>
+                
+                <div class="search" id="listDiv">
+
+                </div>
               </div>
-              <div class="search" id="sortDiv">
-                <select class="js-select" id="sort">
-                  <option value="ABC">A-Z</option>
-                  <option value="Rating">Best Rated First</option>
-                  <option value="Price">Cheapest First</option>
-                </select>
-                <button class="uk-button uk-button-secondary" id="sortBttn">Sort</button>
-              </div>
+              
             </div>
             
           </div>
+          <div id="tableDiv">
+
+          </div>
           
-          <div
-            class="uk-grid uk-child-width-1-6@xl uk-child-width-1-4@l uk-child-width-1-3@s uk-flex-middle uk-grid-small"
-            data-uk-grid
-            id="booksContainer"
-          ></div>
         </main>
         <div class="page-modals">
           <div class="uk-flex-top" id="modal-reviews" data-uk-modal>
@@ -228,6 +192,10 @@
     </div>
     <script src="assets/js/libs.js"></script>
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/browse.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js"></script>
+    <script src="assets/js/libraries.js"></script>
   </body>
 </html>
