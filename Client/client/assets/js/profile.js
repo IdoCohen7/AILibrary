@@ -153,7 +153,7 @@ $(document).ready(function () {
 
 function showImages(data) {
   var imgStr = "";
-  var imageFolder = "https://localhost:7063/Images/"; // Set the path to your image folder
+  var imageFolder = "https://proj.ruppin.ac.il/cgroup75/test2/tar1/Images/"; // Set the path to your image folder
 
   if (Array.isArray(data)) {
     for (var i = 0; i < data.length; i++) {
@@ -177,7 +177,7 @@ function error(data) {
 var userNewPicture;
 
 function ChangeProfilePicture(data) {
-  var imageFolder = "https://localhost:7063/Images/";
+  var imageFolder = "https://proj.ruppin.ac.il/cgroup75/test2/tar1/Images/";
   let src = imageFolder + data;
   userNewPicture = src;
   let api =
