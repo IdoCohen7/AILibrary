@@ -45,7 +45,7 @@ function exportToPDF() {
 }
 
 function GetUsers() {
-  let api = "https://localhost:7063/api/User";
+  let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/User";
   ajaxCall("GET", api, null, GetUsersSCB, GetUsersECB);
 }
 
@@ -112,7 +112,9 @@ function GetUsersECB(ERROR) {
 GetUsers();
 
 function BanUser(id) {
-  let api = "https://localhost:7063/api/User/BanUser?userId=" + id;
+  let api =
+    "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/User/BanUser?userId=" +
+    id;
   ajaxCall("PUT", api, null, BanUserSCB, AjaxECB);
 }
 
@@ -121,7 +123,9 @@ function BanUserSCB(status) {
 }
 
 function UnbanUser(id) {
-  let api = "https://localhost:7063/api/User/UnbanUser?userId=" + id;
+  let api =
+    "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/User/UnbanUser?userId=" +
+    id;
   ajaxCall("PUT", api, null, UnbanUserSCB, AjaxECB);
 }
 

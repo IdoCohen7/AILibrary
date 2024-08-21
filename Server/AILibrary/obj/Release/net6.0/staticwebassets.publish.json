@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "CwOJ0RoT7/+BeJQ8dWPXS8mCIUFaEAjolHommf5b+YE=",
+  "Source": "AILibrary",
+  "BasePath": "_content/AILibrary",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "AILibrary\\wwwroot",
+      "Source": "AILibrary",
+      "ContentRoot": "C:\\Users\\idoco\\OneDrive\\מסמכים\\GitHub\\AILibrary2\\Server\\AILibrary\\wwwroot\\",
+      "BasePath": "_content/AILibrary",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}

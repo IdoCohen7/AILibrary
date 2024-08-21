@@ -441,7 +441,7 @@ function GetBooksSuccess(allBooks, containerId, callback) {
 
 function AddToFavorite(bookId) {
   let api =
-    "https://localhost:7063/api/User/Favorite?userId=" +
+    "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/User/Favorite?userId=" +
     user.id +
     "&bookId=" +
     bookId;
@@ -463,7 +463,9 @@ function AjaxECB(xhr) {
 }
 
 function GetNotificationCount() {
-  let api = "https://localhost:7063/api/User/Notification?userId=" + user.id;
+  let api =
+    "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/User/Notification?userId=" +
+    user.id;
   ajaxCall("GET", api, null, GetNotificationCountSCB, AjaxECB);
 }
 
@@ -528,7 +530,9 @@ function FillModalContent(book) {
 }
 
 function GetBookReviews(bookId) {
-  let api = "https://localhost:7063/api/Book/Reviews?bookId=" + bookId;
+  let api =
+    "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/Book/Reviews?bookId=" +
+    bookId;
   ajaxCall("GET", api, null, GetBookReviewsSCB, AjaxECB);
 }
 

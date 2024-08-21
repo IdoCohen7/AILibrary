@@ -1,6 +1,6 @@
 // Function to fetch recommended (Top Rated) books
 function GetRecommendedBooks() {
-  let api = 'https://localhost:7063/api/Book/TopRated';
+  let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/Book/TopRated";
   ajaxCall("GET", api, null, GetTopRatedBooksSCB, GetBooksECB);
 }
 
@@ -17,7 +17,7 @@ function GetBooksECB(ERROR) {
 
 // Function to fetch the most new books
 function GetMostNewBooks() {
-  let api = 'https://localhost:7063/api/Book/MostNew';
+  let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/Book/MostNew";
   ajaxCall("GET", api, null, GetMostNewBooksSCB, GetBooksECB);
 }
 
@@ -48,7 +48,9 @@ function openModal(book) {
         <p>Text Snippet (if available): ${book.textSnippet}</p>
       </div>
       <div style="flex: 1; display: flex; flex-direction: column; align-items: center; padding: 10px;">
-        <img src="${book.thumbnail}" style="max-width: 100%; max-height: 400px;">
+        <img src="${
+          book.thumbnail
+        }" style="max-width: 100%; max-height: 400px;">
         <p style="color: red;">${
           book.isMature
             ? "This book is intended for mature audiences. Our site is not responsible for verifying the user's age."
@@ -87,7 +89,9 @@ function openNewBookModal(book) {
         <p>Text Snippet (if available): ${book.textSnippet}</p>
       </div>
       <div style="flex: 1; display: flex; flex-direction: column; align-items: center; padding: 10px;">
-        <img src="${book.thumbnail}" style="max-width: 100%; max-height: 400px;">
+        <img src="${
+          book.thumbnail
+        }" style="max-width: 100%; max-height: 400px;">
         <p style="color: red;">${
           book.isMature
             ? "This book is intended for mature audiences. Our site is not responsible for verifying the user's age."
@@ -122,10 +126,10 @@ window.onclick = function (event) {
   var modal = document.getElementById("myModal");
   var newBooksModal = document.getElementById("newBooksModal");
   if (event.target == modal) {
-      closeModal();
+    closeModal();
   }
   if (event.target == newBooksModal) {
-      closeNewBookModal();
+    closeNewBookModal();
   }
 };
 
@@ -135,7 +139,7 @@ function RemoveLinks(containerId) {
   let links = booksContainer.getElementsByClassName("readingLinks");
 
   for (let i = 0; i < links.length; i++) {
-      links[i].innerHTML = "";
+    links[i].innerHTML = "";
   }
 }
 

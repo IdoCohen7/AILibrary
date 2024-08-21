@@ -1,12 +1,12 @@
 function GetRandomQuestions() {
-  let api = "https://localhost:7063/api/Question";
+  let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/Question";
   ajaxCall("GET", api, null, GetRandomQuestionsSCB, AjaxECB);
 }
 
 function GetRandomQuestionsSCB(questions) {
   let currentQuestionIndex = 0;
   let score = 0;
-  
+
   // קבלת אלמנט החידון
   let quizContainer = document.getElementById("quizContainer");
 
@@ -34,7 +34,10 @@ function GetRandomQuestionsSCB(questions) {
 
   function updateTimer() {
     let elapsedTime = Date.now() - startTime;
-    let remainingTime = Math.max(0, Math.ceil((timeLimit - elapsedTime) / 1000));
+    let remainingTime = Math.max(
+      0,
+      Math.ceil((timeLimit - elapsedTime) / 1000)
+    );
     timerElement.textContent = `Time Left: ${remainingTime}`;
 
     if (remainingTime <= 0) {
@@ -93,7 +96,10 @@ function GetRandomQuestionsSCB(questions) {
           score++;
         }
         currentQuestionIndex++;
-        if (currentQuestionIndex < questions.length && Date.now() - startTime <= timeLimit) {
+        if (
+          currentQuestionIndex < questions.length &&
+          Date.now() - startTime <= timeLimit
+        ) {
           displayQuestion(currentQuestionIndex);
         } else {
           showResults();

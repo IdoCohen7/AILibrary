@@ -8,7 +8,7 @@ jQuery(document).ready(function ($) {
 });
 
 function LoadMarketplace() {
-  let api = "https://localhost:7063/api/Book/Market";
+  let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/Book/Market";
   ajaxCall("GET", api, null, LoadMarketplaceSCB, AjaxECB);
 }
 
@@ -50,7 +50,7 @@ function AddSellerDetails() {
       requestLink.textContent = "Request";
       requestLink.addEventListener("click", function () {
         let api =
-          "https://localhost:7063/api/User/SendRequest?buyerId=" +
+          "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/User/SendRequest?buyerId=" +
           user.id +
           "&sellerId=" +
           marketPlaceArray[i].userId +

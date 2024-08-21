@@ -1,5 +1,5 @@
 function GetBooks() {
-  let api = "https://localhost:7063/api/Book";
+  let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/Book";
   ajaxCall("GET", api, null, GetBooksSCB, GetBooksECB);
 }
 
@@ -35,7 +35,7 @@ function searchByParameters() {
     return;
   }
 
-  let api = "https://localhost:7063/api/Book/Text";
+  let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/Book/Text";
   ajaxCall(
     "GET",
     api,

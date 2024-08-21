@@ -13,7 +13,9 @@ jQuery(document).ready(function ($) {
 });
 
 function LoadRequests() {
-  let api = "https://localhost:7063/api/User/GetPending?userId=" + user.id;
+  let api =
+    "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/User/GetPending?userId=" +
+    user.id;
   ajaxCall("GET", api, null, LoadRequestsSCB, AjaxECB);
 }
 
@@ -103,7 +105,7 @@ function LoadRequestsSCB(allRequests) {
 
 function AcceptBookRequest(buyerId, bookId) {
   let api =
-    "https://localhost:7063/api/User/AcceptRequest?buyerId=" +
+    "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/User/AcceptRequest?buyerId=" +
     buyerId +
     "&sellerId=" +
     user.id +
@@ -122,7 +124,7 @@ function AcceptBookRequestSCB(message) {
 
 function CancelBookRequest(buyerId, bookId) {
   let api =
-    "https://localhost:7063/api/User/CancelRequest?buyerId=" +
+    "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/User/CancelRequest?buyerId=" +
     buyerId +
     "&sellerId=" +
     user.id +

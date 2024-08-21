@@ -86,7 +86,7 @@ function LoadPage() {
 
 function ChangePassword(userId, newPassword) {
   let api =
-    "https://localhost:7063/api/User/ChangePassword?userId=" +
+    "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/User/ChangePassword?userId=" +
     userId +
     "&password=" +
     newPassword;
@@ -104,7 +104,7 @@ function ChangePasswordSCB(message) {
 
 function ChangeUsername(userId, newName) {
   let api =
-    "https://localhost:7063/api/User/ChangeUsername?userId=" +
+    "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/User/ChangeUsername?userId=" +
     userId +
     "&name= " +
     newName;
@@ -135,7 +135,7 @@ $(document).ready(function () {
         data.append("files", files[f]);
       }
 
-      var api = "https://localhost:7063/api/Upload";
+      var api = "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/Upload";
 
       // Ajax upload
       $.ajax({
@@ -181,7 +181,7 @@ function ChangeProfilePicture(data) {
   let src = imageFolder + data;
   userNewPicture = src;
   let api =
-    "https://localhost:7063/api/User/ChangeProfilePicture?userId=" +
+    "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/User/ChangeProfilePicture?userId=" +
     user.id +
     "&picture=" +
     src;
