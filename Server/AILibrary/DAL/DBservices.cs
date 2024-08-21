@@ -1959,50 +1959,7 @@ namespace AILibrary.DAL
         
         
         
-        public List<Object> GetAllUsersWithBookCount()
-        {
-            SqlConnection con = null;
-            SqlCommand cmd;
-            List<Object> users = new List<Object>(); // Initialize the list of books
-
-            try
-            {
-                con = connect("myProjDB"); // Create the connection
-                cmd = CreateCommandWithStoredProcedureNoParameters("SP_GetAllUsersWithBookCount", con); // Create the command for reading books
-
-                SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-
-                while (dataReader.Read())
-                {
-                    users.Add(new
-                    {
-                        Id = Convert.ToInt32(dataReader["Id"]),
-                        Name = dataReader["Name"].ToString(),
-                        Email = dataReader["Email"].ToString(),
-                        Password = dataReader["password"].ToString(),
-                        ProfilePic = dataReader["ProfilePic"].ToString(),
-                        IsActive = Convert.ToBoolean(dataReader["IsActive"]),
-                        TotalBooksPurchased = Convert.ToInt32(dataReader["TotalBooksPurchased"])
-                    });
-
-                }
-
-                return users; // Return the list of books
-            }
-            catch (Exception ex)
-            {
-                // Write to log
-                throw new Exception("Error retrieving books", ex);
-            }
-            finally
-            {
-                if (con != null)
-                {
-                    // Close the DB connection
-                    con.Close();
-                }
-            }
-        }
+        
         
         
         

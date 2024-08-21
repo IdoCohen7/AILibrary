@@ -149,12 +149,6 @@ namespace AILibrary.Models
             return dbs.GetUserLibraryDetails(userId);
         }
 
-        public static List<object> GetAllUsersWithBookCount()
-        {
-            DBservices dbs = new DBservices();
-            return dbs.GetAllUsersWithBookCount();
-        }
-
         static public int BanUser(int userId)
         {
             DBservices dbs = new DBservices();

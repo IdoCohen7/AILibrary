@@ -170,22 +170,7 @@ namespace AILibrary.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
-        
-        // GET: api/User/AllUsersWithBookCount
-        [HttpGet("AllUsersWithBookCount")]
-        public IActionResult GetAllUsersWithBookCount()
-        {
-            try
-            {
-                DBservices dbs = new DBservices();
-                List<object> users = dbs.GetAllUsersWithBookCount();
-                return Ok(users);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, "Internal server error");
-            }
-        }
+       
 
         // PUT api/<UserController>/5
         [HttpPut("BanUser")]
