@@ -482,11 +482,22 @@ namespace AILibrary.DAL
                 cmd = CreateCommandWithStoredProcedure_Register("SP_Register", con, name, email, password, profilePic); // create the command
 
                 int numEffected = cmd.ExecuteNonQuery(); // execute the command
+
+                if (numEffected == -1) // Check for specific return value indicating email exists
+                {
+                    throw new Exception("Email already exists.");
+                }
+
                 return numEffected;
             }
-
+            catch (SqlException ex) when (ex.Number == 2627) // Handle SQL errors related to unique constraints
+            {
+                return -1;
+                throw new Exception("Email already exists.", ex);
+            }
             catch (Exception ex)
             {
+                // Handle other exceptions
                 throw new Exception("Couldn't register", ex);
             }
             finally
@@ -498,6 +509,7 @@ namespace AILibrary.DAL
                 }
             }
         }
+
 
         private SqlCommand CreateCommandWithStoredProcedure_UserAndBook(String spName, SqlConnection con, int userId, string bookId)
         {

@@ -6290,3 +6290,33 @@ table.dataTable tbody td {
   border-bottom: 1px solid #ddd;
   padding: 8px;
 }
+
+@media (max-width: 768px) {
+  .video {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-big {
+    display: none;
+  }
+}
+
+.custom-file-upload {
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+.custom-file-upload label {
+  cursor: pointer;
+}
+
+.custom-file-upload input[type="file"] {
+  display: none;
+}

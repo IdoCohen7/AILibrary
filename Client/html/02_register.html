@@ -98,7 +98,10 @@
                     <form method="post" enctype="multipart/form-data" id="formUpload">
                       <div>
                         <p>Profile Picture (Optional): </p>
-                          <input type="file" id="files" name="files"/>
+                        <div class="custom-file-upload">
+                          <label for="files">Upload files</label>
+                          <input type="file" id="files" name="files" />
+                        </div>                        
                       </div>
                       <br/>
                       <button type="button" id="buttonUpload" class="uk-button uk-button-secondary" >Upload</button>

@@ -109,11 +109,16 @@ function SignUp(name, email, password, profilePic) {
     email: email,
     password: password,
     profilePic: profilePic,
+    registrationDate: "",
   };
   ajaxCall("POST", api, JSON.stringify(newUser), SignUPSCB, SignUPECB);
 }
 
 function SignUPSCB(status) {
+  if (status == -1) {
+    alert("There's already a user signed up with this email");
+    return;
+  }
   alert("Sign-Up completed successfully");
   let email = $("#emailTB").val();
   let password = $("#passwordTB").val();
