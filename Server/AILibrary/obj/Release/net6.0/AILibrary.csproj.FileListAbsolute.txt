@@ -53,3 +53,4 @@ C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Rele
 C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Release\net6.0\AILibrary.pdb
 C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Release\net6.0\AILibrary.genruntimeconfig.cache
 C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Release\net6.0\ref\AILibrary.dll
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\bin\Release\net6.0\Web.config

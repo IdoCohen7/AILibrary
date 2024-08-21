@@ -3,7 +3,7 @@ $(document).ready(function () {
 });
 
 function GetAuthors() {
-  let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/Author";
+  let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar1/api/Author";
   ajaxCall("GET", api, null, GetAuthorsSCB, GetAuthorsECB);
 }
 
@@ -135,7 +135,7 @@ function GetAuthorsECB(error) {
 
 function ShowBooksWrittenBy(authorId) {
   let api =
-    "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/Author/Written?id=" +
+    "https://proj.ruppin.ac.il/cgroup75/test2/tar1/api/Author/Written?id=" +
     authorId;
   ajaxCall("GET", api, null, ShowBooksWrittenBySCB, ShowBooksWrittenByECB);
 }

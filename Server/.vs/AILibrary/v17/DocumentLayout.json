@@ -3,11 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\idoco\\OneDrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\GitHub\\AILibrary2\\Server\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\idoco\\AppData\\Local\\Temp\\67565366-8a09-4458-bb9d-509e5c16f651_client[1].zip.651\\client\\assets\\js\\browse.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{FDABB0C7-0FF6-4749-9205-86B622272829}|AILibrary\\AILibrary.csproj|c:\\users\\idoco\\onedrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\github\\ailibrary2\\server\\ailibrary\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{FDABB0C7-0FF6-4749-9205-86B622272829}|AILibrary\\AILibrary.csproj|solutionrelative:ailibrary\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FDABB0C7-0FF6-4749-9205-86B622272829}|AILibrary\\AILibrary.csproj|c:\\users\\idoco\\onedrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\github\\ailibrary2\\server\\ailibrary\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FDABB0C7-0FF6-4749-9205-86B622272829}|AILibrary\\AILibrary.csproj|solutionrelative:ailibrary\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\idoco\\AppData\\Local\\Temp\\67565366-8a09-4458-bb9d-509e5c16f651_client[1].zip.651\\client\\assets\\js\\browse.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\idoco\\OneDrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\PublishedLibrary\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
@@ -75,19 +79,31 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "web.config",
+              "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\GitHub\\AILibrary2\\Server\\AILibrary\\web.config",
+              "RelativeDocumentMoniker": "AILibrary\\web.config",
+              "ToolTip": "C:\\Users\\idoco\\OneDrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\GitHub\\AILibrary2\\Server\\AILibrary\\web.config",
+              "RelativeToolTip": "AILibrary\\web.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-08-21T16:28:20.666Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "browse.js",
               "DocumentMoniker": "C:\\Users\\idoco\\AppData\\Local\\Temp\\67565366-8a09-4458-bb9d-509e5c16f651_client[1].zip.651\\client\\assets\\js\\browse.js",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\AppData\\Local\\Temp\\67565366-8a09-4458-bb9d-509e5c16f651_client[1].zip.651\\client\\assets\\js\\browse.js",
               "ToolTip": "C:\\Users\\idoco\\AppData\\Local\\Temp\\67565366-8a09-4458-bb9d-509e5c16f651_client[1].zip.651\\client\\assets\\js\\browse.js [Read Only]",
               "RelativeToolTip": "..\\..\\..\\..\\..\\AppData\\Local\\Temp\\67565366-8a09-4458-bb9d-509e5c16f651_client[1].zip.651\\client\\assets\\js\\browse.js [Read Only]",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2024-08-21T16:12:45.613Z",
               "EditorCaption": " [Read Only]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "web.config",
               "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\PublishedLibrary\\web.config",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\PublishedLibrary\\web.config",
@@ -95,12 +111,11 @@
               "RelativeToolTip": "..\\..\\..\\..\\\u05E9\u05D5\u05DC\u05D7\u05DF \u05D4\u05E2\u05D1\u05D5\u05D3\u05D4\\PublishedLibrary\\web.config",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAA4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-08-21T15:21:43.683Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-21T15:21:43.683Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "UploadController.cs",
               "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\GitHub\\AILibrary2\\Server\\AILibrary\\Controllers\\UploadController.cs",
               "RelativeDocumentMoniker": "AILibrary\\Controllers\\UploadController.cs",
@@ -112,7 +127,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\GitHub\\AILibrary2\\Server\\AILibrary\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "AILibrary\\Controllers\\UserController.cs",
@@ -125,7 +140,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "AuthorController.cs",
               "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\GitHub\\AILibrary2\\Server\\AILibrary\\Controllers\\AuthorController.cs",
               "RelativeDocumentMoniker": "AILibrary\\Controllers\\AuthorController.cs",
@@ -137,7 +152,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "BookController.cs",
               "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\GitHub\\AILibrary2\\Server\\AILibrary\\Controllers\\BookController.cs",
               "RelativeDocumentMoniker": "AILibrary\\Controllers\\BookController.cs",
@@ -149,7 +164,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "DBservices.cs",
               "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\GitHub\\AILibrary2\\Server\\AILibrary\\DAL\\DBservices.cs",
               "RelativeDocumentMoniker": "AILibrary\\DAL\\DBservices.cs",
@@ -168,14 +183,14 @@
               "RelativeDocumentMoniker": "AILibrary\\Program.cs",
               "ToolTip": "C:\\Users\\idoco\\OneDrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\GitHub\\AILibrary2\\Server\\AILibrary\\Program.cs",
               "RelativeToolTip": "AILibrary\\Program.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABMAAAABAAAA",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAowBAAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-02T11:58:55.666Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "QuestionController.cs",
               "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\GitHub\\AILibrary2\\Server\\AILibrary\\Controllers\\QuestionController.cs",
               "RelativeDocumentMoniker": "AILibrary\\Controllers\\QuestionController.cs",
@@ -187,7 +202,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Question.cs",
               "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\GitHub\\AILibrary2\\Server\\AILibrary\\Models\\Question.cs",
               "RelativeDocumentMoniker": "AILibrary\\Models\\Question.cs",
@@ -200,7 +215,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\GitHub\\AILibrary2\\Server\\AILibrary\\Models\\User.cs",
               "RelativeDocumentMoniker": "AILibrary\\Models\\User.cs",
@@ -213,7 +228,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Book.cs",
               "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\GitHub\\AILibrary2\\Server\\AILibrary\\Models\\Book.cs",
               "RelativeDocumentMoniker": "AILibrary\\Models\\Book.cs",
@@ -226,7 +241,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "Author.cs",
               "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\GitHub\\AILibrary2\\Server\\AILibrary\\Models\\Author.cs",
               "RelativeDocumentMoniker": "AILibrary\\Models\\Author.cs",
@@ -239,7 +254,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "AILibrary.csproj",
               "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\GitHub\\AILibrary2\\Server\\AILibrary\\AILibrary.csproj",
               "RelativeDocumentMoniker": "AILibrary\\AILibrary.csproj",
@@ -252,7 +267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "authors.js",
               "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\GitHub\\AILibrary2\\Client\\html\\assets\\js\\authors.js",
               "RelativeDocumentMoniker": "..\\Client\\html\\assets\\js\\authors.js",
@@ -264,7 +279,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "adminAya.js",
               "DocumentMoniker": "C:\\Users\\idoco\\OneDrive\\\u05DE\u05E1\u05DE\u05DB\u05D9\u05DD\\GitHub\\AILibrary2\\Client\\html\\assets\\js\\adminAya.js",
               "RelativeDocumentMoniker": "..\\Client\\html\\assets\\js\\adminAya.js",

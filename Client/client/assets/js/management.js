@@ -45,7 +45,7 @@ function exportToPDF() {
 }
 
 function GetUsers() {
-  let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/User";
+  let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar1/api/User";
   ajaxCall("GET", api, null, GetUsersSCB, GetUsersECB);
 }
 
@@ -113,7 +113,7 @@ GetUsers();
 
 function BanUser(id) {
   let api =
-    "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/User/BanUser?userId=" +
+    "https://proj.ruppin.ac.il/cgroup75/test2/tar1/api/User/BanUser?userId=" +
     id;
   ajaxCall("PUT", api, null, BanUserSCB, AjaxECB);
 }
@@ -124,7 +124,7 @@ function BanUserSCB(status) {
 
 function UnbanUser(id) {
   let api =
-    "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/User/UnbanUser?userId=" +
+    "https://proj.ruppin.ac.il/cgroup75/test2/tar1/api/User/UnbanUser?userId=" +
     id;
   ajaxCall("PUT", api, null, UnbanUserSCB, AjaxECB);
 }

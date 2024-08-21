@@ -1,4 +1,5 @@
 C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Release\net6.0\PubTmp\Out\AILibrary.exe
+C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Release\net6.0\PubTmp\Out\web.config
 C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
 C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Release\net6.0\PubTmp\Out\appsettings.json
 C:\Users\idoco\OneDrive\מסמכים\GitHub\AILibrary2\Server\AILibrary\obj\Release\net6.0\PubTmp\Out\AILibrary.dll

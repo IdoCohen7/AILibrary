@@ -15,16 +15,16 @@ document
     let apiEndpoint = "";
     switch (searchType) {
       case "User":
-        apiEndpoint = "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/User";
+        apiEndpoint = "https://proj.ruppin.ac.il/cgroup75/test2/tar1/api/User";
         searchVal = 1;
         break;
       case "Book":
-        apiEndpoint = "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/Book";
+        apiEndpoint = "https://proj.ruppin.ac.il/cgroup75/test2/tar1/api/Book";
         searchVal = 2;
         break;
       case "Author":
         apiEndpoint =
-          "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/Author";
+          "https://proj.ruppin.ac.il/cgroup75/test2/tar1/api/Author";
         searchVal = 3;
         break;
       default:
@@ -83,21 +83,21 @@ function LoadData(val, id) {
   switch (val) {
     case 1:
       api =
-        "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/User/LibraryDetails?userId=" +
+        "https://proj.ruppin.ac.il/cgroup75/test2/tar1/api/User/LibraryDetails?userId=" +
         id;
       ajaxCall("GET", api, null, FillBookTable, AjaxECB);
       break;
 
     case 2:
       api =
-        "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/Book/BookLibraryDetails?bookId=" +
+        "https://proj.ruppin.ac.il/cgroup75/test2/tar1/api/Book/BookLibraryDetails?bookId=" +
         id;
       ajaxCall("GET", api, null, FillUsersTab, AjaxECB);
       break;
 
     case 3:
       api =
-        "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/Author/AuthorLibraryDetails?authorId=" +
+        "https://proj.ruppin.ac.il/cgroup75/test2/tar1/api/Author/AuthorLibraryDetails?authorId=" +
         id;
       ajaxCall("GET", api, null, FillAuthorTab, AjaxECB);
       break;

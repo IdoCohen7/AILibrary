@@ -1,6 +1,6 @@
 // Function to fetch recommended (Top Rated) books
 function GetRecommendedBooks() {
-  let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/Book/TopRated";
+  let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar1/api/Book/TopRated";
   ajaxCall("GET", api, null, GetTopRatedBooksSCB, GetBooksECB);
 }
 
@@ -17,7 +17,7 @@ function GetBooksECB(ERROR) {
 
 // Function to fetch the most new books
 function GetMostNewBooks() {
-  let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/Book/MostNew";
+  let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar1/api/Book/MostNew";
   ajaxCall("GET", api, null, GetMostNewBooksSCB, GetBooksECB);
 }
 

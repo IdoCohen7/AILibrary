@@ -1,5 +1,5 @@
 function GetRandomQuestions() {
-  let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/Question";
+  let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar1/api/Question";
   ajaxCall("GET", api, null, GetRandomQuestionsSCB, AjaxECB);
 }
 

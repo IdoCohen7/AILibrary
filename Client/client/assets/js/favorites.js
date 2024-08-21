@@ -29,7 +29,7 @@ function SetLibraryHeader() {
 
 function GetFavoriteBooks() {
   let api =
-    "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/User/GetFavorites?userId=" +
+    "https://proj.ruppin.ac.il/cgroup75/test2/tar1/api/User/GetFavorites?userId=" +
     user.id;
   ajaxCall("GET", api, null, GetFavoriteBooksSCB, AjaxECB);
 }
@@ -79,7 +79,7 @@ function ReplaceHearts(containerName) {
 
 function GetReadBooks() {
   let api =
-    "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/User/GetHistory?userId=" +
+    "https://proj.ruppin.ac.il/cgroup75/test2/tar1/api/User/GetHistory?userId=" +
     user.id;
   ajaxCall("GET", api, null, GetReadBooksSCB, AjaxECB);
 }
@@ -100,7 +100,7 @@ function RemoveHearts(containerName) {
 
 function RemoveFromFavorites(bookId) {
   let api =
-    "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/User/RemoveFavorite?userId=" +
+    "https://proj.ruppin.ac.il/cgroup75/test2/tar1/api/User/RemoveFavorite?userId=" +
     user.id +
     "&bookId=" +
     bookId;
@@ -118,7 +118,7 @@ function RemoveFromFavoritesSCB(Message) {
 function MarkAsRead(bookId) {
   if (confirm("Have you finished reading this book?")) {
     let api =
-      "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/User/Mark?userId=" +
+      "https://proj.ruppin.ac.il/cgroup75/test2/tar1/api/User/Mark?userId=" +
       user.id +
       "&bookId=" +
       bookId;
@@ -138,7 +138,7 @@ function MarkAsReadSCB(Message) {
 
 function GetBoughtBooks() {
   let api =
-    "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/User/GetAccepted?userId=" +
+    "https://proj.ruppin.ac.il/cgroup75/test2/tar1/api/User/GetAccepted?userId=" +
     user.id;
   ajaxCall("GET", api, null, GetBoughtBooksSCB, AjaxECB);
 }
@@ -231,7 +231,7 @@ function SetRatingSystem() {
         reviewText = "Empty";
       }
       let api =
-        "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/User/AddReview?userId=" +
+        "https://proj.ruppin.ac.il/cgroup75/test2/tar1/api/User/AddReview?userId=" +
         user.id +
         "&bookId=" +
         bookId.innerHTML +

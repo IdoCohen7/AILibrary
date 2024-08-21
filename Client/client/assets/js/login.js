@@ -69,7 +69,7 @@ function ajaxCall(method, api, data, successCB, errorCB) {
 }
 
 function Login(email, password) {
-  let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/User/Login";
+  let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar1/api/User/Login";
   ajaxCall(
     "GET",
     api,
@@ -103,7 +103,7 @@ function SignUp(name, email, password, profilePic) {
     profilePic =
       "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png";
   }
-  let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/User/Register";
+  let api = "https://proj.ruppin.ac.il/cgroup75/test2/tar1/api/User/Register";
   let newUser = {
     name: name,
     email: email,
@@ -131,7 +131,7 @@ function SignUPECB(err) {
 
 // Global variables to store the image data and folder path
 var uploadedImage;
-var imageFolder = "https://proj.ruppin.ac.il/cgroup75/test2/tar6/Images/";
+var imageFolder = "https://proj.ruppin.ac.il/cgroup75/test2/tar1/Images/";
 
 $(document).ready(function () {
   $("#buttonUpload").on("click", function () {
@@ -145,7 +145,7 @@ $(document).ready(function () {
       }
     }
 
-    var api = "https://proj.ruppin.ac.il/cgroup75/test2/tar6/api/Upload";
+    var api = "https://proj.ruppin.ac.il/cgroup75/test2/tar1/api/Upload";
 
     // Ajax upload
     $.ajax({
