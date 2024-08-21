@@ -79,12 +79,7 @@ namespace AILibrary.Controllers
         {
         }
 
-        //// GET: api/Book/Popularity
-        [HttpGet("Popularity")]
-        public List<object> GetBookPopularity()
-        {
-            return Book.GetBookPopularity();
-        }
+
 
         // GET: api/Book/TopRated
         [HttpGet("TopRated")]
@@ -100,49 +95,7 @@ namespace AILibrary.Controllers
         }
 
         
-        // GET: api/Book/Available
-        [HttpGet("Available")]
-        public IActionResult GetAvailableBooks()
-        {
-            try
-            {
-                var availableBooks = Book.GetAvailableBooks();
-                return Ok(availableBooks);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, "Internal server error");
-            }
-        }
-        // GET: api/Book/AvailableCount
-        [HttpGet("AvailableCount")]
-        public IActionResult GetAvailableBooksCount()
-        {
-            try
-            {
-                var availableBooksCount = Book.GetAvailableBooksCount();
-                return Ok(availableBooksCount);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, "Internal server error");
-            }
-        }
-
-        // GET: api/Book/TotalBooksRead
-        [HttpGet("TotalBooksRead")]
-        public IActionResult GetTotalBooksRead()
-        {
-            try
-            {
-                var totalBooksRead = Book.GetTotalBooksRead();
-                return Ok(totalBooksRead);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, "Internal server error");
-            }
-        }
+       
 
         // GET: api/Book/BookLibraryDetails
         [HttpGet("BookLibraryDetails")]
@@ -151,56 +104,8 @@ namespace AILibrary.Controllers
             return Book.GetBookLibraryDetails(bookId);  
         }
 
-        // GET: api/Book/TotalBooksPurchased
-        [HttpGet("TotalBooksPurchased")]
-        public IActionResult GetTotalBooksPurchased()
-        {
-            try
-            {
-                var totalBooksPurchased = Book.GetTotalBooksPurchased();
-                return Ok(totalBooksPurchased);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, "Internal server error");
-            }
-        }
+        
 
-        // GET: api/Book/TotalBooksExchanged
-        [HttpGet("TotalBooksExchanged")]
-        public IActionResult GetTotalBooksExchanged()
-        {
-            try
-            {
-                var totalBooksExchanged = Book.GetTotalBooksExchanged();
-                return Ok(totalBooksExchanged);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, "Internal server error");
-            }
-        }
-        // GET: api/Book/Summary
-        [HttpGet("Summary")]
-        public IActionResult GetBooksSummary()
-        {
-            try
-            {
-                var booksSummary = Book.GetBooksSummary();
-                return Ok(booksSummary);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, "Internal server error");
-            }
-        }
-
-        [HttpGet("16Random")]
-        public List<string> Get16ThumbnailRandomBooks()
-        {
-            return Book.Get16ThumbnailRandomBooks();
-
-        }
 
 
 

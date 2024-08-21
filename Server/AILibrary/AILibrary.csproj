@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -7,19 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Models\Tweeter\**" />
     <Compile Remove="wwwroot\**" />
-    <Content Remove="Models\Tweeter\**" />
     <Content Remove="wwwroot\**" />
-    <EmbeddedResource Remove="Models\Tweeter\**" />
     <EmbeddedResource Remove="wwwroot\**" />
-    <None Remove="Models\Tweeter\**" />
     <None Remove="wwwroot\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="Controllers\TwitterController.cs" />
-    <Compile Remove="Models\TwitterService.cs" />
   </ItemGroup>
 
   <ItemGroup>

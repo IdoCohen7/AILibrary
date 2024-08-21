@@ -5431,11 +5431,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\idoco\\OneDrive\\מסמכים\\GitHub\\AILibrary2\\Server\\AILibrary\\AILibrary.csproj",
+      "projectUniqueName": "C:\\Users\\idoco\\OneDrive\\שולחן העבודה\\Finished\\AILibrary (1)\\AILibrary\\AILibrary\\Server\\AILibrary\\AILibrary.csproj",
       "projectName": "AILibrary",
-      "projectPath": "C:\\Users\\idoco\\OneDrive\\מסמכים\\GitHub\\AILibrary2\\Server\\AILibrary\\AILibrary.csproj",
+      "projectPath": "C:\\Users\\idoco\\OneDrive\\שולחן העבודה\\Finished\\AILibrary (1)\\AILibrary\\AILibrary\\Server\\AILibrary\\AILibrary.csproj",
       "packagesPath": "C:\\Users\\idoco\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\idoco\\OneDrive\\מסמכים\\GitHub\\AILibrary2\\Server\\AILibrary\\obj\\",
+      "outputPath": "C:\\Users\\idoco\\OneDrive\\שולחן העבודה\\Finished\\AILibrary (1)\\AILibrary\\AILibrary\\Server\\AILibrary\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\idoco\\AppData\\Roaming\\NuGet\\NuGet.Config",

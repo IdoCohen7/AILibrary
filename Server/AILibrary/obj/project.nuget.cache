@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7VMFgkAWjAuOdFhAB/kGQHlXMVNDmiiOr4zCSYH2WjiRDdqDrTixRKNJGPKsMvmEBMNMe0+vQn7A4ngonFoUHQ==",
+  "dgSpecHash": "yqTkNDiQV0y4i7eyyiqJEQ04MOEZNLcNvtgTb7c/tLR8ZRVm125VyH9WvfQtoBifgLoppONiI3+uTNhAoFhw6Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\idoco\\OneDrive\\מסמכים\\GitHub\\AILibrary2\\Server\\AILibrary\\AILibrary.csproj",
+  "projectFilePath": "C:\\Users\\idoco\\OneDrive\\שולחן העבודה\\Finished\\AILibrary (1)\\AILibrary\\AILibrary\\Server\\AILibrary\\AILibrary.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\idoco\\.nuget\\packages\\itext\\8.0.5\\itext.8.0.5.nupkg.sha512",
     "C:\\Users\\idoco\\.nuget\\packages\\itext.commons\\8.0.5\\itext.commons.8.0.5.nupkg.sha512",

@@ -43,11 +43,7 @@ namespace AILibrary.Models
             return dbs.GetAuthorsBooks(id);
         }
 
-        public static List<object> GetAuthorPopularity()
-        {
-            DBservices dbs = new DBservices();
-            return dbs.GetAuthorPopularity();
-        }
+
 
         static public List<Object> GetAuthorLibraryDetails(int authorId)
         {

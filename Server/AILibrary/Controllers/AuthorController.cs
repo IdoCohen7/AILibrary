@@ -50,12 +50,7 @@ namespace AILibrary.Controllers
         {
         }
 
-        // GET: api/Author/Popularity?id=5
-        [HttpGet("Popularity")]
-        public List<object> GetAuthorPopularity()
-        {
-            return Author.GetAuthorPopularity();
-        }
+ 
 
         // GET: api/Author/AuthorLibraryDetails
         [HttpGet("AuthorLibraryDetails")]

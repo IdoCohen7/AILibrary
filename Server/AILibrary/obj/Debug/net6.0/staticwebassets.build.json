@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BDFkWElVRq8Ll7r82yjrpzmYXXne53LKmvNJxacg3Kw=",
+  "Hash": "f82f2hcMy4kHWo0oSybjIRELGwsiBKfWdtx05AWuVFI=",
   "Source": "AILibrary",
   "BasePath": "_content/AILibrary",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "AILibrary\\wwwroot",
       "Source": "AILibrary",
-      "ContentRoot": "C:\\Users\\idoco\\OneDrive\\מסמכים\\GitHub\\AILibrary2\\Server\\AILibrary\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\idoco\\OneDrive\\שולחן העבודה\\Finished\\AILibrary (1)\\AILibrary\\AILibrary\\Server\\AILibrary\\wwwroot\\",
       "BasePath": "_content/AILibrary",
       "Pattern": "**"
     }

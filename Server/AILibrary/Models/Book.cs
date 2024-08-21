@@ -136,11 +136,7 @@ namespace AILibrary.Models
             return dbs.GetBookReviews(bookId);
         }
 
-        public static int GetPurchasesThisWeek()
-        {
-            DBservices dbs = new DBservices();
-            return dbs.GetPurchasesThisWeek();
-        }
+  
         public static List<Book> GetTopRatedBooks()
         {
             DBservices dbs = new DBservices();
@@ -151,49 +147,7 @@ namespace AILibrary.Models
             DBservices dbs = new DBservices();
             return dbs.GetMostNewBooks();
         }
-        public static List<object> GetBookPopularity()
-        {
-            DBservices dbs = new DBservices();
-            return dbs.GetBookPopularity();
-        }
-        public static List<Book> GetAvailableBooks()
-        {
-            DBservices dbs = new DBservices();
-            return dbs.GetAvailableBooks();
-        }
-        public static int GetAvailableBooksCount()
-        {
-            DBservices dbs = new DBservices();
-            return dbs.GetAvailableBooksCount();
-        }
-        public static int GetTotalBooksRead()
-        {
-            DBservices dbs = new DBservices();
-            return dbs.GetTotalBooksRead();
-        }
-
-        public static int GetTotalBooksPurchased()
-        {
-            DBservices dbs = new DBservices();
-            return dbs.GetTotalBooksPurchased();
-        }
-
-        public static int GetTotalBooksExchanged()
-        {
-            DBservices dbs = new DBservices();
-            return dbs.GetTotalBooksExchanged();
-        }
-        public static List<object> GetBooksSummary()
-        {
-            DBservices dbs = new DBservices();
-            return dbs.GetBooksSummary();
-        }
-
-        static public List<string> Get16ThumbnailRandomBooks()
-        {
-            DBservices dBservices = new DBservices();
-            return dBservices.Get16ThumbnailRandomBooks();
-        }
+      
 
         static public List<object> GetBookLibraryDetails(string bookId)
         {

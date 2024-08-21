@@ -148,11 +148,7 @@ namespace AILibrary.Models
             DBservices dbs = new DBservices();
             return dbs.GetUserLibraryDetails(userId);
         }
-        public static float GetThisWeeksRevenue()
-        {
-            DBservices dbs = new DBservices();
-            return dbs.GetThisWeeksRevenue();
-        }
+
         public static List<object> GetAllUsersWithBookCount()
         {
             DBservices dbs = new DBservices();

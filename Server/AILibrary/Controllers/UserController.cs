@@ -170,21 +170,7 @@ namespace AILibrary.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
-        // GET: api/User/ThisWeeksRevenue
-        [HttpGet("ThisWeeksRevenue")]
-        public IActionResult GetThisWeeksRevenue()
-        {
-            try
-            {
-                float revenue = AILibrary.Models.User.GetThisWeeksRevenue();
-                return Ok(revenue);
-            }
-            catch (Exception ex)
-            {
-                // Log the exception here if needed
-                return StatusCode(500, "Internal server error");
-            }
-        }
+        
         // GET: api/User/AllUsersWithBookCount
         [HttpGet("AllUsersWithBookCount")]
         public IActionResult GetAllUsersWithBookCount()
