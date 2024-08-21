@@ -1,3 +1,8 @@
+$(document).ready(function () {
+  let librariesLi = document.getElementById("librariesLi");
+  librariesLi.classList.add("uk-active");
+});
+
 var searchVal;
 
 document
@@ -188,6 +193,10 @@ function FillBookTable(data) {
   $(document).ready(function () {
     $("#userTable").DataTable({
       responsive: true,
+      paging: true,
+      searching: true,
+      ordering: true,
+      destroy: true, // Reinitialize the table if it already exists
     });
   });
 }
@@ -261,6 +270,10 @@ function FillUsersTab(data) {
   $(document).ready(function () {
     $("#userTable").DataTable({
       responsive: true,
+      paging: true,
+      searching: true,
+      ordering: true,
+      destroy: true, // Reinitialize the table if it already exists
     });
   });
 }
@@ -340,5 +353,9 @@ function FillAuthorTab(data) {
   // Initialize DataTable for responsive behavior
   $("#authorTable").DataTable({
     responsive: true,
+    paging: true,
+    searching: true,
+    ordering: true,
+    destroy: true, // Reinitialize the table if it already exists
   });
 }

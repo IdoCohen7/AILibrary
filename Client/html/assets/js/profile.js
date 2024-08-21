@@ -22,6 +22,7 @@ function LoadPage() {
   let profilePic = document.getElementById("profilePic");
   profilePic.src = user.profilePic;
   let header = document.getElementById("userHeader");
+  header.classList.add("uk-text-lead");
   header.innerHTML = user.name + "'s Account";
   let emailDiv = document.getElementById("emailDiv");
   emailDiv.innerHTML = user.email;

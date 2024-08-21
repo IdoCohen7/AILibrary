@@ -1,5 +1,10 @@
 jQuery(document).ready(function ($) {
-  LoadMarketplace();
+  if (user != null) {
+    LoadMarketplace();
+  } else {
+    let div = document.getElementById("booksContainer");
+    div.innerHTML = "In order to view our marketplace, you need to log in.";
+  }
 });
 
 function LoadMarketplace() {

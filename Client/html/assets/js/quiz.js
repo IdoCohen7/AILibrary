@@ -6,8 +6,23 @@ function GetRandomQuestions() {
 function GetRandomQuestionsSCB(questions) {
   let currentQuestionIndex = 0;
   let score = 0;
+  
+  // קבלת אלמנט החידון
+  let quizContainer = document.getElementById("quizContainer");
+
+  // ניקוי התוכן הקודם לפני הוספת תוכן חדש
+  quizContainer.innerHTML = "";
+
   let outerDiv = document.createElement("div");
-  document.getElementById("quizContainer").appendChild(outerDiv);
+  quizContainer.appendChild(outerDiv);
+
+  let startTime = Date.now();
+  let timeLimit = 60000; // 15 שניות במילישניות
+  let timerElement = document.createElement("div");
+  timerElement.id = "timer";
+  timerElement.style.fontSize = "24px";
+  timerElement.style.marginBottom = "20px";
+  outerDiv.appendChild(timerElement);
 
   function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -17,8 +32,25 @@ function GetRandomQuestionsSCB(questions) {
     return array;
   }
 
+  function updateTimer() {
+    let elapsedTime = Date.now() - startTime;
+    let remainingTime = Math.max(0, Math.ceil((timeLimit - elapsedTime) / 1000));
+    timerElement.textContent = `Time Left: ${remainingTime}`;
+
+    if (remainingTime <= 0) {
+      showResults();
+    }
+  }
+
   function displayQuestion(index) {
-    outerDiv.innerHTML = ""; // Clear previous question
+    // בדוק אם הזמן נגמר
+    if (Date.now() - startTime > timeLimit) {
+      showResults();
+      return;
+    }
+
+    outerDiv.innerHTML = ""; // ניקוי השאלה הקודמת
+    outerDiv.appendChild(timerElement);
 
     let question = questions[index];
 
@@ -30,7 +62,7 @@ function GetRandomQuestionsSCB(questions) {
     text.innerHTML = question.questionText;
     outerDiv.appendChild(text);
 
-    // Collect and shuffle answers
+    // איסוף ומעורבות תשובות
     let answers = [
       {
         text: question.answer1,
@@ -51,7 +83,7 @@ function GetRandomQuestionsSCB(questions) {
     ];
     shuffle(answers);
 
-    // Display shuffled answers
+    // הצגת התשובות המעורבות
     answers.forEach((answer) => {
       let p = document.createElement("a");
       p.classList.add("game-card__title");
@@ -61,7 +93,7 @@ function GetRandomQuestionsSCB(questions) {
           score++;
         }
         currentQuestionIndex++;
-        if (currentQuestionIndex < questions.length) {
+        if (currentQuestionIndex < questions.length && Date.now() - startTime <= timeLimit) {
           displayQuestion(currentQuestionIndex);
         } else {
           showResults();
@@ -72,26 +104,27 @@ function GetRandomQuestionsSCB(questions) {
   }
 
   function showResults() {
-    let message = document.createElement("p");
+    outerDiv.innerHTML = "";
 
+    let message = document.createElement("p");
     if (score <= 2) {
-      message = "Better luck next time, ";
+      message.innerHTML = "Better luck next time, ";
     } else if (score <= 4) {
-      message = "Nicely done, ";
+      message.innerHTML = "Nicely done, ";
     } else if (score == 5) {
-      message = "Perfect! ";
+      message.innerHTML = "Perfect! ";
     }
 
     if (user != null) {
-      message += user.name + ", ";
+      message.innerHTML += user.name + ", ";
     }
 
-    outerDiv.innerHTML = message;
-
-    outerDiv.innerHTML += `You scored ${score} out of ${questions.length}`;
+    message.innerHTML += `You scored ${score} out of ${questions.length}`;
+    outerDiv.appendChild(message);
   }
+
+  // התחל טיימר ועדכן כל שנייה
+  setInterval(updateTimer, 1000);
 
   displayQuestion(currentQuestionIndex);
 }
-
-GetRandomQuestions();

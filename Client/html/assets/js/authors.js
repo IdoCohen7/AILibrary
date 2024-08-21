@@ -1,3 +1,7 @@
+$(document).ready(function () {
+  GetAuthors();
+});
+
 function GetAuthors() {
   let api = "https://localhost:7063/api/Author";
   ajaxCall("GET", api, null, GetAuthorsSCB, GetAuthorsECB);
@@ -7,6 +11,7 @@ function GetAuthorsSCB(allAuthors) {
   let div = document.getElementById("mainDiv");
   let headOne = document.createElement("h1");
   headOne.innerHTML = "Our site features creations by:";
+  headOne.classList.add("uk-text-lead");
   let remainingAuthors = allAuthors.length;
   let authorsList = [];
   let authorPromises = [];
@@ -52,18 +57,19 @@ function GetAuthorsSCB(allAuthors) {
       .then((data) => {
         const doc = data.docs[0];
         return {
-          birthDate: doc.birth_date
+          birthDate: doc?.birth_date
             ? `<p><strong>Birth Date:</strong> ${doc.birth_date}</p>`
             : "",
-          deathDate: doc.death_date
+          deathDate: doc?.death_date
             ? `<p><strong>Death Date:</strong> ${doc.death_date}</p>`
             : "",
-          topSubjects: doc.top_subjects
-            ? `<p><strong>Top Subjects:</strong> ${doc.top_subjects.join(
-                ", "
-              )}</p>`
-            : "",
-          topWork: doc.top_work
+          topSubjects:
+            doc?.top_subjects && doc.top_subjects.length > 0
+              ? `<p><strong>Top Subjects:</strong> ${doc.top_subjects.join(
+                  ", "
+                )}</p>`
+              : "",
+          topWork: doc?.top_work
             ? `<p><strong>Top Work:</strong> ${doc.top_work}</p>`
             : "",
         };
@@ -87,7 +93,7 @@ function GetAuthorsSCB(allAuthors) {
 
           return `
           <div class="author" style="margin-bottom: 80px;">
-            <h3>${author.name}</h3>
+            <h3 class="uk-text-lead">${author.name}</h3>
             ${
               imageUrl
                 ? `<img src="${imageUrl}" alt="${author.name}" style="max-width: 200px; height: auto;">`
@@ -144,7 +150,7 @@ function ShowBooksWrittenBySCB(booksByAuthor) {
   returnButton.classList.add("uk-button");
   returnButton.classList.add("uk-button-secondary");
   returnButton.onclick = () => {
-    window.location.href = "13_community.html";
+    window.location.href = "09_authors.html";
   };
 
   // Append return button
@@ -167,7 +173,3 @@ function ShowBooksWrittenBySCB(booksByAuthor) {
 function ShowBooksWrittenByECB(Error) {
   alert("Error: " + Error);
 }
-
-jQuery(document).ready(function ($) {
-  GetAuthors();
-});

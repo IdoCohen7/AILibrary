@@ -116,7 +116,8 @@ function AcceptBookRequestSCB(message) {
   if (message == 3) {
     alert("Book exchanged successfuly");
     window.location.reload();
-  } else alert("trouble occured.");
+  } else
+    alert("Error: Buyer already owns the book.\n You may cancel the request.");
 }
 
 function CancelBookRequest(buyerId, bookId) {
@@ -137,13 +138,3 @@ function CancelBookRequestSCB(message) {
     alert("Error: can't exchange book.");
   }
 }
-const url = "https://openlibrary.org/search/authors.json?q=Plato";
-
-fetch(url)
-  .then((response) => response.json()) // המרת התשובה לפורמט JSON
-  .then((data) => {
-    console.log(data); // הצגת התוצאה ב-console
-  })
-  .catch((error) => {
-    console.error("Error:", error); // טיפול בשגיאות אם יש
-  });

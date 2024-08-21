@@ -49,7 +49,7 @@ $(document).ready(function () {
       );
     } else {
       alert(
-        "ERROR: Password shorter than 4 characters or invalid email format"
+        "ERROR: Password shorter than 3 characters or invalid email format"
       );
     }
   });
@@ -88,7 +88,7 @@ function LoginSCB(user) {
     localStorage.setItem("loggedIn", true);
     localStorage.setItem("user", userJson);
     $("#loginStatus").text("logged in as " + user.name); // Update login status on the UI
-    window.location.href = "03_home.html";
+    window.location.href = "index.html";
   }
 }
 

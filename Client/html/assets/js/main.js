@@ -177,8 +177,9 @@ jQuery(document).ready(function ($) {
       adminHeader.textContent = "Admin";
 
       let managementItem = document.createElement("li");
+      managementItem.id = "managementLi";
       let managementLink = document.createElement("a");
-      managementLink.href = "admin.html";
+      managementLink.href = "11_managment.html";
       let managementIcon = document.createElement("i");
       managementIcon.classList.add("ico_clipboard-text");
       let managementSpan = document.createElement("span");
@@ -189,10 +190,11 @@ jQuery(document).ready(function ($) {
       managementItem.appendChild(managementLink);
 
       let librariesItem = document.createElement("li");
+      librariesItem.id = "librariesLi";
       let librariesLink = document.createElement("a");
-      librariesLink.href = "libraries.html";
+      librariesLink.href = "12_libraries.html";
       let librariesIcon = document.createElement("i");
-      librariesIcon.classList.add("ico_library");
+      librariesIcon.classList.add("ico_search");
       let librariesSpan = document.createElement("span");
       librariesSpan.textContent = "Libraries";
 
@@ -207,7 +209,7 @@ jQuery(document).ready(function ($) {
     }
   }
 
-  if (user.isActive == 0) {
+  if (user != null && user.isActive == 0) {
     alert("You are banned, please contact management to discuss your status");
     window.location.href = "01_login-in.html";
   }
@@ -252,8 +254,10 @@ function SetProfilePicture() {
 
     dashboard.appendChild(anchor);
   } else {
-    userPic.src =
-      "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png";
+    if (userPic != null) {
+      userPic.src =
+        "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png";
+    }
   }
 }
 
@@ -487,22 +491,32 @@ function FillModalContent(book) {
       ? '<span class="uk-form-label price-down">This book is intended for mature audiences. Our site is not responsible for verifying the user\'s age.</span><br><br>'
       : ""
   }
-      <span class="uk-form-label">Authors:</span> ${book.authors.join(", ")}<br>
-      <span class="uk-form-label">Genre:</span> ${book.category}<br>
-      <span class="uk-form-label">Length:</span> ${book.pageCount} pages<br>
-      <span class="uk-form-label">Publish date:</span> ${book.publishedDate}<br>
-      <span class="uk-form-label">Print Type:</span> ${
+      <span class="uk-form-label uk-text-lead">Authors:</span> ${book.authors.join(
+        ", "
+      )}<br>
+      <span class="uk-form-label uk-text-lead">Genre:</span> ${
+        book.category
+      }<br>
+      <span class="uk-form-label uk-text-lead">Length:</span> ${
+        book.pageCount
+      } pages<br>
+      <span class="uk-form-label uk-text-lead">Publish date:</span> ${
+        book.publishedDate
+      }<br>
+      <span class="uk-form-label uk-text-lead">Print Type:</span> ${
         book.isMagazine ? "Magazine" : "Book"
       }<br>
-      <span class="uk-form-label">Reading Format:</span> ${
+      <span class="uk-form-label uk-text-lead">Reading Format:</span> ${
         book.isEbook ? "Digital" : "Physical"
       }<br>
-      <span class="uk-form-label">Language:</span> ${book.language}<br>
-      <span class="uk-form-label">Price:</span> ${book.price}$<br>
-      <span class="uk-form-label">Description (if available):</span> ${
+      <span class="uk-form-label uk-text-lead">Language:</span> ${
+        book.language
+      }<br>
+      <span class="uk-form-label uk-text-lead">Price:</span> ${book.price}$<br>
+      <span class="uk-form-label uk-text-lead">Description (if available):</span> ${
         book.description
       }<br>
-      <span class="uk-form-label">Text Snippet (if available):</span> ${
+      <span class="uk-form-label uk-text-lead">Text Snippet (if available):</span> ${
         book.textSnippet
       }<br>
   `;
@@ -562,7 +576,10 @@ function GetBookReviewsSCB(reviews) {
       imgDiv.appendChild(img);
 
       let userDiv = document.createElement("div");
-      userDiv.classList.add("user-item__box");
+      userDiv.classList.add("user-item__box", "review-content");
+
+      let detailsDiv = document.createElement("div");
+      detailsDiv.classList.add("review-details");
 
       let usernameDiv = document.createElement("div");
       usernameDiv.classList.add("user-item__name");
@@ -585,22 +602,17 @@ function GetBookReviewsSCB(reviews) {
       let sentimentButton = document.createElement("button");
       sentimentButton.textContent = "Analyze Sentiment";
       sentimentButton.classList.add("sentiment-button");
+
       sentimentButton.addEventListener("click", async () => {
         try {
           const sentimentResult = await query({ inputs: review.text });
 
-          // Ensure correct access to sentiment result
           const label = sentimentResult[0][0]?.label || "Unknown";
           const score = sentimentResult[0][0]?.score || 0;
-
-          // Capitalize the first letter of the sentiment label
           const capitalizedLabel =
             label.charAt(0).toUpperCase() + label.slice(1);
-
-          // Format score to two decimal places
           const formattedScore = score.toFixed(2);
 
-          // Display the result in an alert
           alert(`Sentiment: ${capitalizedLabel}\n(Score: ${formattedScore})`);
         } catch (error) {
           console.error("Error analyzing sentiment:", error);
@@ -608,10 +620,12 @@ function GetBookReviewsSCB(reviews) {
         }
       });
 
-      userDiv.appendChild(usernameDiv);
-      userDiv.appendChild(reviewTextDiv);
-      userDiv.appendChild(ratingDiv);
-      userDiv.appendChild(dateDiv);
+      detailsDiv.appendChild(usernameDiv);
+      detailsDiv.appendChild(reviewTextDiv);
+      detailsDiv.appendChild(ratingDiv);
+      detailsDiv.appendChild(dateDiv);
+
+      userDiv.appendChild(detailsDiv);
       userDiv.appendChild(sentimentButton);
 
       outerDiv.appendChild(imgDiv);
