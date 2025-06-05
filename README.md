@@ -38,4 +38,4 @@
 
 1. שיבוט הריפוזיטורי:
    ```bash
-   git clone https://github.com/username/MyBook.git
+   git clone https://github.com/IdoCohen7/AILibrary.git
